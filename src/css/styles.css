@@ -8,9 +8,9 @@
 @import url('./reset.css');
 
 /* Sections style */
-@import url('./header.css');
+@import url('./partials/header.css');
 
-@import url('./footer.css');
+@import url('./partials/footer.css');
 
 
 :root {
@@ -22,9 +22,10 @@
 }
 
 body {
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
   font-size: var(--text-size);
-  font-family: 'Roboto', sans-serif;
-
   background-color: var(--bg-color);
   color: var(--text-color);
 }
