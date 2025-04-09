@@ -3,6 +3,7 @@
 @import url('./izi-toast.css');
 /* Sections style */
 @import url('./partials/header.css');
+@import url('./partials/favorites.css');
 @import url('./partials/footer.css');
 
 :root {
