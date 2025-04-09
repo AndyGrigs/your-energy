@@ -1,4 +1,9 @@
-import { handleSubscription } from './services/subscriptions.js';
+import {handleSubscription} from './js/services/subscriptions'
+import { refs } from './js/constants/refs';
+import { handleScrollForScrollTopBtn, scrollToTop } from './js/services/scroll';
+
+window.addEventListener('scroll', handleScrollForScrollTopBtn);
+refs.scrollToTopBtn.addEventListener('click', scrollToTop);
 
 const subscribeForm = document.querySelector('#subscribe-form');
 if (subscribeForm) {

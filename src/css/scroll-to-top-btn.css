@@ -1,0 +1,41 @@
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--accent-color);
+
+  border-radius: 50%;
+  border: 2px solid var(--bg-color);
+
+  cursor: pointer;
+  z-index: 1000;
+  transition: opacity var(--fast-trns), transform var(--fast-trns);
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  @media only screen and (min-width: 768px) {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.scroll-to-top-img {
+  width: 13px;
+  height: 13px;
+  transform: rotate(-45deg);
+  fill: var(--bg-color);
+
+  @media only screen and (min-width: 768px) {
+    width: 33px;
+    height: 33px;
+  }
+}
