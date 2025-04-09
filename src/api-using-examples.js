@@ -1,7 +1,7 @@
-import * as subscriptions from './services/subscriptions';
-import * as exercises from './services/exercises';
-import * as filters from './services/filters';
-import * as quote from './services/quotes';
+import * as subscriptions from './js/services/subscriptions';
+import * as exercises from './js/services/exercises';
+import * as filters from './js/services/filters';
+import * as quote from './js/services/quotes';
 
 const email = 'bonny02@gmail.com';
 
