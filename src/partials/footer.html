@@ -1,15 +1,69 @@
 <footer class="footer">
   <div class="container">
-    <p class="footer-desc">
-      Made with ✨ by
-      <a
-        class="footer-link"
-        href="https://goit.global/ua/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        GoIT group_1
-      </a>
-    </p>
+    <div class="row">
+      <div class="col-1">
+        <div class="logo">
+          <svg width="132" height="24">
+            <use href="../img/sprite.svg#your-energy"></use>
+          </svg>
+        </div>
+        <ul class="socials">
+          <li>
+            <a href="https://www.facebook.com/goITclub" target="_blank">
+              <svg>
+                <use href="../img/sprite.svg#facebook"></use>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/goitclub" target="_blank">
+              <svg>
+                <use href="../img/sprite.svg#instagram"></use>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/c/GoIT" target="_blank">
+              <svg>
+                <use href="../img/sprite.svg#youtube"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-2">
+        <h3 class="heading">Transforming your <i>body</i> shape with us</h3>
+      </div>
+      <div class="col-3">
+        <form id="subscribe-form">
+          <p>Subscribe and learn about new exercises!</p>
+          <div class="input">
+            <input
+              type="text"
+              name="email"
+              required
+              pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+              placeholder="Email"
+            />
+          </div>
+          <div class="input">
+            <input type="submit" value="Send" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="footer-ending row">
+      <div class="col-1">
+        <p>YourEnergy. All rights reserved.</p>
+      </div>
+      <div class="col-2">
+        <p class="policy-links">
+          <a href="#">Privacy Policy</a> / <a href="#">Terms of Service</a>
+        </p>
+      </div>
+      <div class="col-3">
+        <p class="year">©2023</p>
+      </div>
+    </div>
   </div>
 </footer>
