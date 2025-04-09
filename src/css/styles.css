@@ -5,6 +5,7 @@
 @import url('./partials/header.css');
 @import url('./partials/favorites.css');
 @import url('./partials/footer.css');
+@import url('./scroll-to-top-btn.css');
 
 :root {
   --text-color: black;
@@ -12,6 +13,8 @@
   --test-size-mobile: 18px;
   --accent-color: #242424;
   --bg-color: #f4f4f4;
+  /* Transitions */
+  --fast-trns: 300ms ease;
 }
 
 body {
@@ -34,6 +37,11 @@ body {
   flex-grow: 1;
 }
 
+.invisible {
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* Styles for Mobile devices */
 .container {
   min-width: 320px;
@@ -41,7 +49,6 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
-
 /* Styles for Tablet devices */
 @media only screen and (min-width: 768px) {
   .container {
@@ -49,19 +56,10 @@ body {
     padding: 0 32px;
   }
 }
-
-/* Styles for Desktop (1440px) */
-@media only screen and (min-width: 1280px) and (max-width: 1919px) {
+/* Styles for Desktop devices */
+@media only screen and (min-width: 1440px) {
   .container {
-    max-width: 1440px; /* Встановлюємо 1440px як основну ширину для десктопів */
-    padding: 0 80px; /* Налаштуйте padding для збалансованого вигляду */
-  }
-}
-
-/* Styles for Full HD screens (1920px and above) */
-@media only screen and (min-width: 1920px) {
-  .container {
-    max-width: 1920px;
-    padding: 0 128px; /* Більший padding для Full HD екранів */
+    max-width: 1280px;
+    padding: 0 32px;
   }
 }

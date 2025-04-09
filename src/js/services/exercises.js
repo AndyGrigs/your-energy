@@ -2,8 +2,8 @@ import { iziToast } from '../config/izi-toast.js';
 import 'izitoast/dist/css/iziToast.min.css';
 import { iziToastOptions } from '../constants/izi-toast.js';
 
-import * as api from './api/exercises-api';
-import * as errorMessages from '../constants/error-messages';
+import * as api from './api/exercises-api.js';
+import * as errorMessages from '../constants/error-messages.js';
 
 export const handleGetExercisesByFilters = async query => {
   try {
