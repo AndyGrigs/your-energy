@@ -5,6 +5,7 @@
 /* Sections style */
 @import url('./partials/header.css');
 @import url('./partials/footer.css');
+@import url('./scroll-to-top-btn.css');
 
 
 :root {
@@ -13,6 +14,8 @@
   --test-size-mobile: 18px;
   --accent-color: #242424;
   --bg-color:  #f4f4f4;
+  /* Transitions */
+  --fast-trns: 300ms ease;
 }
 
 body {
@@ -33,6 +36,11 @@ body {
 
 .wrapper  > .main {
   flex-grow: 1;
+}
+
+.invisible {
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Styles for Mobile devices */
