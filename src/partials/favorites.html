@@ -8,8 +8,39 @@
     </div>
 
     <div class="110min-card-wrapper">
-      <div class="110-min-card"></div>
-      <div class="110-min-image"></div>
+      <div class="110-min-card">
+        <p class="110-min-card-title">110 min</p>
+        <p class="110-min-card-text">Daily norm of sports</p>
+      </div>
+      <div class="110-min-image">
+        <picture>
+          <source
+            media="(min-width: 1200px)"
+            srcset="
+              ../public/img/favorites/desktop_1x.png,
+              ../public/img/favorites/desktop_2x.png
+            "
+          />
+          <source
+            media="(min-width: 768px)"
+            srcset="
+              ../public/img/favorites/tablet_1x.png,
+              ../public/img/favorites/tablet_2x.png
+            "
+          />
+          <source
+            media="(max-width: 767px)"
+            srcset="
+              ../public/img/favorites/mobile_1x.png,
+              ../public/img/favorites/mobile_2x.png
+            "
+          />
+          <img
+            src="../public/img/favorites/desktop_1x.png"
+            alt="Girls talking"
+          />
+        </picture>
+      </div>
     </div>
 
     <div class="workout-list-wrapper">
