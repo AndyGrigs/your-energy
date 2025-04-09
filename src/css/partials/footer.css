@@ -67,6 +67,13 @@
     }
   }
 
+  .logo {
+    svg {
+      color: var(--bg-color);
+      fill: currentColor;
+    }
+  }
+
   .socials {
     margin-top: 20px;
     display: flex;
@@ -92,6 +99,9 @@
       svg {
         width: 24px;
         height: 24px;
+        opacity: 80;
+        color: var(--bg-color);
+        fill: currentColor;
 
         @media (min-width: 640px) {
           width: 28px;
