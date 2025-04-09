@@ -1,5 +1,5 @@
-import { handleGetQuoteOfTheDay } from './services/quotes';
-import { getExerciseById } from './services/api/exercises-api';
+import { handleGetQuoteOfTheDay } from './quotes.js';
+import { handleGetExerciseById } from './exercises.js';
 
 const quoteText = document.querySelector('.quote-day-card-text');
 const quoteAuthor = document.querySelector('.quote-day-card-author');
@@ -24,7 +24,7 @@ async function renderFavoritesItems() {
     const favoritesList = JSON.parse(favoritesListJson);
 
     for (const id of favoritesList) {
-      const data = await getExerciseById(id);
+      const data = await handleGetExerciseById(id);
       favoritesItems.push(data);
     }
 
