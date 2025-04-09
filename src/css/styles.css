@@ -1,15 +1,9 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
+@import url('./izi-toast.css');
 /* Common styles */
 @import url('./reset.css');
 
 /* Sections style */
 @import url('./partials/header.css');
-
 @import url('./partials/footer.css');
 
 
@@ -29,7 +23,6 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
 }
-
 
 .wrapper{
   display: flex;
