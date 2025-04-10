@@ -55,11 +55,19 @@ function preparingFavoritesMarkup(items) {
           <button class="start-button">Start ➔</button>
         </div>
         <div class="workout-body">
+        <span class="workout-icon-running">
+          <img
+            src="../img/quote_icon_1.svg"
+            width="24px"
+            height="24px"
+            alt="Running Icon"
+          />
+      </span>        
           <h3 class="workout-name">${item.name}</h3>
           <p class="workout-stats">
             Burned calories: ${item.burnedCalories} / ${item.time} min
             <br>
-            Body part: ${item.bodyPart}  Target: ${item.target}
+            Body part: ${item.bodyPart} <br>  Target: ${item.target}
           </p>
         </div>
       </div>

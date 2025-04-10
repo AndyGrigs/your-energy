@@ -112,6 +112,17 @@
   overflow: hidden;
 }
 
+.workout-list-wrapper {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.workout-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .workout-card {
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -121,19 +132,20 @@
   justify-content: space-between;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .workout-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  margin-bottom: 27px;
 }
 
 .workout-badge {
-  background-color: #000;
-  color: #fff;
+  color: black;
   padding: 5px 10px;
   border-radius: 15px;
+  border: 1px solid black;
   font-size: 12px;
 }
 
@@ -142,12 +154,25 @@
   border: none;
   font-size: 16px;
   cursor: pointer;
+  margin-left: 8px;
+}
+
+.workout-icon-running img {
+  background-color: #242424;
+  border-radius: 20px;
+  overflow: hidden;
+  position: absolute;
+  left: 16px;
 }
 
 .workout-name {
-  font-size: 18px;
-  font-weight: bold;
-  margin: 10px 0;
+  font-feature-settings: 'liga' off, 'clig' off;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  margin-left: 56px;
+  margin-bottom: 18px;
 }
 
 .workout-stats {
@@ -156,12 +181,10 @@
 }
 
 .start-button {
-  background-color: #007bff;
-  color: #fff;
+  color: black;
   padding: 8px 15px;
-  border: none;
-  border-radius: 5px;
   cursor: pointer;
+  margin-left: auto;
 }
 
 .start-button:hover {
