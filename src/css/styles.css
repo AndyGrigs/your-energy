@@ -1,4 +1,3 @@
-
 /* Common styles */
 @import url('./reset.css');
 @import url('./izi-toast.css');
@@ -6,20 +5,20 @@
 @import url('./partials/header.css');
 @import url('./partials/footer.css');
 @import url('./scroll-to-top-btn.css');
-
+@import url('./partials/loader.css');
 
 :root {
   --text-color: black;
   --text-size: 14px;
   --test-size-mobile: 18px;
   --accent-color: #242424;
-  --bg-color:  #f4f4f4;
+  --bg-color: #f4f4f4;
   /* Transitions */
   --fast-trns: 300ms ease;
 }
 
 body {
-  font-family: "DM Sans", sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-size: var(--text-size);
@@ -27,14 +26,14 @@ body {
   color: var(--text-color);
 }
 
-.wrapper{
+.wrapper {
   display: flex;
   flex-direction: column;
   min-block-size: 100vh;
   overflow: clip;
 }
 
-.wrapper  > .main {
+.wrapper > .main {
   flex-grow: 1;
 }
 

@@ -10,20 +10,26 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:wght@100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="iziToast.min.css">
+    <link rel="stylesheet" href="iziToast.min.css" />
     <title>YourEnergy | Home</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
+    <div id="loader-overlay">
+      <div div id="loader"></div>
+    </div>
+
+    <button id="load-btn">Test loader</button>
+
     <div class="wrapper">
       <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
 
       <main class="main">main</main>
-
+      ></div>
       <load src="./partials/footer.html" />
       <load src="./partials/scroll-to-top-button.html" />
     </div>
-  
+
     <script type="module" src="./main.js"></script>
   </body>
 </html>
