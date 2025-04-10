@@ -158,7 +158,7 @@
 }
 
 .workout-icon-running img {
-  background-color: #242424;
+  background-color: black;
   border-radius: 20px;
   overflow: hidden;
   position: absolute;
@@ -171,7 +171,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 1;
-  margin-left: 56px;
+  margin-left: 46px;
   margin-bottom: 18px;
 }
 

@@ -51,7 +51,9 @@ function preparingFavoritesMarkup(items) {
       <div class="workout-card">
         <div class="workout-header">
           <span class="workout-badge">WORKOUT</span>
-          <button class="delete-button" aria-label="Delete workout">🗑️</button>
+          <button class="delete-button" aria-label="Delete workout">
+            <img src="../img/trash-icon.svg" alt="Delete" width="16" height="16">
+          </button>
           <button class="start-button">Start ➔</button>
         </div>
         <div class="workout-body">
