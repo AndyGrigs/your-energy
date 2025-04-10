@@ -1,0 +1,49 @@
+.filter-btn {
+    color: green;
+}
+
+.filter-btn.active{
+    color: yellowgreen;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+  }
+  
+  .category-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    background: #fff;
+  }
+  
+  .category-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .category-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+  
+  .category-card .info {
+    padding: 12px;
+  }
+  
+  .category-card .info h3 {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+  
+  .category-card .info p {
+    font-size: 14px;
+    color: #666;
+  }
+  
