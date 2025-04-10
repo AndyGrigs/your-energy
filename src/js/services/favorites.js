@@ -7,6 +7,8 @@ const workuotList = document.querySelector('.workout-list');
 
 async function renderQuoteOfTheDay() {
   try {
+    // add logic to retrive data by key "quoteOfTheDay" from LocalStorage
+    // check if date is present if yes render if not than proceed with a request
     const data = await handleGetQuoteOfTheDay();
 
     const authorName = data.author;
