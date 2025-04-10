@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../../config/axios';
 
 export const getExercisesByFilters = async params => {
   const { data } = await axios.get('/exercises', { params });
