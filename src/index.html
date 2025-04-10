@@ -15,11 +15,19 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <div data-loader-id="loader-1">
-      <div class="loader-wrapper hidden">
-        <div class="loader-container"></div>
-      </div>
-      <button id="load-btn1">Loader 1</button>
+    <div style="height: 150px">
+      <button id="red-btn">Load Red 50px</button>
+      <div id="red-loader" style="align-content: center"></div>
+    </div>
+
+    <div style="height: 150px">
+      <button id="blue-btn">Load Blue 75px</button>
+      <div id="blue-loader" style="align-content: center"></div>
+    </div>
+
+    <div style="height: 150px">
+      <button id="black-btn">Load Black 100px</button>
+      <div id="black-loader" style="align-content: center"></div>
     </div>
 
     <div class="wrapper">
@@ -29,19 +37,7 @@
         <load src="./partials/hero.html" />
       </main>
 
-      <div data-loader-id="loader-3">
-        <div class="loader-wrapper hidden">
-          <div class="loader-container"></div>
-        </div>
-        <button id="load-btn3">Loader 3</button>
-      </div>
       <load src="./partials/footer.html" />
-      <div data-loader-id="loader-2">
-        <div class="loader-wrapper hidden">
-          <div class="loader-container"></div>
-        </div>
-        <button id="load-btn2">Loader 2</button>
-      </div>
       <load src="./partials/scroll-to-top-button.html" />
     </div>
 

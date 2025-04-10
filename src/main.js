@@ -21,39 +21,40 @@ if (subscribeForm) {
 }
 
 //лише для тесту
-import axios from './js/services/axios-loader.js';
-document.getElementById('load-btn1').addEventListener('click', async () => {
-  try {
-    const response = await axios.get(
-      'https://jsonplaceholder.typicode.com/posts/1'
-    );
+import { Loader } from './js/services/loader.js';
 
-    console.log('Дані 1 з API отримано: ' + response.data.title);
-  } catch (err) {
-    console.error('Помилка при запиті:', err);
-  }
+const redLoader = new Loader({
+  target: '#red-loader',
+  size: 50,
+  color: 'red',
 });
 
-document.getElementById('load-btn2').addEventListener('click', async () => {
-  try {
-    const response = await axios.get(
-      'https://jsonplaceholder.typicode.com/posts/1'
-    );
-
-    console.log('Дані 2 з API отримано: ' + response.data.title);
-  } catch (err) {
-    console.error('Помилка при запиті:', err);
-  }
+document.getElementById('red-btn').addEventListener('click', async () => {
+  redLoader.show();
+  await new Promise(res => setTimeout(res, 3000));
+  redLoader.hide();
 });
 
-document.getElementById('load-btn3').addEventListener('click', async () => {
-  try {
-    const response = await axios.get(
-      'https://jsonplaceholder.typicode.com/posts/1'
-    );
+const blueLoader = new Loader({
+  target: '#blue-loader',
+  size: 75,
+  color: 'blue',
+});
 
-    console.log('Дані 3 з API отримано: ' + response.data.title);
-  } catch (err) {
-    console.error('Помилка при запиті:', err);
-  }
+document.getElementById('blue-btn').addEventListener('click', async () => {
+  blueLoader.show();
+  await new Promise(res => setTimeout(res, 3000));
+  blueLoader.hide();
+});
+
+const blackLoader = new Loader({
+  target: '#black-loader',
+  size: 100,
+  color: 'black',
+});
+
+document.getElementById('black-btn').addEventListener('click', async () => {
+  blackLoader.show();
+  await new Promise(res => setTimeout(res, 3000));
+  blackLoader.hide();
 });
