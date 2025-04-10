@@ -42,3 +42,14 @@ document.getElementById('load-btn').addEventListener('click', async () => {
     console.error('Помилка при запиті:', err);
   }
 });
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobileMenu');
+const closeMenu = document.getElementById('closeMenu');
+
+burger.addEventListener('click', () => {
+  mobileMenu.classList.add('active');
+});
+
+closeMenu.addEventListener('click', () => {
+  mobileMenu.classList.remove('active');
+});
