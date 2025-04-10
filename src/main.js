@@ -20,24 +20,39 @@ if (subscribeForm) {
   });
 }
 
-// ініціалізація loader
-lottie.loadAnimation({
-  container: document.getElementById('loader'),
-  renderer: 'svg',
-  loop: true,
-  autoplay: true,
-  path: '/animations/loader.json',
-});
-
 //лише для тесту
 import axios from './js/services/axios-loader.js';
-document.getElementById('load-btn').addEventListener('click', async () => {
+document.getElementById('load-btn1').addEventListener('click', async () => {
   try {
     const response = await axios.get(
       'https://jsonplaceholder.typicode.com/posts/1'
     );
 
-    console.log('Дані з API отримано: ' + response.data.title);
+    console.log('Дані 1 з API отримано: ' + response.data.title);
+  } catch (err) {
+    console.error('Помилка при запиті:', err);
+  }
+});
+
+document.getElementById('load-btn2').addEventListener('click', async () => {
+  try {
+    const response = await axios.get(
+      'https://jsonplaceholder.typicode.com/posts/1'
+    );
+
+    console.log('Дані 2 з API отримано: ' + response.data.title);
+  } catch (err) {
+    console.error('Помилка при запиті:', err);
+  }
+});
+
+document.getElementById('load-btn3').addEventListener('click', async () => {
+  try {
+    const response = await axios.get(
+      'https://jsonplaceholder.typicode.com/posts/1'
+    );
+
+    console.log('Дані 3 з API отримано: ' + response.data.title);
   } catch (err) {
     console.error('Помилка при запиті:', err);
   }
