@@ -1,7 +1,16 @@
+import * as quote from './js/services/quotes';
+
 import { handleSubscription } from './js/services/subscriptions';
 import { refs } from './js/constants/refs';
 import { handleScrollForScrollTopBtn, scrollToTop } from './js/services/scroll';
 import lottie from 'lottie-web';
+
+try {
+  const data = await quote.handleGetQuoteOfTheDay();
+  console.log('🚀 ~ data:', data);
+} catch (error) {
+  console.log('🚀 ~ error in main:', error);
+}
 
 window.addEventListener('scroll', handleScrollForScrollTopBtn);
 refs.scrollToTopBtn.addEventListener('click', scrollToTop);
