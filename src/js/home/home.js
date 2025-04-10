@@ -1,5 +1,5 @@
-import { getQuoteOfTheDay } from './services/api/quotes-api';
-import { getFilters } from './services/api/filters-api';
+import { getQuoteOfTheDay } from '../services/api/quotes-api';
+import { getFilters } from '../services/api/filters-api';
 
 export async function renderQuote() {
   const container = document.getElementById('quote-card');
@@ -57,7 +57,6 @@ export function initFilters() {
     button.addEventListener('click', e => {
       const clickedFilter = e.currentTarget.dataset.type;
 
-      
       state.filter = clickedFilter;
       state.page = 1;
       state.category = null;
@@ -67,22 +66,20 @@ export function initFilters() {
       button.classList.add('active');
 
       console.log('🔘 Обраний фільтр:', state.filter);
-      loadCategories(clickedFilter)
+      loadCategories(clickedFilter);
     });
   });
-  loadCategories(state.filter)
+  loadCategories(state.filter);
 }
 
-
-
- async function loadCategories(filter) {
+async function loadCategories(filter) {
   const container = document.getElementById('exercise-cards-container');
   container.innerHTML = '<p>Loading categories...</p>';
   try {
     const response = await getFilters({
       filter: filter,
       page: 1,
-      limit: 50
+      limit: 50,
     });
 
     const categories = response.results;
@@ -98,12 +95,21 @@ export function initFilters() {
 
     const markup = categories.map(createCategoryCard).join('');
     container.innerHTML = markup;
-    
+
+    // 🚀 Додай обробку кліку на категорію (наступним кроком)
+    // document.querySelectorAll('.category-card').forEach(card => {
+    //   card.addEventListener('click', () => {
+    //     const categoryName = card.dataset.name;
+    //     console.log('📌 Обрана категорія:', categoryName);
+    //     // TODO: завантажити вправи по цій категорії
+    //   });
+    // });
   } catch (error) {
     console.error('❌ Помилка при завантаженні категорій:', error.message);
-    alert('Error loading categories. Please check the console for more details.');
+    alert(
+      'Error loading categories. Please check the console for more details.'
+    );
   }
-
 }
 
 function createCategoryCard(category) {
@@ -121,7 +127,6 @@ function createCategoryCard(category) {
 function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
-
 
 export async function loadExercises() {}
 

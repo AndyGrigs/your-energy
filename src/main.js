@@ -1,7 +1,7 @@
 import { handleSubscription } from './js/services/subscriptions';
 import { refs } from './js/constants/refs';
 import { handleScrollForScrollTopBtn, scrollToTop } from './js/services/scroll';
-import { renderQuote, initFilters} from './js/home';
+import { renderQuote, initFilters } from './js/home/home';
 
 window.addEventListener('scroll', handleScrollForScrollTopBtn);
 refs.scrollToTopBtn.addEventListener('click', scrollToTop);
@@ -23,5 +23,4 @@ if (subscribeForm) {
 document.addEventListener('DOMContentLoaded', () => {
   initFilters();
   // renderQuote();
-  
 });
