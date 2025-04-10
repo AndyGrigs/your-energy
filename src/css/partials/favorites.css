@@ -8,11 +8,10 @@
 
 .quote-day-card {
   background-color: var(--accent-color);
-  width: 335px;
+  width: auto;
   height: 206px;
   flex-shrink: 0;
   border-radius: 20px;
-  background: #242424;
 }
 
 .workout-list-item {

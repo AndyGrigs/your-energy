@@ -13,6 +13,7 @@ async function renderQuoteOfTheDay() {
     const authorQuote = data.quote;
     quoteText.textContent = authorQuote;
     quoteAuthor.textContent = authorName;
+    console.log(quoteText);
   } catch (error) {
     console.log('🚀 ~ error in getQuoteOfTheDay data rendering:', error);
   }
