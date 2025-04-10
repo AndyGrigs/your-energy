@@ -2,14 +2,14 @@ import lottie from 'lottie-web';
 import { refs } from './js/constants/refs';
 import { handleSubscription } from './js/services/subscriptions';
 import { handleScrollForScrollTopBtn, scrollToTop } from './js/services/scroll';
-import { renderQuote, initFilters } from './js/home/home';
+import { initFilters } from './js/home/home';
 
 import axios from './js/services/axios-loader.js';
 
 
 document.addEventListener('DOMContentLoaded', () => {
   initFilters();
-  // renderQuote();
+
 
   // ініціалізація loader
   lottie.loadAnimation({
