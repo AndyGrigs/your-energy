@@ -11,7 +11,6 @@
 .quote-day-card {
   background-color: var(--accent-color);
   width: 100%;
-  max-width: 335px;
   height: auto;
   border-radius: 20px;
   padding: 20px 42px;
@@ -57,7 +56,6 @@
   font-style: normal;
   font-weight: 400;
   line-height: 1.3;
-  max-width: 243px;
   height: 104px;
   flex-shrink: 0;
 }
@@ -70,13 +68,19 @@
   line-height: 1.3;
 }
 
+@media only screen and (min-width: 768px) {
+  .time-card-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+}
+
 .time-min-card {
   width: 100%;
-  max-width: 335px;
   height: auto;
   border-radius: 20px;
   padding: 20px;
-  margin: 0 auto;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
@@ -102,7 +106,7 @@
 
 .time-min-image {
   display: flex;
-  max-width: 335px;
+  /* max-width: 335px; */
   height: auto;
   justify-content: center;
   align-items: center;
@@ -123,6 +127,15 @@
   gap: 20px;
 }
 
+@media only screen and (min-width: 768px) {
+  .workout-list {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 16px;
+  }
+}
+
 .workout-card {
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -133,6 +146,12 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
+}
+
+@media only screen and (min-width: 768px) {
+  .workout-card {
+    width: 320px;
+  }
 }
 
 .workout-header {
@@ -190,3 +209,6 @@
 .start-button:hover {
   background-color: #0056b3;
 }
+
+/* @media only screen and (min-width: 768px) */
+/* @media only screen and (min-width: 1440px)  */
