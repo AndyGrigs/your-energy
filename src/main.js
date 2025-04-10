@@ -1,7 +1,25 @@
-import { handleSubscription } from './js/services/subscriptions';
+import lottie from 'lottie-web';
 import { refs } from './js/constants/refs';
+import { handleSubscription } from './js/services/subscriptions';
 import { handleScrollForScrollTopBtn, scrollToTop } from './js/services/scroll';
 import { renderQuote, initFilters } from './js/home/home';
+
+import axios from './js/services/axios-loader.js';
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  initFilters();
+  // renderQuote();
+
+  // ініціалізація loader
+  lottie.loadAnimation({
+    container: document.getElementById('loader'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: '/animations/loader.json',
+  });
+});
 
 window.addEventListener('scroll', handleScrollForScrollTopBtn);
 refs.scrollToTopBtn.addEventListener('click', scrollToTop);
@@ -20,7 +38,15 @@ if (subscribeForm) {
   });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  initFilters();
-  // renderQuote();
+//лише для тесту
+document.getElementById('load-btn').addEventListener('click', async () => {
+  try {
+    const response = await axios.get(
+      'https://jsonplaceholder.typicode.com/posts/1'
+    );
+
+    console.log('Дані з API отримано: ' + response.data.title);
+  } catch (err) {
+    console.error('Помилка при запиті:', err);
+  }
 });
