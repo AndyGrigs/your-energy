@@ -1,0 +1,73 @@
+.workout-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+@media only screen and (min-width: 768px) {
+  .workout-card {
+    width: 320px;
+  }
+}
+
+.workout-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 27px;
+}
+
+.workout-badge {
+  color: black;
+  padding: 5px 10px;
+  border-radius: 15px;
+  border: 1px solid black;
+  font-size: 12px;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+.workout-icon-running img {
+  background-color: black;
+  border-radius: 20px;
+  overflow: hidden;
+  position: absolute;
+  left: 16px;
+}
+
+.workout-name {
+  font-feature-settings: 'liga' off, 'clig' off;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  margin-left: 46px;
+  margin-bottom: 18px;
+}
+
+.workout-stats {
+  font-size: 14px;
+  color: #666;
+}
+
+.start-button {
+  color: black;
+  padding: 8px 15px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.start-button:hover {
+  background-color: #0056b3;
+}
