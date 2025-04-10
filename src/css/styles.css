@@ -4,6 +4,7 @@
 /* Sections style */
 @import url('./partials/header.css');
 @import url('./partials/favorites.css');
+@import url('./partials/hero.css');
 @import url('./partials/footer.css');
 @import url('./scroll-to-top-btn.css');
 @import url('./partials/loader.css');
