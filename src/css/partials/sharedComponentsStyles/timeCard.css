@@ -18,6 +18,12 @@
   margin-bottom: 20px;
 }
 
+@media only screen and (min-width: 768px) {
+  .time-min-card {
+    margin-bottom: 0;
+  }
+}
+
 .time-min-card-title {
   font-feature-settings: 'liga' off, 'clig' off;
   font-size: 20px;
