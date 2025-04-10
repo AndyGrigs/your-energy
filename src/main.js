@@ -2,6 +2,7 @@ import { handleSubscription } from './js/services/subscriptions';
 import { refs } from './js/constants/refs';
 import { handleScrollForScrollTopBtn, scrollToTop } from './js/services/scroll';
 import lottie from 'lottie-web';
+import './js/partials/rating-modal.js';
 
 window.addEventListener('scroll', handleScrollForScrollTopBtn);
 refs.scrollToTopBtn.addEventListener('click', scrollToTop);
