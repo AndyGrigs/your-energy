@@ -1,5 +1,5 @@
 import * as api from './api/filters-api.js';
-import * as errorMessages from '../constants/error-messages';
+import * as errorMessages from '../constants/error-messages.js';
 
 export const handleGetFilters = async query => {
   try {
