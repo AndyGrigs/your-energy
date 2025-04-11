@@ -1,0 +1,61 @@
+@import url('./sharedComponentsStyles/quoteOfTheDay.css');
+@import url('./sharedComponentsStyles/timeCard.css');
+@import url('./sharedComponentsStyles/workoutCard.css');
+
+@media only screen and (min-width: 1440px) {
+  .favorites-section-wrapper {
+    position: relative;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .desktop-favorites-section {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .left-section-part {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.favorites-section-title {
+  color: #242424;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: -0.56px;
+  margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .favorites-section-title {
+    position: absolute;
+  }
+}
+
+.workout-list-wrapper {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.workout-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .workout-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+/* @media only screen and (min-width: 768px) */
+/* @media only screen and (min-width: 1440px)  */
