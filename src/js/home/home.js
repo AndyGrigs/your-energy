@@ -47,6 +47,7 @@ async function loadAllCategories() {
 		allCategories = response.results;
 		const markup = allCategories.map(createCategoryCard).join('');
 		container.innerHTML = markup;
+    bindCategoryClickHandlers();
 	} catch (error) {
 		console.error('❌ Категорії не завантажено:', error.message);
 		container.innerHTML = '<p>Error loading categories.</p>';
@@ -69,9 +70,6 @@ function renderCategoriesByFilter(filterKey) {
 		cat => cat.filter.trim().toLowerCase() === filterLabel.toLowerCase()
 	);
 
-	console.log(`📥 Категорії по фільтру "${filterLabel}":`);
-	console.table(filtered);
-
 	if (!filtered.length) {
 		container.innerHTML = '<p>No categories found for this filter.</p>';
 		return;
@@ -87,20 +85,28 @@ function bindCategoryClickHandlers() {
 	document.querySelectorAll('.category-card').forEach(card => {
 		card.addEventListener('click', () => {
 			const categoryName = card.dataset.name;
-			handleCategoryClick(categoryName);
+      const categoryType = card.dataset.type?.toLowerCase().trim();
+			handleCategoryClick(categoryName, categoryType);
 		});
 	});
 }
 
 function createCategoryCard(category) {
+  
 	return `
-    <div class="category-card" data-name="${category.name}">
-      <img src="${category.imgURL}" alt="${category.name}" />
-      <div class="info">
-        <h3>${capitalize(category.name)}</h3>
-        <p>${category.filter}</p>
-      </div>
+    <div class="category-card" 
+     data-name="${category.name}" 
+     data-type="${category.filter}" 
+     data-id="${category.id}">
+	 <div class="overlay"></div>
+  <div class="category-card-bg" style="background-image: url('${category.imgURL}')">
+    <div class="category-card-text">
+      <h3 class="category-card-title">${capitalize(category.name)}</h3>
+      <p class="category-card-sub">${capitalize(category.filter)}</p>
     </div>
+  </div>
+</div>
+
   `;
 }
 

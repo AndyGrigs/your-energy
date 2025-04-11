@@ -7,10 +7,14 @@ const filterParamMap = {
   equipment: 'equipment',
 };
 
-export function handleCategoryClick(categoryName) {
+export function handleCategoryClick(categoryName, filterType) {
   state.category = categoryName;
+  state.filter = filterType;
   state.page = 1;
   state.keyword = '';
+
+  const input = document.getElementById('search-input');
+  if (input) input.value = '';
 
   const title = document.getElementById('current-category');
   if (title) title.textContent = ` / ${capitalize(categoryName)}`;
@@ -52,20 +56,32 @@ export async function loadExercisesByCategory() {
   }
 }
 
-function createExerciseCard(ex) {
+
+function createExerciseCard(ex){
   return `
-    <div class="exercise-card">
-      <div class="top-row">
-        <span class="tag">WORKOUT</span>
-        <span class="rating">${ex.rating.toFixed(1)} ★</span>
+   <div class="workout-card ex-card">
+        <div class="workout-header">
+          <span class="workout-badge">WORKOUT</span>
+          <button class="start-button">Start ➔</button>
+        </div>
+        <div class="workout-body">
+          <span class="workout-icon-running">
+            <img
+              src="../img/quote_icon_1.svg"
+              width="24px"
+              height="24px"
+              alt="Running Icon"
+            />
+          </span>        
+          <h3 class="workout-name">${ex.name}</h3>
+          <p class="workout-stats">
+            Burned calories: ${ex.burnedCalories} / ${ex.time} min
+            <br>
+            Body part: ${ex.bodyPart} <br>  Target: ${ex.target}
+          </p>
+        </div>
       </div>
-      <h4>${ex.name}</h4>
-      <p>Burned: ${ex.burnedCalories} / 3 min</p>
-      <p>Body part: ${ex.bodyPart}</p>
-      <p>Target: ${ex.target}</p>
-      <button class="start-btn" data-id="${ex._id}">Start →</button>
-    </div>
-  `;
+  `
 }
 
 function capitalize(str) {
