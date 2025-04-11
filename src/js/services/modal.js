@@ -50,24 +50,33 @@ function openModal(exercise) {
 	window.addEventListener('click', event => {
 		if (event.target === modalRefs.modalExercises) {
 			closeModal();
+		} else if (event.target === modalRefs.modalRating) {
+			toggleModal();
 		}
 	});
 
-	modalRefs.modalExercises.classList.remove('hidden');
+	showModal(modalRefs.modalExercises);
+
+	modalRefs.ratingButton.addEventListener('click', () => {
+		toggleModal();
+	});
+}
+
+function showModal(modal) {
+	modal.classList.remove('hidden');
 
 	setTimeout(() => {
-		modalRefs.modalExercises.classList.add('show');
+		modal.classList.add('show');
 	}, 10);
 
 	document.body.style.overflow = 'hidden';
+}
 
-	modalRefs.ratingButton.addEventListener('click', () => {
-		console.log('Rating button clicked');
-		console.log(modalRefs.ratingButton);
-		modalRefs.modalExercises.classList.toggle('hidden');
-		console.log(modalRefs.modalRating);
-		modalRefs.modalRating.classList.toggle('hidden');
-	});
+export function toggleModal() {
+	modalRefs.modalExercises.classList.toggle('hidden');
+	modalRefs.modalExercises.classList.toggle('show');
+	modalRefs.modalRating.classList.toggle('hidden');
+	modalRefs.modalRating.classList.toggle('show');
 }
 
 function closeModal() {
@@ -83,6 +92,10 @@ function closeModal() {
 	modalRefs.favoriteButton.removeEventListener('click', () =>
 		handleFavoriteClick(favorites, exercise)
 	);
+	modalRefs.ratingButton.removeEventListener('click', () => {
+		toggleModal();
+	});
+
 	window.removeEventListener('click', closeModal);
 }
 
