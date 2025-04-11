@@ -2,6 +2,7 @@ import { handleSubscription } from './js/services/subscriptions';
 import { refs } from './js/constants/refs';
 import { handleScrollForScrollTopBtn, scrollToTop } from './js/services/scroll';
 import lottie from 'lottie-web';
+import './js/partials/rating-modal.js';
 
 const burger = document.getElementById('burger');
 const mobileMenu = document.getElementById('mobileMenu');
@@ -32,25 +33,41 @@ if (subscribeForm) {
   });
 }
 
-// ініціалізація loader
-lottie.loadAnimation({
-  container: document.getElementById('loader'),
-  renderer: 'svg',
-  loop: true,
-  autoplay: true,
-  path: '/animations/loader.json',
+//лише для тесту
+import { Loader } from './js/services/loader.js';
+
+const redLoader = new Loader({
+  target: '#red-loader',
+  size: 50,
+  color: 'red',
 });
 
-//лише для тесту
-import axios from './js/services/axios-loader.js';
-document.getElementById('load-btn').addEventListener('click', async () => {
-  try {
-    const response = await axios.get(
-      'https://jsonplaceholder.typicode.com/posts/1'
-    );
+document.getElementById('red-btn').addEventListener('click', async () => {
+  redLoader.show();
+  await new Promise(res => setTimeout(res, 3000));
+  redLoader.hide();
+});
 
-    console.log('Дані з API отримано: ' + response.data.title);
-  } catch (err) {
-    console.error('Помилка при запиті:', err);
-  }
+const blueLoader = new Loader({
+  target: '#blue-loader',
+  size: 75,
+  color: 'blue',
+});
+
+document.getElementById('blue-btn').addEventListener('click', async () => {
+  blueLoader.show();
+  await new Promise(res => setTimeout(res, 3000));
+  blueLoader.hide();
+});
+
+const blackLoader = new Loader({
+  target: '#black-loader',
+  size: 100,
+  color: 'black',
+});
+
+document.getElementById('black-btn').addEventListener('click', async () => {
+  blackLoader.show();
+  await new Promise(res => setTimeout(res, 3000));
+  blackLoader.hide();
 });

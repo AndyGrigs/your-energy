@@ -7,7 +7,7 @@
 @import url('./partials/hero.css');
 @import url('./partials/footer.css');
 @import url('./scroll-to-top-btn.css');
-@import url('./partials/loader.css');
+@import url('./partials/rating-modal.css');
 
 :root {
   --text-color: black;
