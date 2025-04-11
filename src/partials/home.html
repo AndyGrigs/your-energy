@@ -1,0 +1,42 @@
+<section class="home-section">
+	<div class="home-header">
+		<h2 class="home-title">
+			Exercises <span id="current-category-name"></span>
+		</h2>
+
+		<div class="search-wrapper">
+			<div class="search">
+				<input
+					type="text"
+					id="search-input"
+					placeholder="Search..."
+					class="search-input"
+				/>
+				<span class="search-icon"
+					><svg width="132" height="24">
+						<use href="./img/sprite.svg#search"></use></svg
+				></span>
+			</div>
+
+
+			<div class="filters">
+				<button class="filter-btn" data-type="Muscles">Muscles</button>
+				<button class="filter-btn" data-type="Body parts">Body parts</button>
+				<button class="filter-btn" data-type="Equipment">Equipment</button>
+			</div>
+	</div>
+	</div>
+
+	<!-- <form id="search-form">
+    <input
+      type="text"
+      id="search-input"
+      placeholder="Search..."
+      autocomplete="off"
+    />
+    <ul id="search-suggestions" class="suggestions-list"></ul>
+  </form> -->
+
+	<div class="cards-container" id="exercise-cards-container"></div>
+	<div class="pagination"></div>
+</section>

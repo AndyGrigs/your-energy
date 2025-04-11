@@ -1,12 +1,28 @@
-import { handleSubscription } from './js/services/subscriptions';
-import { refs } from './js/constants/refs';
-import { handleScrollForScrollTopBtn, scrollToTop } from './js/services/scroll';
 import lottie from 'lottie-web';
+import { refs } from './js/constants/refs';
+import { handleSubscription } from './js/services/subscriptions';
+import { handleScrollForScrollTopBtn, scrollToTop } from './js/services/scroll';
+import { initFilters } from './js/home/home';
 import './js/partials/rating-modal.js';
 
 const burger = document.getElementById('burger');
 const mobileMenu = document.getElementById('mobileMenu');
 const closeMenu = document.getElementById('closeMenu');
+
+document.addEventListener('DOMContentLoaded', () => {
+  initFilters();
+
+
+  // ініціалізація loader
+  lottie.loadAnimation({
+    container: document.getElementById('loader'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: '/animations/loader.json',
+  });
+});
+
 
 burger.addEventListener('click', () => {
   mobileMenu.classList.add('active');
@@ -14,6 +30,7 @@ burger.addEventListener('click', () => {
 
 closeMenu.addEventListener('click', () => {
   mobileMenu.classList.remove('active');
+
 });
 
 window.addEventListener('scroll', handleScrollForScrollTopBtn);
@@ -66,8 +83,9 @@ if (subscribeForm) {
 //   color: 'black',
 // });
 
-// document.getElementById('black-btn').addEventListener('click', async () => {
-//   blackLoader.show();
-//   await new Promise(res => setTimeout(res, 3000));
-//   blackLoader.hide();
-// });
+document.getElementById('black-btn').addEventListener('click', async () => {
+  blackLoader.show();
+  await new Promise(res => setTimeout(res, 3000));
+  blackLoader.hide();
+});
+
