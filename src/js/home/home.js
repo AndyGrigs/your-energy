@@ -51,6 +51,7 @@ async function loadAllCategories() {
 		console.error('❌ Категорії не завантажено:', error.message);
 		container.innerHTML = '<p>Error loading categories.</p>';
 	}
+  initSearch();
 }
 
 function renderCategoriesByFilter(filterKey) {
@@ -79,18 +80,17 @@ function renderCategoriesByFilter(filterKey) {
 	const markup = filtered.map(createCategoryCard).join('');
 	container.innerHTML = markup;
 
-  bindCategoryClickHandlers();
+	bindCategoryClickHandlers();
 }
 
-function bindCategoryClickHandlers(){
-  document.querySelectorAll('.category-card').forEach(card => {
-    card.addEventListener('click', ()=>{
-      const categoryName = card.dataset.name;
-      handleCategoryClick(categoryName);
-    })
-  })
+function bindCategoryClickHandlers() {
+	document.querySelectorAll('.category-card').forEach(card => {
+		card.addEventListener('click', () => {
+			const categoryName = card.dataset.name;
+			handleCategoryClick(categoryName);
+		});
+	});
 }
-
 
 function createCategoryCard(category) {
 	return `
@@ -102,6 +102,25 @@ function createCategoryCard(category) {
       </div>
     </div>
   `;
+}
+
+function initSearch() {
+	const input = document.getElementById('search-input');
+	if (!input) return;
+
+	input.addEventListener('input', e => {
+		const value = e.target.value.trim().toLowerCase();
+		const filtered = allCategories.filter(cat =>
+			cat.name.toLowerCase().startsWith(value)
+		);
+		if (!filtered.length) {
+			container.innerHTML = '<p>Нічого не знайдено.</p>';
+			return;
+		}
+		const markup = filtered.map(createCategoryCard).join('');
+		container.innerHTML = markup;
+		bindCategoryClickHandlers();
+	});
 }
 
 function capitalize(str) {
