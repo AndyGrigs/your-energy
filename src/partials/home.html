@@ -1,6 +1,6 @@
-<section class="exercises-section">
-  <div class="exercises-header">
-    <h2 class="section-title">
+<section class="home-section">
+  <div class="home-header">
+    <h2 class="home-title">
       Exercises <span id="current-category-name"></span>
     </h2>
 
@@ -11,13 +11,18 @@
     </div>
   </div>
 
-  <div class="search-block">
-    <input type="text" id="exercise-search" placeholder="Search..." />
-  </div>
+  <form id="search-form">
+    <input
+      type="text"
+      id="search-input"
+      placeholder="Search..."
+      autocomplete="off"
+    />
+    <ul id="search-suggestions" class="suggestions-list"></ul>
+  </form>
+  
 
-  <div class="home-body">
-   
-  </div>
+
   <div class="cards-container" id="exercise-cards-container"></div>
   <div class="pagination"></div>
 </section>
