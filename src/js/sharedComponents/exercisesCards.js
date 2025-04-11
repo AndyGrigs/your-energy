@@ -1,26 +1,28 @@
 export function preparingCardsMarkup(listElement, items, BtnVisible = true) {
-  if (!items || items.length === 0) {
-    listElement.innerHTML = '';
-    return;
-  }
+	if (!items || items.length === 0) {
+		listElement.innerHTML = '';
+		return;
+	}
 
-  const FavoritesMarkup = items
-    .map(
-      item => `
+	const FavoritesMarkup = items
+		.map(
+			item => `
     <li class="workout-list-item">
       <div class="workout-card">
         <div class="workout-header">
           <span class="workout-badge">WORKOUT</span>
           ${
-            BtnVisible
-              ? `
+						BtnVisible
+							? `
             <button class="delete-button" aria-label="Delete workout">
               <img src="../img/trash-icon.svg" alt="Delete" width="16" height="16">
             </button>
           `
-              : ''
-          }
-          <button class="start-button">Start ➔</button>
+							: ''
+					}
+          <button class="start-button" data-exercise-id=${
+						item._id
+					}>Start ➔</button>
         </div>
         <div class="workout-body">
           <span class="workout-icon-running">
@@ -41,8 +43,8 @@ export function preparingCardsMarkup(listElement, items, BtnVisible = true) {
       </div>
     </li>
     `
-    )
-    .join('');
+		)
+		.join('');
 
-  listElement.innerHTML = FavoritesMarkup;
+	listElement.innerHTML = FavoritesMarkup;
 }

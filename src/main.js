@@ -4,33 +4,31 @@ import { handleSubscription } from './js/services/subscriptions';
 import { handleScrollForScrollTopBtn, scrollToTop } from './js/services/scroll';
 import { initFilters } from './js/home/home';
 import './js/partials/rating-modal.js';
+import './js/services/modal.js';
 
 const burger = document.getElementById('burger');
 const mobileMenu = document.getElementById('mobileMenu');
 const closeMenu = document.getElementById('closeMenu');
 
 document.addEventListener('DOMContentLoaded', () => {
-  initFilters();
+	initFilters();
 
-
-  // ініціалізація loader
-  lottie.loadAnimation({
-    container: document.getElementById('loader'),
-    renderer: 'svg',
-    loop: true,
-    autoplay: true,
-    path: '/animations/loader.json',
-  });
+	// ініціалізація loader
+	lottie.loadAnimation({
+		container: document.getElementById('loader'),
+		renderer: 'svg',
+		loop: true,
+		autoplay: true,
+		path: '/animations/loader.json',
+	});
 });
 
-
 burger.addEventListener('click', () => {
-  mobileMenu.classList.add('active');
+	mobileMenu.classList.add('active');
 });
 
 closeMenu.addEventListener('click', () => {
-  mobileMenu.classList.remove('active');
-
+	mobileMenu.classList.remove('active');
 });
 
 window.addEventListener('scroll', handleScrollForScrollTopBtn);
@@ -38,16 +36,16 @@ refs.scrollToTopBtn.addEventListener('click', scrollToTop);
 
 const subscribeForm = document.querySelector('#subscribe-form');
 if (subscribeForm) {
-  subscribeForm.addEventListener('submit', async event => {
-    event.preventDefault();
-    try {
-      const email = subscribeForm.email.value;
-      await handleSubscription(email);
-      subscribeForm.reset();
-    } catch (error) {
-      console.log(error);
-    }
-  });
+	subscribeForm.addEventListener('submit', async event => {
+		event.preventDefault();
+		try {
+			const email = subscribeForm.email.value;
+			await handleSubscription(email);
+			subscribeForm.reset();
+		} catch (error) {
+			console.log(error);
+		}
+	});
 }
 
 //лише для тесту ПРИКЛАД ВИКОРИСТАННЯ Loader
@@ -84,8 +82,7 @@ if (subscribeForm) {
 // });
 
 document.getElementById('black-btn').addEventListener('click', async () => {
-  blackLoader.show();
-  await new Promise(res => setTimeout(res, 3000));
-  blackLoader.hide();
+	blackLoader.show();
+	await new Promise(res => setTimeout(res, 3000));
+	blackLoader.hide();
 });
-
