@@ -30,6 +30,7 @@
   position: absolute;
   width: 110px;
   height: 10px;
+  background-color: var(--accent-color);
   border-radius: 4px;
   top: 50%;
   left: 50%;
@@ -39,6 +40,7 @@
 .weight {
   position: absolute;
   width: 15px;
+  background-color: var(--accent-color);
   border-radius: 4px;
   top: 50%;
   transform: translateY(-50%);
