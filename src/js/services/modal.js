@@ -35,31 +35,36 @@ function openModal(exercise) {
 	});
 
 	const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
-	const isInFavorites = favorites.some(fav => fav.id === exercise.id);
+	const isInFavorites = favorites.some(fav => fav._id === exercise._id);
+	console.log('exercise:', exercise);
+	console.log('favorites:', favorites);
+	console.log('isInFavorites:', isInFavorites);
 
 	if (isInFavorites) {
 		setFavoriteButtonToRemove();
 	} else {
 		setFavoriteButtonToAdd();
 	}
+	const favoriteClickHandler = () => handleFavoriteClick(favorites, exercise);
 
-	modalRefs.favoriteButton.addEventListener('click', () =>
-		handleFavoriteClick(favorites, exercise)
-	);
+	modalRefs.favoriteButton.addEventListener('click', favoriteClickHandler);
 	modalRefs.closeModalBtn.addEventListener('click', closeModal);
-	window.addEventListener('click', event => {
+
+	const handleWindowClick = event => {
 		if (event.target === modalRefs.modalExercises) {
 			closeModal();
 		} else if (event.target === modalRefs.modalRating) {
 			toggleModal();
 		}
-	});
+	};
+
+	window.addEventListener('click', handleWindowClick);
+	modalRefs.modalExercises._windowClickHandler = handleWindowClick;
+	modalRefs.modalExercises._favoriteClickHandler = favoriteClickHandler;
 
 	showModal(modalRefs.modalExercises);
 
-	modalRefs.ratingButton.addEventListener('click', () => {
-		toggleModal();
-	});
+	modalRefs.ratingButton.addEventListener('click', toggleModal);
 }
 
 function showModal(modal) {
@@ -89,14 +94,16 @@ function closeModal() {
 
 	document.body.style.overflow = '';
 	modalRefs.closeModalBtn.removeEventListener('click', closeModal);
-	modalRefs.favoriteButton.removeEventListener('click', () =>
-		handleFavoriteClick(favorites, exercise)
+	modalRefs.favoriteButton.removeEventListener(
+		'click',
+		modalRefs.modalExercises._favoriteClickHandler
 	);
-	modalRefs.ratingButton.removeEventListener('click', () => {
-		toggleModal();
-	});
+	modalRefs.ratingButton.removeEventListener('click', toggleModal);
 
-	window.removeEventListener('click', closeModal);
+	window.removeEventListener(
+		'click',
+		modalRefs.modalExercises._windowClickHandler
+	);
 }
 
 refs.exercisesContainer.addEventListener('click', async function (event) {
