@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:wght@100..900&display=swap"
       rel="stylesheet"
@@ -15,18 +16,97 @@
     <script type="module" crossorigin src="/your-energy/index.js"></script>
     <link rel="modulepreload" crossorigin href="/your-energy/assets/vendor-BPZvktA6.js">
     <link rel="stylesheet" crossorigin href="/your-energy/assets/vendor-DnveWo0P.css">
-    <link rel="stylesheet" crossorigin href="/your-energy/assets/index-zIZm0APc.css">
+    <link rel="stylesheet" crossorigin href="/your-energy/assets/index-Bdppl0jC.css">
   </head>
   <body>
     <div id="loader-overlay">
       <div div id="loader"></div>
     </div>
 
-    <button id="load-btn">Test loader</button>
+    <!-- <button id="load-btn">Test loader</button> -->
 
     <div class="wrapper">
-      <header class="header">
+      <header>
+  <a href="/" class="logo">
+    <svg width="132" height="24">
+      <use href="./img/sprite.svg#your-energy"></use>
+    </svg>
+  </a>
+
+  <div class="burger" id="burger">
+    <svg  width="32" height="32" >
+      <use href="../public/img/sprite.svg#burger"></use>
+    </svg>
+  </div>
+
+  <div class="desktop-nav">
+    <ul>
+      <li class="active"><a href="/">Home</a></li>
+      <li><a href="/favorites">Favorites</a></li>
+    </ul>
+  </div>
+  <ul class="socials-desktop">
+    <li>
+      <a href="https://www.facebook.com/goITclub" target="_blank">
+        <svg>
+          <use href="./img/sprite.svg#facebook"></use>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.instagram.com/goitclub" target="_blank">
+        <svg>
+          <use href="./img/sprite.svg#instagram"></use>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.youtube.com/c/GoIT" target="_blank">
+        <svg>
+          <use href="./img/sprite.svg#youtube"></use>
+        </svg>
+      </a>
+    </li>
+  </ul>
 </header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="closeMenu" id="closeMenu">
+    <svg  width="32" height="32" >
+      <use href="../public/img/sprite.svg#x"></use>
+    </svg>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/favorites">Favorites</a></li>
+    </ul>
+  </nav>
+  <ul class="socials">
+    <li>
+      <a href="https://www.facebook.com/goITclub" target="_blank">
+        <svg>
+          <use href="./img/sprite.svg#facebook"></use>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.instagram.com/goitclub" target="_blank">
+        <svg>
+          <use href="./img/sprite.svg#instagram"></use>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.youtube.com/c/GoIT" target="_blank">
+        <svg>
+          <use href="./img/sprite.svg#youtube"></use>
+        </svg>
+      </a>
+    </li>
+  </ul>
+</div>
+
 
 
       <main class="main">
