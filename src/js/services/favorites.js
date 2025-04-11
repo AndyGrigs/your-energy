@@ -1,3 +1,5 @@
+
+import { modalRefs } from '../constants/refs.js';
 import { renderQuoteOfTheDay } from '../sharedComponents/quoteOfTheDay.js';
 import { preparingCardsMarkup } from '../sharedComponents/exercisesCards.js';
 import { handleGetExerciseById } from '../services/exercises.js';
@@ -5,6 +7,42 @@ import { handleGetExerciseById } from '../services/exercises.js';
 const quoteText = document.querySelector('.quote-day-card-text');
 const quoteAuthor = document.querySelector('.quote-day-card-author');
 const workuotList = document.querySelector('.workout-list');
+
+
+export function setFavoriteButtonToAdd() {
+  modalRefs.favoriteButton.innerHTML = `
+    Add to favorites
+    <svg>
+      <use href="./img/sprite.svg#heart"></use>
+    </svg>`;
+}
+
+export function setFavoriteButtonToRemove() {
+  modalRefs.favoriteButton.innerHTML = `
+    Remove from favorites
+    <svg>
+      <use href="./img/sprite.svg#trash"></use>
+    </svg>`;
+}
+
+export function handleFavoriteClick(favorites, exercise) {
+  const exerciseIndex = favorites.findIndex(fav => fav.id === exercise.id);
+
+  if (exerciseIndex === -1) {
+    // Add to favorites
+    favorites.push(exercise);
+    setFavoriteButtonToRemove();
+  } else {
+    // Remove from favorites
+    favorites.splice(exerciseIndex, 1);
+    setFavoriteButtonToAdd();
+  }
+
+  localStorage.setItem('favorites', JSON.stringify(favorites));
+}
+
+
+
 
 async function renderFavoritesItems() {
   try {
@@ -39,3 +77,4 @@ const mocked_items_json = JSON.stringify(mocked_items_list);
 localStorage.setItem('favorites', mocked_items_json);
 
 renderFavoritesItems();
+
