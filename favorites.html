@@ -1,3 +1,253 @@
-<div class="fvorites"></div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/your-energy/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="iziToast.min.css" />
+    <title>YourEnergy | Favorites</title>
+    <script type="module" crossorigin src="/your-energy/favorites.js"></script>
+    <link rel="modulepreload" crossorigin href="/your-energy/assets/vendor-BPZvktA6.js">
+    <link rel="modulepreload" crossorigin href="/your-energy/assets/error-messages-TZcQe9Wo.js">
+    <link rel="stylesheet" crossorigin href="/your-energy/assets/error-messages-Ds-47Zo8.css">
+    <link rel="stylesheet" crossorigin href="/your-energy/assets/vendor-DnveWo0P.css">
+  </head>
+  <body>
+    <div class="container wrapper">
+      <header>
+  <a href="/" class="logo">
+    <svg width="132" height="24">
+      <use href="./img/sprite.svg#your-energy"></use>
+    </svg>
+  </a>
+
+  <div class="burger" id="burger">
+    <svg  width="32" height="32" >
+      <use href="../public/img/sprite.svg#burger"></use>
+    </svg>
+  </div>
+
+  <div class="desktop-nav">
+    <ul>
+      <li class="active"><a href="/">Home</a></li>
+      <li><a href="/favorites">Favorites</a></li>
+    </ul>
+  </div>
+  <ul class="socials-desktop">
+    <li>
+      <a href="https://www.facebook.com/goITclub" target="_blank">
+        <svg>
+          <use href="./img/sprite.svg#facebook"></use>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.instagram.com/goitclub" target="_blank">
+        <svg>
+          <use href="./img/sprite.svg#instagram"></use>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.youtube.com/c/GoIT" target="_blank">
+        <svg>
+          <use href="./img/sprite.svg#youtube"></use>
+        </svg>
+      </a>
+    </li>
+  </ul>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="closeMenu" id="closeMenu">
+    <svg  width="32" height="32" >
+      <use href="../public/img/sprite.svg#x"></use>
+    </svg>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/favorites">Favorites</a></li>
+    </ul>
+  </nav>
+  <ul class="socials">
+    <li>
+      <a href="https://www.facebook.com/goITclub" target="_blank">
+        <svg>
+          <use href="./img/sprite.svg#facebook"></use>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.instagram.com/goitclub" target="_blank">
+        <svg>
+          <use href="./img/sprite.svg#instagram"></use>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.youtube.com/c/GoIT" target="_blank">
+        <svg>
+          <use href="./img/sprite.svg#youtube"></use>
+        </svg>
+      </a>
+    </li>
+  </ul>
+</div>
 
 
+
+      <div class="container wrapper">
+  <div class="favorites-section-wrapper">
+    <h1 class="favorites-section-title">Favorites</h1>
+    <div class="desktop-favorites-section">
+      <div class="left-section-part">
+        <div class="quote-day-card">
+  <span class="quote-icon-running">
+    <img
+      src="../img/quote_icon_1.svg"
+      width="34px"
+      height="32px"
+      alt="Running Icon"
+    />
+  </span>
+
+  <div class="quote-day-card-content">
+    <h2 class="quote-day-card-title">Quote of the day</h2>
+    <p class="quote-day-card-text"></p>
+    <p class="quote-day-card-author"></p>
+  </div>
+
+  <span class="quote-icon-mark">
+    <img
+      src="../img/qoute_icon_2.svg"
+      width="20px"
+      height="20px"
+      alt="Quotation Mark"
+    />
+  </span>
+</div>
+
+        <div class="time-card-wrapper">
+  <div class="time-min-card">
+    <span class="time-icon-gantel">
+      <img
+        src="../img/time-gantel-icon.svg"
+        width="20px"
+        height="20px"
+        alt="Gantel"
+      />
+    </span>
+    <p class="time-min-card-title">110 min</p>
+    <p class="time-min-card-text">Daily norm of sports</p>
+  </div>
+  <div class="time-min-image">
+    <picture>
+      <source
+        media="(min-width: 1200px)"
+        srcset="../img/favorites/desktop_1x.png, ../img/favorites/desktop_2x.png"
+      />
+      <source
+        media="(min-width: 768px)"
+        srcset="../img/favorites/tablet_1x.png, ../img/favorites/tablet_2x.png"
+      />
+      <source
+        media="(max-width: 767px)"
+        srcset="../img/favorites/mobile_1x.png, ../img/favorites/mobile_2x.png"
+      />
+      <img src="../img/favorites/desktop_1x.png" alt="Girls talking" />
+    </picture>
+  </div>
+</div>
+
+      </div>
+      <div class="right-section-part">
+        <div class="workout-list-wrapper">
+          <ul class="workout-list"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-1">
+        <div class="logo">
+          <svg width="132" height="24">
+            <use href="./img/sprite.svg#your-energy"></use>
+          </svg>
+        </div>
+        <ul class="socials">
+          <li>
+            <a href="https://www.facebook.com/goITclub" target="_blank">
+              <svg>
+                <use href="./img/sprite.svg#facebook"></use>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/goitclub" target="_blank">
+              <svg>
+                <use href="./img/sprite.svg#instagram"></use>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/c/GoIT" target="_blank">
+              <svg>
+                <use href="./img/sprite.svg#youtube"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-2">
+        <h3 class="heading">Transforming your <i>body</i> shape with us</h3>
+      </div>
+      <div class="col-3">
+        <form id="subscribe-form">
+          <p>Subscribe and learn about new exercises!</p>
+          <div class="input">
+            <input
+              type="text"
+              name="email"
+              required
+              pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+              placeholder="Email"
+            />
+          </div>
+          <div class="input">
+            <input type="submit" value="Send" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="footer-ending row">
+      <div class="col-1">
+        <p>YourEnergy. All rights reserved.</p>
+      </div>
+      <div class="col-2">
+        <p class="policy-links">
+          <a href="#">Privacy Policy</a> / <a href="#">Terms of Service</a>
+        </p>
+      </div>
+      <div class="col-3">
+        <p class="year">©2023</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+
+  </body>
+</html>
