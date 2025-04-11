@@ -14,10 +14,10 @@
     <link rel="stylesheet" href="iziToast.min.css" />
     <title>YourEnergy | Home</title>
     <script type="module" crossorigin src="/your-energy/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/your-energy/assets/vendor-Dd1l0CXC.js">
-    <link rel="modulepreload" crossorigin href="/your-energy/assets/refs-B6K3mp_j.js">
+    <link rel="modulepreload" crossorigin href="/your-energy/assets/vendor-M0pO2yrp.js">
+    <link rel="modulepreload" crossorigin href="/your-energy/assets/error-messages-Bd4pWVpB.js">
     <link rel="stylesheet" crossorigin href="/your-energy/assets/vendor-DnveWo0P.css">
-    <link rel="stylesheet" crossorigin href="/your-energy/assets/refs-CTxKmtPI.css">
+    <link rel="stylesheet" crossorigin href="/your-energy/assets/error-messages-TdYtoWa6.css">
   </head>
   <body>
     
@@ -125,6 +125,7 @@
 
 
       <main class="main">
+
         <!-- <div class="modal rating-modal hidden" data-modal="rating">
   <div class="modal-content">
     <button class="close-rating" data-modal-close aria-label="Close">×</button>
@@ -176,6 +177,7 @@
   </div>
 </div>
  -->
+
         <section class="hero">
   <div class="container">
     <div class="hero-content">
@@ -220,6 +222,50 @@
     </div>
   </div>
 </section>
+        <section class="home-section">
+	<div class="home-header">
+		<h2 class="home-title">
+			Exercises <span id="current-category-name"></span>
+		</h2>
+
+		<div class="search-wrapper">
+			<div class="search">
+				<input
+					type="text"
+					id="search-input"
+					placeholder="Search..."
+					class="search-input"
+				/>
+				<span class="search-icon"
+					><svg width="132" height="24">
+						<use href="./img/sprite.svg#search"></use></svg
+				></span>
+			</div>
+
+
+			<div class="filters">
+				<button class="filter-btn" data-type="Muscles">Muscles</button>
+				<button class="filter-btn" data-type="Body parts">Body parts</button>
+				<button class="filter-btn" data-type="Equipment">Equipment</button>
+			</div>
+	</div>
+	</div>
+
+	<!-- <form id="search-form">
+    <input
+      type="text"
+      id="search-input"
+      placeholder="Search..."
+      autocomplete="off"
+    />
+    <ul id="search-suggestions" class="suggestions-list"></ul>
+  </form> -->
+
+	<div class="cards-container" id="exercise-cards-container"></div>
+	<div class="pagination"></div>
+</section>
+
+
       </main>
 
       <footer class="footer">
