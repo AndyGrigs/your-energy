@@ -4,9 +4,10 @@ export const refs = {
 };
 
 export const modalRefs = {
-	modal: document.getElementById('exerciseModal'),
+	modalExercises: document.getElementById('exerciseModal'),
+	modalRating: document.getElementById('ratingModal'),
 	modalTitle: document.getElementById('modalTitle'),
-	modalRating: document.getElementById('modalRating'),
+	modalRatingValue: document.getElementById('modalRating'),
 	modalImage: document.getElementById('modalImage'),
 	modalTarget: document.getElementById('modalTarget'),
 	modalBodyPart: document.getElementById('modalBodyPart'),
@@ -16,5 +17,6 @@ export const modalRefs = {
 	modalDescription: document.getElementById('modalDescription'),
 	stars: document.querySelectorAll('.star'),
 	favoriteButton: document.getElementById('favoriteButton'),
+	ratingButton: document.getElementById('ratingButton'),
 	closeModalBtn: document.querySelector('.close-button'),
 };

@@ -1,50 +1,50 @@
-<div class="modal rating-modal hidden" data-modal="rating">
-  <div class="modal-content">
-    <button class="close-rating" data-modal-close aria-label="Close">×</button>
+<div class="modal rating-modal hidden" data-modal="rating" id="ratingModal">
+	<div class="modal-content">
+		<button class="close-rating" data-modal-close aria-label="Close">×</button>
 
-    <h3>Rating</h3>
+		<h3>Rating</h3>
 
-    <form id="rating-form">
-      <div class="rating-group">
-        <div class="rating-value">0.0</div>
-        <div class="rating-stars">
-          <input type="radio" id="star-5" name="rating" value="5" />
-          <label for="star-5"
-            ><svg class="star-icon"><use href="/img/sprite.svg#star"></use></svg
-          ></label>
+		<form id="rating-form">
+			<div class="rating-group">
+				<div class="rating-value">0.0</div>
+				<div class="rating-stars">
+					<input type="radio" id="star-5" name="rating" value="5" />
+					<label for="star-5"
+						><svg class="star-icon"><use href="/img/sprite.svg#star"></use></svg
+					></label>
 
-          <input type="radio" id="star-4" name="rating" value="4" />
-          <label for="star-4"
-            ><svg class="star-icon"><use href="/img/sprite.svg#star"></use></svg
-          ></label>
+					<input type="radio" id="star-4" name="rating" value="4" />
+					<label for="star-4"
+						><svg class="star-icon"><use href="/img/sprite.svg#star"></use></svg
+					></label>
 
-          <input type="radio" id="star-3" name="rating" value="3" />
-          <label for="star-3"
-            ><svg class="star-icon"><use href="/img/sprite.svg#star"></use></svg
-          ></label>
+					<input type="radio" id="star-3" name="rating" value="3" />
+					<label for="star-3"
+						><svg class="star-icon"><use href="/img/sprite.svg#star"></use></svg
+					></label>
 
-          <input type="radio" id="star-2" name="rating" value="2" />
-          <label for="star-2"
-            ><svg class="star-icon"><use href="/img/sprite.svg#star"></use></svg
-          ></label>
+					<input type="radio" id="star-2" name="rating" value="2" />
+					<label for="star-2"
+						><svg class="star-icon"><use href="/img/sprite.svg#star"></use></svg
+					></label>
 
-          <input type="radio" id="star-1" name="rating" value="1" />
-          <label for="star-1"
-            ><svg class="star-icon"><use href="/img/sprite.svg#star"></use></svg
-          ></label>
-        </div>
-      </div>
-      <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        required
-        pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
-      />
+					<input type="radio" id="star-1" name="rating" value="1" />
+					<label for="star-1"
+						><svg class="star-icon"><use href="/img/sprite.svg#star"></use></svg
+					></label>
+				</div>
+			</div>
+			<input
+				type="email"
+				name="email"
+				placeholder="Email"
+				required
+				pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+			/>
 
-      <textarea name="comment" placeholder="Your comment" required></textarea>
+			<textarea name="comment" placeholder="Your comment" required></textarea>
 
-      <button type="submit">Send</button>
-    </form>
-  </div>
+			<button type="submit">Send</button>
+		</form>
+	</div>
 </div>

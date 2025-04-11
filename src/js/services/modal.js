@@ -12,7 +12,7 @@ function firstLetterUpperCase(str) {
 
 function openModal(exercise) {
 	modalRefs.modalTitle.textContent = firstLetterUpperCase(exercise.name);
-	modalRefs.modalRating.textContent = exercise.rating;
+	modalRefs.modalRatingValue.textContent = exercise.rating;
 	modalRefs.modalImage.src = exercise.gifUrl;
 	modalRefs.modalImage.alt = exercise.name;
 
@@ -48,25 +48,33 @@ function openModal(exercise) {
 	);
 	modalRefs.closeModalBtn.addEventListener('click', closeModal);
 	window.addEventListener('click', event => {
-		if (event.target === modalRefs.modal) {
+		if (event.target === modalRefs.modalExercises) {
 			closeModal();
 		}
 	});
 
-	modalRefs.modal.classList.remove('hidden');
+	modalRefs.modalExercises.classList.remove('hidden');
 
 	setTimeout(() => {
-		modalRefs.modal.classList.add('show');
+		modalRefs.modalExercises.classList.add('show');
 	}, 10);
 
 	document.body.style.overflow = 'hidden';
+
+	modalRefs.ratingButton.addEventListener('click', () => {
+		console.log('Rating button clicked');
+		console.log(modalRefs.ratingButton);
+		modalRefs.modalExercises.classList.toggle('hidden');
+		console.log(modalRefs.modalRating);
+		modalRefs.modalRating.classList.toggle('hidden');
+	});
 }
 
 function closeModal() {
-	modalRefs.modal.classList.remove('show');
+	modalRefs.modalExercises.classList.remove('show');
 
 	setTimeout(() => {
-		modalRefs.modal.classList.add('hidden');
+		modalRefs.modalExercises.classList.add('hidden');
 		document.body.style.overflow = '';
 	}, 300);
 
