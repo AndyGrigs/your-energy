@@ -3,6 +3,18 @@ import { refs } from './js/constants/refs';
 import { handleScrollForScrollTopBtn, scrollToTop } from './js/services/scroll';
 import lottie from 'lottie-web';
 
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobileMenu');
+const closeMenu = document.getElementById('closeMenu');
+
+burger.addEventListener('click', () => {
+  mobileMenu.classList.add('active');
+});
+
+closeMenu.addEventListener('click', () => {
+  mobileMenu.classList.remove('active');
+});
+
 window.addEventListener('scroll', handleScrollForScrollTopBtn);
 refs.scrollToTopBtn.addEventListener('click', scrollToTop);
 
@@ -41,15 +53,4 @@ document.getElementById('load-btn').addEventListener('click', async () => {
   } catch (err) {
     console.error('Помилка при запиті:', err);
   }
-});
-const burger = document.getElementById('burger');
-const mobileMenu = document.getElementById('mobileMenu');
-const closeMenu = document.getElementById('closeMenu');
-
-burger.addEventListener('click', () => {
-  mobileMenu.classList.add('active');
-});
-
-closeMenu.addEventListener('click', () => {
-  mobileMenu.classList.remove('active');
 });

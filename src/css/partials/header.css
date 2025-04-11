@@ -1,6 +1,8 @@
 :root {
   --bg-light: #F4F4F4;
   --bg-dark: #242424;
+  --social-border: rgba(36, 36, 36, 0.1);
+  --social-border-light: rgba(244, 244, 244, 0.1);
 }
 
 * {
@@ -21,6 +23,11 @@ header {
   padding: 28px;
   background-color: var(--bg-light);
 }
+@media (max-width: 767px) {
+  header {
+    padding: 20px;
+  }
+}
 
 .logo {
   color: var(--bg-dark);
@@ -29,18 +36,10 @@ header {
   font-weight: bold;
 }
 
-.burger {
-  width: 24px;
-  height: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-}
-
-.burger span {
-  height: 3px;
-  background: var(--bg-dark);
+.burger svg {
+  width: 32px;
+  height: 32px;
+  fill: var(--bg-light);
 }
 
 .mobile-menu {
@@ -51,7 +50,7 @@ header {
   width: 100%;
   background-color: var(--bg-dark);
   color: var(--bg-light);
-  padding: 33px;
+  padding: 20px;
   display: none;
   flex-direction: column;
   justify-content: space-between;
@@ -60,13 +59,14 @@ header {
 
 .mobile-menu.active {
   display: flex;
+  align-items: center;
 }
 
-.mobile-menu .close {
+.mobile-menu .closeMenu {
   align-self: flex-end;
-  font-size: 1.5rem;
   cursor: pointer;
-  color: var(--bg-light);
+  fill: var(--bg-light);
+
 }
 
 .mobile-menu nav ul {
@@ -84,29 +84,38 @@ header {
   text-decoration: none;
 }
 
-.socials {
+.socials,
+.socials-desktop {
   display: flex;
-  justify-content: center;
-  gap: 20px;
+  gap: 12px;
 }
 
-.socials li {
+.socials li,
+.socials-desktop li {
   list-style: none;
 }
 
-.socials a {
+.socials a,
+.socials-desktop a {
   display: inline-flex;
   justify-content: center;
   align-items: center;
   width: 44px;
   height: 44px;
-  border-radius: 50%;
+  border-radius: 10px;
   background-color: transparent;
+  border: 1px solid var(--social-border);
 }
 
-.socials svg {
-  width: 24px;
-  height: 24px;
+.socials a {
+  border: 1px solid var(--social-border-light);
+}
+
+
+.socials svg,
+.socials-desktop svg {
+  width: 28px;
+  height: 28px;
   fill: var(--bg-light);
 }
 
@@ -125,7 +134,7 @@ header {
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 32px;
   }
 
   .desktop-nav {
@@ -153,8 +162,6 @@ header {
       background-color: var(--bg-light);
       color: var(--bg-dark);
       border-radius: 26px;
-      width: 68px;
-      height: 36px;
     }
   }
 
@@ -176,6 +183,8 @@ header {
     background-color: var(--bg-light);
     color: var(--bg-dark);
     border-radius: 26px;
+    width: 68px;
+    height: 36px;
   }
 
   .desktop-nav li a {
@@ -185,10 +194,14 @@ header {
 
   .socials-desktop {
     display: flex;
-    gap: 10px;
+    gap: 12px;
   }
 
   .socials-desktop a svg {
     fill: var(--bg-dark);
+  }
+
+  .socials-desktop a {
+    border-color: var(--social-border);
   }
 }
