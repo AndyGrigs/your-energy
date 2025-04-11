@@ -12,10 +12,9 @@
     />
     <link rel="stylesheet" href="iziToast.min.css" />
     <title>YourEnergy | Favorites</title>
-    <script type="module" crossorigin src="/your-energy/favorites.js"></script>
-    <link rel="modulepreload" crossorigin href="/your-energy/assets/vendor-M0pO2yrp.js">
-    <link rel="modulepreload" crossorigin href="/your-energy/assets/error-messages-Bd4pWVpB.js">
-    <link rel="stylesheet" crossorigin href="/your-energy/assets/error-messages-TdYtoWa6.css">
+    <script type="module" crossorigin src="/your-energy/assets/vendor-M0pO2yrp.js"></script>
+    <script type="module" crossorigin src="/your-energy/assets/favorites-BSkPwvDC.js"></script>
+    <link rel="stylesheet" crossorigin href="/your-energy/assets/favorites-D8l1hpHX.css">
     <link rel="stylesheet" crossorigin href="/your-energy/assets/vendor-DnveWo0P.css">
   </head>
   <body>
@@ -104,11 +103,11 @@
 
 
       <div class="container wrapper">
-  <div class="favorites-section-wrapper">
-    <h1 class="favorites-section-title">Favorites</h1>
-    <div class="desktop-favorites-section">
-      <div class="left-section-part">
-        <div class="quote-day-card">
+	<div class="favorites-section-wrapper">
+		<h1 class="favorites-section-title">Favorites</h1>
+		<div class="desktop-favorites-section">
+			<div class="left-section-part">
+				<div class="quote-day-card">
   <span class="quote-icon-running">
     <img
       src="../img/quote_icon_1.svg"
@@ -134,7 +133,7 @@
   </span>
 </div>
 
-        <div class="time-card-wrapper">
+				<div class="time-card-wrapper">
   <div class="time-min-card">
     <span class="time-icon-gantel">
       <img
@@ -166,19 +165,19 @@
   </div>
 </div>
 
-      </div>
-      <div class="right-section-part">
-        <div class="workout-list-wrapper">
-          <p class="not-items-message" hidden>
-            It appears that you haven't added any exercises to your favorites
-            yet. To get started, you can add exercises that you like to your
-            favorites for easier access in the future.
-          </p>
-          <ul class="workout-list"></ul>
-        </div>
-      </div>
-    </div>
-  </div>
+			</div>
+			<div class="right-section-part">
+				<div class="workout-list-wrapper">
+					<p class="not-items-message" hidden>
+						It appears that you haven't added any exercises to your favorites
+						yet. To get started, you can add exercises that you like to your
+						favorites for easier access in the future.
+					</p>
+					<ul class="workout-list" id="exercise-cards-container"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 

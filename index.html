@@ -15,9 +15,9 @@
     <title>YourEnergy | Home</title>
     <script type="module" crossorigin src="/your-energy/index.js"></script>
     <link rel="modulepreload" crossorigin href="/your-energy/assets/vendor-M0pO2yrp.js">
-    <link rel="modulepreload" crossorigin href="/your-energy/assets/error-messages-Bd4pWVpB.js">
+    <link rel="modulepreload" crossorigin href="/your-energy/assets/favorites-BSkPwvDC.js">
     <link rel="stylesheet" crossorigin href="/your-energy/assets/vendor-DnveWo0P.css">
-    <link rel="stylesheet" crossorigin href="/your-energy/assets/error-messages-TdYtoWa6.css">
+    <link rel="stylesheet" crossorigin href="/your-energy/assets/favorites-D8l1hpHX.css">
   </head>
   <body>
     
@@ -126,55 +126,64 @@
 
       <main class="main">
 
-        <!-- <div class="modal rating-modal hidden" data-modal="rating">
-  <div class="modal-content">
-    <button class="close-rating" data-modal-close aria-label="Close">×</button>
+        <!-- <div class="modal hidden" id="ratingModal">
+	<div class="rating-modal" data-modal="rating">
+		<div class="modal-content">
+			<button class="close-rating" data-modal-close aria-label="Close">
+				×
+			</button>
 
-    <h3>Rating</h3>
+			<h3>Rating</h3>
 
-    <form id="rating-form">
-      <div class="rating-group">
-        <div class="rating-value">0.0</div>
-        <div class="rating-stars">
-          <input type="radio" id="star-5" name="rating" value="5" />
-          <label for="star-5"
-            ><svg class="star-icon"><use href="/img/sprite.svg#star"></use></svg
-          ></label>
+			<form id="rating-form">
+				<div class="rating-group">
+					<div class="rating-value">0.0</div>
+					<div class="rating-stars">
+						<input type="radio" id="star-5" name="rating" value="5" />
+						<label for="star-5"
+							><svg class="star-icon">
+								<use href="/img/sprite.svg#star"></use></svg
+						></label>
 
-          <input type="radio" id="star-4" name="rating" value="4" />
-          <label for="star-4"
-            ><svg class="star-icon"><use href="/img/sprite.svg#star"></use></svg
-          ></label>
+						<input type="radio" id="star-4" name="rating" value="4" />
+						<label for="star-4"
+							><svg class="star-icon">
+								<use href="/img/sprite.svg#star"></use></svg
+						></label>
 
-          <input type="radio" id="star-3" name="rating" value="3" />
-          <label for="star-3"
-            ><svg class="star-icon"><use href="/img/sprite.svg#star"></use></svg
-          ></label>
+						<input type="radio" id="star-3" name="rating" value="3" />
+						<label for="star-3"
+							><svg class="star-icon">
+								<use href="/img/sprite.svg#star"></use></svg
+						></label>
 
-          <input type="radio" id="star-2" name="rating" value="2" />
-          <label for="star-2"
-            ><svg class="star-icon"><use href="/img/sprite.svg#star"></use></svg
-          ></label>
+						<input type="radio" id="star-2" name="rating" value="2" />
+						<label for="star-2"
+							><svg class="star-icon">
+								<use href="/img/sprite.svg#star"></use></svg
+						></label>
 
-          <input type="radio" id="star-1" name="rating" value="1" />
-          <label for="star-1"
-            ><svg class="star-icon"><use href="/img/sprite.svg#star"></use></svg
-          ></label>
-        </div>
-      </div>
-      <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        required
-        pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
-      />
+						<input type="radio" id="star-1" name="rating" value="1" />
+						<label for="star-1"
+							><svg class="star-icon">
+								<use href="/img/sprite.svg#star"></use></svg
+						></label>
+					</div>
+				</div>
+				<input
+					type="email"
+					name="email"
+					placeholder="Email"
+					required
+					pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+				/>
 
-      <textarea name="comment" placeholder="Your comment" required></textarea>
+				<textarea name="comment" placeholder="Your comment" required></textarea>
 
-      <button type="submit">Send</button>
-    </form>
-  </div>
+				<button type="submit">Send</button>
+			</form>
+		</div>
+	</div>
 </div>
  -->
 
@@ -346,6 +355,148 @@
     <use href="/your-energy/img/sprite.svg#arrow-to-top-right"></use>
   </svg>
 </button>
+
+      <div id="exerciseModal" class="modal hidden">
+	<div class="modal-content" id="exerciseModalContent">
+		<span class="close-button">
+			<svg>
+				<use href="./img/sprite.svg#close"></use>
+			</svg>
+		</span>
+		<div class="modal-data">
+			<div class="img-container">
+				<img
+					id="modalImage"
+					src="https://ftp.goit.study/img/power-pulse/gifs/0003.gif"
+					alt=""
+				/>
+			</div>
+			<div class="text-container">
+				<div>
+					<h2 id="modalTitle">Air bake</h2>
+					<div class="rating-container">
+						<span id="modalRating">4.0</span>
+						<div class="stars">
+							<svg class="star">
+								<use href="./img/sprite.svg#star"></use>
+							</svg>
+							<svg class="star">
+								<use href="./img/sprite.svg#star"></use>
+							</svg>
+							<svg class="star">
+								<use href="./img/sprite.svg#star"></use>
+							</svg>
+							<svg class="star">
+								<use href="./img/sprite.svg#star"></use>
+							</svg>
+							<svg class="star">
+								<use href="./img/sprite.svg#star"></use>
+							</svg>
+						</div>
+					</div>
+				</div>
+				<ul class="info-container">
+					<li class="info">
+						<h3>Target</h3>
+						<p id="modalTarget">Cardiovascular system</p>
+					</li>
+					<li class="info">
+						<h3>Body Part</h3>
+						<p id="modalBodyPart">Cardio</p>
+					</li>
+					<li class="info">
+						<h3>Equipment</h3>
+						<p id="modalEquipment">Leverage machine</p>
+					</li>
+					<li class="info">
+						<h3>Popular</h3>
+						<p id="modalPopular">0</p>
+					</li>
+					<li class="info">
+						<h3>Burned calories</h3>
+						<p id="modalCalories">116/3 min</p>
+					</li>
+				</ul>
+				<p id="modalDescription" class="description">
+					While not a muscle, this system is essential for endurance training.
+					Aerobic exercises like running, cycling, and swimming improve
+					cardiovascular health.
+				</p>
+			</div>
+		</div>
+		<div class="btn-container">
+			<button id="favoriteButton" class="modal-btn add-fav-btn">
+				Add to favorites
+				<svg>
+					<use href="./img/sprite.svg#heart"></use>
+				</svg>
+			</button>
+			<button id="ratingButton" class="modal-btn add-rate-btn">
+				Give a rating
+			</button>
+		</div>
+	</div>
+</div>
+
+      <div class="modal hidden" id="ratingModal">
+	<div class="rating-modal" data-modal="rating">
+		<div class="modal-content">
+			<button class="close-rating" data-modal-close aria-label="Close">
+				×
+			</button>
+
+			<h3>Rating</h3>
+
+			<form id="rating-form">
+				<div class="rating-group">
+					<div class="rating-value">0.0</div>
+					<div class="rating-stars">
+						<input type="radio" id="star-5" name="rating" value="5" />
+						<label for="star-5"
+							><svg class="star-icon">
+								<use href="/your-energy/img/sprite.svg#star"></use></svg
+						></label>
+
+						<input type="radio" id="star-4" name="rating" value="4" />
+						<label for="star-4"
+							><svg class="star-icon">
+								<use href="/your-energy/img/sprite.svg#star"></use></svg
+						></label>
+
+						<input type="radio" id="star-3" name="rating" value="3" />
+						<label for="star-3"
+							><svg class="star-icon">
+								<use href="/your-energy/img/sprite.svg#star"></use></svg
+						></label>
+
+						<input type="radio" id="star-2" name="rating" value="2" />
+						<label for="star-2"
+							><svg class="star-icon">
+								<use href="/your-energy/img/sprite.svg#star"></use></svg
+						></label>
+
+						<input type="radio" id="star-1" name="rating" value="1" />
+						<label for="star-1"
+							><svg class="star-icon">
+								<use href="/your-energy/img/sprite.svg#star"></use></svg
+						></label>
+					</div>
+				</div>
+				<input
+					type="email"
+					name="email"
+					placeholder="Email"
+					required
+					pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+				/>
+
+				<textarea name="comment" placeholder="Your comment" required></textarea>
+
+				<button type="submit">Send</button>
+			</form>
+		</div>
+	</div>
+</div>
 
     </div>
 
