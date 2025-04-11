@@ -1,4 +1,4 @@
-import{g as n,a as c}from"./assets/refs-D9_6AxTM.js";import{a as s}from"./assets/vendor-DmlZq1pp.js";const i=async()=>{const{data:t}=await s.get("/quote");return t},u=()=>new Date().toISOString().split("T")[0],d=async()=>{try{const t=await i(),e=u(),o={...t,date:e};return localStorage.setItem("quoteOfTheDay",JSON.stringify(o)),o}catch(t){const{status:e}=t,o=n[e]||`Unexpected error (${t.message||"unknown"})`;throw{code:e,message:o}}};async function g(t,e){try{const o=await d(),r=o.author,a=o.quote;t.textContent=a,e.textContent=r,console.log(t)}catch(o){console.log("🚀 ~ error in getQuoteOfTheDay data rendering:",o)}}function l(t,e,o=!0){if(!e||e.length===0){t.innerHTML="";return}const r=e.map(a=>`
+import{g as i}from"./assets/refs-vsKW8iO3.js";import{a as l}from"./assets/vendor-DmlZq1pp.js";const d=async()=>{const{data:t}=await l.get("/quote");return t},u=()=>new Date().toISOString().split("T")[0],g=async()=>{try{const t=await d(),e=u(),o={...t,date:e};return localStorage.setItem("quoteOfTheDay",JSON.stringify(o)),o}catch(t){const{status:e}=t,o=i[e]||`Unexpected error (${t.message||"unknown"})`;throw{code:e,message:o}}};async function h(t,e){try{const o=JSON.parse(localStorage.getItem("quoteOfTheDay")),a=u(),r=o.date;let s,n;if(a===r)s=o.author,n=o.quote;else{const c=await g();s=c.author,n=c.quote}t.textContent=n,e.textContent=s}catch(o){console.log("🚀 ~ error in getQuoteOfTheDay data rendering:",o)}}function y(t,e,o=!0){if(!e||e.length===0){t.innerHTML="";return}const a=e.map(r=>`
     <li class="workout-list-item">
       <div class="workout-card">
         <div class="workout-header">
@@ -19,14 +19,14 @@ import{g as n,a as c}from"./assets/refs-D9_6AxTM.js";import{a as s}from"./assets
               alt="Running Icon"
             />
           </span>        
-          <h3 class="workout-name">${a.name}</h3>
+          <h3 class="workout-name">${r.name}</h3>
           <p class="workout-stats">
-            Burned calories: ${a.burnedCalories} / ${a.time} min
+            Burned calories: ${r.burnedCalories} / ${r.time} min
             <br>
-            Body part: ${a.bodyPart} <br>  Target: ${a.target}
+            Body part: ${r.bodyPart} <br>  Target: ${r.target}
           </p>
         </div>
       </div>
     </li>
-    `).join("");t.innerHTML=r}const h=async t=>{const{data:e}=await s.get(`/exercises/${t}`);return e},m=async t=>{try{return await h(t)}catch(e){const{status:o}=e,r=c[o]||`Unexpected error (${e.message||"unknown"})`;throw{code:o,message:r}}},y=document.querySelector(".quote-day-card-text"),f=document.querySelector(".quote-day-card-author"),w=document.querySelector(".workout-list");async function k(){try{let t=[];const e=localStorage.getItem("favorites"),o=JSON.parse(e);for(const r of o){const a=await m(r);t.push(a)}l(w,t)}catch(t){console.log("🚀 ~ error in getFavoritesItems data rendering:",t)}}g(y,f);const p="64f389465ae26083f39b17a2",_="64f389465ae26083f39b17a7",b="64f389465ae26083f39b17a4",v="64f389465ae26083f39b17a5",x=[p,_,b,v],q=JSON.stringify(x);localStorage.setItem("favorites",q);k();
+    `).join("");t.innerHTML=a}const m=document.querySelector(".quote-day-card-text"),p=document.querySelector(".quote-day-card-author"),w=document.querySelector(".workout-list");async function f(){try{const t=localStorage.getItem("favorites"),e=JSON.parse(t);if(e&&e.length>0)y(w,e);else{const o=document.querySelector(".not-items-message");o.style.display="block"}}catch(t){console.log("🚀 ~ error in getFavoritesItems data rendering:",t)}}h(m,p);f();
 //# sourceMappingURL=favorites.js.map
