@@ -50,38 +50,38 @@ if (subscribeForm) {
   });
 }
 
-//лише для тесту
-import { Loader } from './js/services/loader.js';
+//лише для тесту ПРИКЛАД ВИКОРИСТАННЯ Loader
+// import { Loader } from './js/services/loader.js';
 
-const redLoader = new Loader({
-  target: '#red-loader',
-  size: 50,
-  color: 'red',
-});
+// const redLoader = new Loader({
+//   target: '#red-loader',
+//   size: 50,
+//   color: 'red',
+// });
 
-document.getElementById('red-btn').addEventListener('click', async () => {
-  redLoader.show();
-  await new Promise(res => setTimeout(res, 3000));
-  redLoader.hide();
-});
+// document.getElementById('red-btn').addEventListener('click', async () => {
+//   redLoader.show();
+//   await new Promise(res => setTimeout(res, 3000));
+//   redLoader.hide();
+// });
 
-const blueLoader = new Loader({
-  target: '#blue-loader',
-  size: 75,
-  color: 'blue',
-});
+// const blueLoader = new Loader({
+//   target: '#blue-loader',
+//   size: 75,
+//   color: 'blue',
+// });
 
-document.getElementById('blue-btn').addEventListener('click', async () => {
-  blueLoader.show();
-  await new Promise(res => setTimeout(res, 3000));
-  blueLoader.hide();
-});
+// document.getElementById('blue-btn').addEventListener('click', async () => {
+//   blueLoader.show();
+//   await new Promise(res => setTimeout(res, 3000));
+//   blueLoader.hide();
+// });
 
-const blackLoader = new Loader({
-  target: '#black-loader',
-  size: 100,
-  color: 'black',
-});
+// const blackLoader = new Loader({
+//   target: '#black-loader',
+//   size: 100,
+//   color: 'black',
+// });
 
 document.getElementById('black-btn').addEventListener('click', async () => {
   blackLoader.show();
