@@ -11,12 +11,9 @@ export async function renderQuoteOfTheDay(quoteText, quoteAuthor) {
 		let authorName;
 		let authorQuote;
 
-		if (ls_data != null) {
-			qouteDate = ls_data.date;
-			if (todayDate === qouteDate) {
-				authorName = ls_data.author;
-				authorQuote = ls_data.quote;
-			}
+		if (ls_data != null && ls_data.date === todayDate) {
+			authorName = ls_data.author;
+			authorQuote = ls_data.quote;
 		} else {
 			const requestData = await handleGetQuoteOfTheDay();
 			authorName = requestData.author;
