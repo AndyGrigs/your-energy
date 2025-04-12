@@ -16,7 +16,7 @@
 	},
 	"author": "Andriy <andygrigs88@gmail.com>",
 	"license": "ISC",
-	"homepage": "/your-energy/",
+	"homepage": "/your-energy",
 	"dependencies": {
 		"axios": "^1.8.4",
 		"izitoast": "^1.4.0",
