@@ -15,7 +15,6 @@ let allCategories = [];
 export function initFilters() {
 	const filterButtons = document.querySelectorAll('.filter-btn');
 
-
 	filterButtons.forEach(button => {
 		button.addEventListener('click', e => {
 			const clickedLabel = e.currentTarget.dataset.type.toLowerCase().trim();
@@ -32,7 +31,6 @@ export function initFilters() {
 		});
 	});
 
-	
 	loadAllCategories().then(() => {
 		state.filter = 'muscles';
 
@@ -56,18 +54,17 @@ async function loadAllCategories() {
 		allCategories = response.results;
 		const markup = allCategories.map(createCategoryCard).join('');
 		container.innerHTML = markup;
-    bindCategoryClickHandlers();
+		bindCategoryClickHandlers();
 	} catch (error) {
 		console.error('❌ Категорії не завантажено:', error.message);
 		container.innerHTML = '<p>Error loading categories.</p>';
 	}
-//   initSearch();
+	//   initSearch();
 }
 
 function renderCategoriesByFilter(filterKey) {
 	const title = document.getElementById('current-category-name');
 	if (title) title.textContent = '';
-
 
 	container.innerHTML = '<p>Loading filtered categories...</p>';
 
@@ -98,21 +95,22 @@ function bindCategoryClickHandlers() {
 	document.querySelectorAll('.category-card').forEach(card => {
 		card.addEventListener('click', () => {
 			const categoryName = card.dataset.name;
-      const categoryType = card.dataset.type?.toLowerCase().trim();
-			handleCategoryClick(categoryName, categoryType);
+			const categoryType = card.dataset.type?.toLowerCase().trim();
+			handleCategoryClick(categoryName, categoryType, card);
 		});
 	});
 }
 
 function createCategoryCard(category) {
-  
 	return `
     <div class="category-card" 
      data-name="${category.name}" 
      data-type="${category.filter}" 
      data-id="${category.id}">
 	 <div class="overlay"></div>
-  <div class="category-card-bg" style="background-image: url('${category.imgURL}')">
+  <div class="category-card-bg" style="background-image: url('${
+		category.imgURL
+	}')">
     <div class="category-card-text">
       <h3 class="category-card-title">${capitalize(category.name)}</h3>
       <p class="category-card-sub">${capitalize(category.filter)}</p>
@@ -152,7 +150,6 @@ export function toggleSearchInput(show) {
 		search.classList.add('hidden');
 	}
 }
-
 
 function capitalize(str) {
 	return str.charAt(0).toUpperCase() + str.slice(1);

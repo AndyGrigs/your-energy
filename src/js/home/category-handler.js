@@ -1,6 +1,7 @@
 import { handleGetExercisesByFilters } from '../services/exercises';
 import { state } from './filter-state';
 import { toggleSearchInput } from './home';
+import { Loader } from '../services/loader.js';
 
 const filterParamMap = {
 	'body parts': 'bodypart',
@@ -8,7 +9,12 @@ const filterParamMap = {
 	equipment: 'equipment',
 };
 
-export function handleCategoryClick(categoryName, filterType) {
+const loader = new Loader({
+	size: 200,
+	color: '#f4f4f4',
+});
+
+export function handleCategoryClick(categoryName, filterType, targetEl) {
 	toggleSearchInput(true);
 
 	state.category = categoryName;
@@ -21,15 +27,14 @@ export function handleCategoryClick(categoryName, filterType) {
 
 	const title = document.getElementById('current-category-name');
 	if (title) title.textContent = ` / ${capitalize(categoryName)}`;
-
-	loadExercisesByCategory();
+	loadExercisesByCategory(targetEl);
 }
 
-export async function loadExercisesByCategory() {
+export async function loadExercisesByCategory(targetEl) {
 	const container = document.getElementById('exercise-cards-container');
-	container.innerHTML = '<p>Loading exercises...</p>';
 
 	try {
+		await loader.show(targetEl);
 		const filterKey = filterParamMap[state.filter.toLowerCase()];
 		if (!filterKey) {
 			console.warn('❗ Невідомий фільтр:', state.filter);
@@ -46,7 +51,7 @@ export async function loadExercisesByCategory() {
 		const response = await handleGetExercisesByFilters(query);
 		const exercises = response.results;
 
-    state.exercises = exercises;
+		state.exercises = exercises;
 
 		if (!exercises.length) {
 			container.innerHTML = '<p>No exercises found.</p>';
@@ -54,35 +59,37 @@ export async function loadExercisesByCategory() {
 		}
 
 		container.innerHTML = exercises.map(createExerciseCard).join('');
+
+		await loader.hide(targetEl);
 	} catch (error) {
 		container.innerHTML = '<p>Error loading exercises.</p>';
 		console.error('❌ Exercise loading error:', error.message);
 	}
-  initExerciseSearch()
+	initExerciseSearch();
+	loader.hide('exercise-cards-container');
 }
 
 function initExerciseSearch() {
-  const input = document.getElementById('search-input');
-  if (!input) return;
+	const input = document.getElementById('search-input');
+	if (!input) return;
 
-  input.addEventListener('input', e => {
-    const value = e.target.value.trim().toLowerCase();
+	input.addEventListener('input', e => {
+		const value = e.target.value.trim().toLowerCase();
 
-    const filtered = state.exercises.filter(ex =>
-      ex.name.toLowerCase().includes(value)
-    );
+		const filtered = state.exercises.filter(ex =>
+			ex.name.toLowerCase().includes(value)
+		);
 
-    const container = document.getElementById('exercise-cards-container');
+		const container = document.getElementById('exercise-cards-container');
 
-    if (!filtered.length) {
-      container.innerHTML = '<p>No matching exercises found.</p>';
-      return;
-    }
+		if (!filtered.length) {
+			container.innerHTML = '<p>No matching exercises found.</p>';
+			return;
+		}
 
-    container.innerHTML = filtered.map(createExerciseCard).join('');
-  });
+		container.innerHTML = filtered.map(createExerciseCard).join('');
+	});
 }
-
 
 function createExerciseCard(ex) {
 	console.log(ex);
@@ -97,7 +104,9 @@ function createExerciseCard(ex) {
             </svg>
           </div>
             
-          <button class="start-button" data-exercise-id=${ex._id}>Start ➔</button>
+          <button class="start-button" data-exercise-id=${
+						ex._id
+					}>Start ➔</button>
         </div>
         <div class="workout-body">
           <span class="workout-icon-running">
@@ -110,7 +119,9 @@ function createExerciseCard(ex) {
           </span>        
           <h3 class="workout-name">${capitalize(ex.name)}</h3>
           <p class="workout-stats">
-          <span>Burned calories: <b>${ex.burnedCalories}/${ex.time} min</b></span> 
+          <span>Burned calories: <b>${ex.burnedCalories}/${
+		ex.time
+	} min</b></span> 
           <span> Body part: <b>${ex.bodyPart}</b></span>
           <span>Target: <b>${ex.target}</b></span> 
           </p>
