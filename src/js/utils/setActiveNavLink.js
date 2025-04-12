@@ -12,7 +12,7 @@ export const setActiveLink = () => {
 	links.forEach(link => {
 		const linkHref = isLocalhost
 			? link.getAttribute('href')
-			: `/your-energy-test${link.getAttribute('href')}`;
+			: `/your-energy${link.getAttribute('href')}`;
 
 		console.log('---');
 		console.log('🚀 ~ linkHref:', linkHref);
