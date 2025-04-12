@@ -32,13 +32,13 @@ if (subscribeForm) {
 }
 
 //лише для тесту
-import { Loader } from './js/services/loader.js';
+// import { Loader } from './js/services/loader.js';
 
-const redLoader = new Loader({
-	target: '#red-loader',
-	size: 50,
-	color: 'red',
-});
+// const redLoader = new Loader({
+// 	target: '#red-loader',
+// 	size: 50,
+// 	color: 'red',
+// });
 
 // document.getElementById('red-btn').addEventListener('click', async () => {
 //   redLoader.show();
@@ -64,16 +64,18 @@ const redLoader = new Loader({
 //   color: 'black',
 // });
 
-document.getElementById('black-btn').addEventListener('click', async () => {
-	blackLoader.show();
-	await new Promise(res => setTimeout(res, 3000));
-	blackLoader.hide();
-});
+// document.getElementById('black-btn').addEventListener('click', async () => {
+// 	blackLoader.show();
+// 	await new Promise(res => setTimeout(res, 3000));
+// 	blackLoader.hide();
+// });
 
-const baseUrl = packageData.homepage || '';
+const baseUrl = `${window.location.origin}${packageData.homepage || ''}`;
+
+const interanlLinks = document.querySelectorAll('a[href^="/"]');
 
 if (baseUrl) {
-	document.querySelectorAll('a[href^="/"]').forEach(anchor => {
+	interanlLinks.forEach(anchor => {
 		const relativeHref = anchor.getAttribute('href');
 		anchor.href = new URL(relativeHref, baseUrl).toString();
 	});
