@@ -18,7 +18,7 @@ export const modalRefs = {
 	stars: document.querySelectorAll('.star'),
 	favoriteButton: document.getElementById('favoriteButton'),
 	ratingButton: document.getElementById('ratingButton'),
-	closeModalBtn: document.querySelector('.close-button'),
+	closeModalBtn: document.getElementById('closeModalBtn'),
 };
 
 export const mobileMenuRefs = {
