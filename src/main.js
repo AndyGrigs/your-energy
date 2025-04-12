@@ -1,35 +1,13 @@
 import lottie from 'lottie-web';
-import { refs } from './js/constants/refs';
 import { handleSubscription } from './js/services/subscriptions';
+import { mobileMenuRefs, refs } from './js/constants/refs';
 import { handleScrollForScrollTopBtn, scrollToTop } from './js/services/scroll';
+import { setActiveLink } from './js/utils/setActiveNavLink.js';
+
+import * as mobileMenu from './js/sharedComponents/mobile-menu.js';
 import { initFilters } from './js/home/home';
 import './js/partials/rating-modal.js';
 import './js/services/modal.js';
-
-const burger = document.getElementById('burger');
-const mobileMenu = document.getElementById('mobileMenu');
-const closeMenu = document.getElementById('closeMenu');
-
-document.addEventListener('DOMContentLoaded', () => {
-	initFilters();
-
-	// ініціалізація loader
-	lottie.loadAnimation({
-		container: document.getElementById('loader'),
-		renderer: 'svg',
-		loop: true,
-		autoplay: true,
-		path: '/animations/loader.json',
-	});
-});
-
-burger.addEventListener('click', () => {
-	mobileMenu.classList.add('active');
-});
-
-closeMenu.addEventListener('click', () => {
-	mobileMenu.classList.remove('active');
-});
 
 window.addEventListener('scroll', handleScrollForScrollTopBtn);
 refs.scrollToTopBtn.addEventListener('click', scrollToTop);
@@ -48,14 +26,14 @@ if (subscribeForm) {
 	});
 }
 
-//лише для тесту ПРИКЛАД ВИКОРИСТАННЯ Loader
-// import { Loader } from './js/services/loader.js';
+//лише для тесту
+import { Loader } from './js/services/loader.js';
 
-// const redLoader = new Loader({
-//   target: '#red-loader',
-//   size: 50,
-//   color: 'red',
-// });
+const redLoader = new Loader({
+	target: '#red-loader',
+	size: 50,
+	color: 'red',
+});
 
 // document.getElementById('red-btn').addEventListener('click', async () => {
 //   redLoader.show();

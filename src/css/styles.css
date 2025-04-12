@@ -3,6 +3,9 @@
 @import url('./izi-toast.css');
 /* Sections style */
 @import url('./partials/header.css');
+@import url('./partials/sharedComponentsStyles/navigation.css');
+@import url('./partials/sharedComponentsStyles/socials.css');
+@import url('./partials/mobile-menu.css');
 @import url('./partials/favorites.css');
 @import url('./partials/hero.css');
 @import url('./partials/footer.css');
@@ -18,6 +21,19 @@
 	--test-size-mobile: 18px;
 	--accent-color: #242424;
 	--bg-color: #f4f4f4;
+	/* Transitions */
+	--fast-trns: 300ms ease;
+	--text-color: black;
+	--text-size: 14px;
+	--test-size-mobile: 18px;
+	--accent-color: #242424;
+	--bg-color: #f4f4f4;
+
+	--social-border-header: rgba(36, 36, 36, 0.1);
+	--social-border-mobile-menu: rgba(244, 244, 244, 0.1);
+	--social-icon-header: rgba(36, 36, 36, 0.8);
+	--social-icon--mobile-menu: rgba(244, 244, 244, 0.8);
+
 	/* Transitions */
 	--fast-trns: 300ms ease;
 }

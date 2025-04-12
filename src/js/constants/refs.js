@@ -20,3 +20,11 @@ export const modalRefs = {
 	ratingButton: document.getElementById('ratingButton'),
 	closeModalBtn: document.querySelector('.close-button'),
 };
+
+export const mobileMenuRefs = {
+  burgerButton: document.querySelector('.js-burger-button'),
+  mobileMenu: document.querySelector('.mobile-menu-js'),
+  backdrop: document.querySelector('.mobile-backdrop-js'),
+  closeButton: document.querySelector('.mobile-menu-close-js'),
+  navLinks: document.querySelectorAll('.nav-links.mobile-menu .nav-link'),
+};
