@@ -8,10 +8,11 @@ import * as mobileMenu from './js/sharedComponents/mobile-menu.js';
 import { initFilters } from './js/home/home';
 import './js/partials/rating-modal.js';
 import './js/services/modal.js';
+import packageData from '../package.json' assert { type: 'json' };
 
 document.addEventListener('DOMContentLoaded', () => {
 	initFilters();
-  });
+});
 
 window.addEventListener('scroll', handleScrollForScrollTopBtn);
 refs.scrollToTopBtn.addEventListener('click', scrollToTop);
@@ -68,3 +69,12 @@ document.getElementById('black-btn').addEventListener('click', async () => {
 	await new Promise(res => setTimeout(res, 3000));
 	blackLoader.hide();
 });
+
+const baseUrl = packageData.homepage || '';
+
+if (baseUrl) {
+	document.querySelectorAll('a[href^="/"]').forEach(anchor => {
+		const relativeHref = anchor.getAttribute('href');
+		anchor.href = new URL(relativeHref, baseUrl).toString();
+	});
+}
