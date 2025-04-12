@@ -3,7 +3,7 @@
   color: var(--bg-color);
   padding: 45px 0 10px;
 
-  @media (min-width: 640px) {
+  @media (min-width: 768px) {
     padding: 64px 0 16px;
   }
 
@@ -13,7 +13,7 @@
     margin: 0 auto;
     padding: 0 20px;
 
-    @media (min-width: 640px) {
+    @media (min-width: 768px) {
       padding: 0 32px;
     }
   }
@@ -22,6 +22,8 @@
     display: grid;
     grid-column-gap: 32px;
     grid-row-gap: 32px;
+    max-width: 335px;
+    margin: 0 auto;
 
     &.footer-ending {
       grid-template-columns: repeat(3, 1fr);
@@ -33,7 +35,8 @@
       .col-3 { grid-area: 2 / 3 / 3 / 4; }
     }
 
-    @media (min-width: 640px) {
+    @media (min-width: 768px) {
+      max-width: unset;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(2, 1fr);
 
@@ -48,7 +51,7 @@
       }
     }
 
-    @media (min-width: 1070px) {
+    @media (min-width: 1440px) {
       grid-template-columns: repeat(9, 1fr);
       grid-template-rows: 1fr;
 
@@ -79,7 +82,7 @@
     display: flex;
     gap: 12px;
 
-    @media (min-width: 640px) {
+    @media (min-width: 768px) {
       margin-top: 32px;
     }
 
@@ -103,7 +106,7 @@
         color: var(--bg-color);
         fill: currentColor;
 
-        @media (min-width: 640px) {
+        @media (min-width: 768px) {
           width: 28px;
           height: 28px;
         }
@@ -113,11 +116,16 @@
 
   .heading {
     display: inline-block;
-    font-size: 56px;
+    font-size: 38px;
+    line-height: 44px;
     font-weight: 400;
-    line-height: 60px;
-    letter-spacing: 1.64px;
     max-width: 595px;
+
+    @media (min-width: 768px) {
+      font-size: 56px;
+      line-height: 60px;
+      letter-spacing: 1.64px;
+    }
   }
 
   form {
@@ -127,13 +135,18 @@
     max-width: 352px;
 
 
-    @media (min-width: 1070px) {
+    @media (min-width: 1440px) {
       margin-left: auto;
     }
 
     p {
-      font-size: 18px;
-      line-height: 1.33;
+      font-size: 14px;
+      line-height: 18px;
+
+      @media (min-width: 768px) {
+        font-size: 18px;
+        line-height: 1.33;
+      }
     }
 
     input {
@@ -166,7 +179,7 @@
     margin-top: 120px;
     color: rgba(198, 205, 209, 0.9);
 
-    @media (min-width: 640px) {
+    @media (min-width: 768px) {
       margin-top: 70px;
     }
 
@@ -183,7 +196,7 @@
       margin-left: auto;
       text-align: right;
 
-      @media (min-width: 1070px) {
+      @media (min-width: 1440px) {
         text-align: left;
       }
     }
