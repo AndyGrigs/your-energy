@@ -1,0 +1,83 @@
+.mobile-backdrop {
+  visibility: hidden;
+  opacity: 0;
+
+  position: fixed;
+  z-index: 10;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+
+  transition: visibility 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+@media screen and (min-width: 1280px) {
+  .backdrop {
+    display: none;
+  }
+}
+
+.mobile-menu-panel {
+  position: fixed;
+
+  top: 0;
+  right: 0;
+
+  width: calc(100% / 2 + 22.5px);
+  height: 100vh;
+
+  padding: 20px;
+  padding-right: calc((100% / 2 + 22.5px) - 190px);
+
+  background-color: var(--accent-color);
+
+  transform: translateX(100%);
+
+  transition: transform 0.3s ease-in-out 0.3s;
+}
+
+.mobile-menu-close-btn {
+  display: block;
+
+  border: none;
+  padding: 0;
+
+  margin-left: auto;
+
+  color: rgb(var(--cl-white));
+  background-color: transparent;
+
+  transition: transform 0.3s ease-in-out;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
+}
+
+.mobile-menu-close-icon {
+  display: block;
+  stroke: rgb(var(--cl-white));
+}
+
+.mobile-menu-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  margin-top: 228px;
+  height: calc(100% - 228px - 32px);
+}
+
+/* .backdrop.is-active {
+  display: block;
+}
+
+.mobile-menu.is-active {
+  transform: translateX(0);
+} */

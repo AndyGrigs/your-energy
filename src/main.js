@@ -1,19 +1,17 @@
-import { handleSubscription } from './js/services/subscriptions';
-import { refs } from './js/constants/refs';
-import { handleScrollForScrollTopBtn, scrollToTop } from './js/services/scroll';
 import lottie from 'lottie-web';
+import { handleSubscription } from './js/services/subscriptions';
+import { mobileMenuRefs, refs } from './js/constants/refs';
+import { handleScrollForScrollTopBtn, scrollToTop } from './js/services/scroll';
+import { setActiveLink } from './js/utils/setActiveNavLink.js';
+
+import * as mobileMenu from './js/sharedComponents/mobile-menu.js';
+import { initFilters } from './js/home/home';
 import './js/partials/rating-modal.js';
+import './js/services/modal.js';
+import packageData from '../package.json' assert { type: 'json' };
 
-const burger = document.getElementById('burger');
-const mobileMenu = document.getElementById('mobileMenu');
-const closeMenu = document.getElementById('closeMenu');
-
-burger.addEventListener('click', () => {
-  mobileMenu.classList.add('active');
-});
-
-closeMenu.addEventListener('click', () => {
-  mobileMenu.classList.remove('active');
+document.addEventListener('DOMContentLoaded', () => {
+	initFilters();
 });
 
 window.addEventListener('scroll', handleScrollForScrollTopBtn);
@@ -21,26 +19,26 @@ refs.scrollToTopBtn.addEventListener('click', scrollToTop);
 
 const subscribeForm = document.querySelector('#subscribe-form');
 if (subscribeForm) {
-  subscribeForm.addEventListener('submit', async event => {
-    event.preventDefault();
-    try {
-      const email = subscribeForm.email.value;
-      await handleSubscription(email);
-      subscribeForm.reset();
-    } catch (error) {
-      console.log(error);
-    }
-  });
+	subscribeForm.addEventListener('submit', async event => {
+		event.preventDefault();
+		try {
+			const email = subscribeForm.email.value;
+			await handleSubscription(email);
+			subscribeForm.reset();
+		} catch (error) {
+			console.log(error);
+		}
+	});
 }
 
-//лише для тесту ПРИКЛАД ВИКОРИСТАННЯ Loader
-// import { Loader } from './js/services/loader.js';
+//лише для тесту
+import { Loader } from './js/services/loader.js';
 
-// const redLoader = new Loader({
-//   target: '#red-loader',
-//   size: 50,
-//   color: 'red',
-// });
+const redLoader = new Loader({
+	target: '#red-loader',
+	size: 50,
+	color: 'red',
+});
 
 // document.getElementById('red-btn').addEventListener('click', async () => {
 //   redLoader.show();
@@ -66,8 +64,17 @@ if (subscribeForm) {
 //   color: 'black',
 // });
 
-// document.getElementById('black-btn').addEventListener('click', async () => {
-//   blackLoader.show();
-//   await new Promise(res => setTimeout(res, 3000));
-//   blackLoader.hide();
-// });
+document.getElementById('black-btn').addEventListener('click', async () => {
+	blackLoader.show();
+	await new Promise(res => setTimeout(res, 3000));
+	blackLoader.hide();
+});
+
+const baseUrl = packageData.homepage || '';
+
+if (baseUrl) {
+	document.querySelectorAll('a[href^="/"]').forEach(anchor => {
+		const relativeHref = anchor.getAttribute('href');
+		anchor.href = new URL(relativeHref, baseUrl).toString();
+	});
+}

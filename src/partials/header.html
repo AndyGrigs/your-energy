@@ -1,81 +1,21 @@
-<header>
-  <a href="/" class="logo">
-    <svg width="132" height="24">
-      <use href="./img/sprite.svg#your-energy"></use>
-    </svg>
-  </a>
+<header class="header-section">
+	<div class="container header-container">
+		<a href="/" class="logo">
+			<svg width="132" height="24">
+				<use href="/img/sprite.svg#your-energy"></use>
+			</svg>
+		</a>
 
-  <div class="burger" id="burger">
-    <svg  width="32" height="32" >
-      <use href="../public/img/sprite.svg#burger"></use>
-    </svg>
-  </div>
+		<button type="button" class="burger-btn js-burger-button" id="burger">
+			<svg width="32" height="32">
+				<use href="/img/sprite.svg#burger"></use>
+			</svg>
+		</button>
 
-  <div class="desktop-nav">
-    <ul>
-      <li class="active"><a href="/">Home</a></li>
-      <li><a href="/favorites">Favorites</a></li>
-    </ul>
-  </div>
-  <ul class="socials-desktop">
-    <li>
-      <a href="https://www.facebook.com/goITclub" target="_blank">
-        <svg>
-          <use href="./img/sprite.svg#facebook"></use>
-        </svg>
-      </a>
-    </li>
-    <li>
-      <a href="https://www.instagram.com/goitclub" target="_blank">
-        <svg>
-          <use href="./img/sprite.svg#instagram"></use>
-        </svg>
-      </a>
-    </li>
-    <li>
-      <a href="https://www.youtube.com/c/GoIT" target="_blank">
-        <svg>
-          <use href="./img/sprite.svg#youtube"></use>
-        </svg>
-      </a>
-    </li>
-  </ul>
+		<nav class="header-desktop-nav">
+			<load src="/partials/sharedComponents/navigation.html" place="header" />
+
+			<load src="/partials/sharedComponents/socials.html" place="header" />
+		</nav>
+	</div>
 </header>
-
-<div class="mobile-menu" id="mobileMenu">
-  <div class="closeMenu" id="closeMenu">
-    <svg  width="32" height="32" >
-      <use href="../public/img/sprite.svg#x"></use>
-    </svg>
-  </div>
-  <nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/favorites">Favorites</a></li>
-    </ul>
-  </nav>
-  <ul class="socials">
-    <li>
-      <a href="https://www.facebook.com/goITclub" target="_blank">
-        <svg>
-          <use href="./img/sprite.svg#facebook"></use>
-        </svg>
-      </a>
-    </li>
-    <li>
-      <a href="https://www.instagram.com/goitclub" target="_blank">
-        <svg>
-          <use href="./img/sprite.svg#instagram"></use>
-        </svg>
-      </a>
-    </li>
-    <li>
-      <a href="https://www.youtube.com/c/GoIT" target="_blank">
-        <svg>
-          <use href="./img/sprite.svg#youtube"></use>
-        </svg>
-      </a>
-    </li>
-  </ul>
-</div>
-
