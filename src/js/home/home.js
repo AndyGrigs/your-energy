@@ -61,10 +61,14 @@ async function loadAllCategories() {
 		console.error('❌ Категорії не завантажено:', error.message);
 		container.innerHTML = '<p>Error loading categories.</p>';
 	}
-  initSearch();
+//   initSearch();
 }
 
 function renderCategoriesByFilter(filterKey) {
+	const title = document.getElementById('current-category-name');
+	if (title) title.textContent = '';
+
+
 	container.innerHTML = '<p>Loading filtered categories...</p>';
 
 	const filterLabel = reverseFilterMap[filterKey];
@@ -86,7 +90,7 @@ function renderCategoriesByFilter(filterKey) {
 
 	const markup = filtered.map(createCategoryCard).join('');
 	container.innerHTML = markup;
-
+	toggleSearchInput(false);
 	bindCategoryClickHandlers();
 }
 
@@ -137,6 +141,18 @@ function initSearch() {
 		bindCategoryClickHandlers();
 	});
 }
+
+export function toggleSearchInput(show) {
+	const search = document.querySelector('.search');
+	if (!search) return;
+
+	if (show) {
+		search.classList.remove('hidden');
+	} else {
+		search.classList.add('hidden');
+	}
+}
+
 
 function capitalize(str) {
 	return str.charAt(0).toUpperCase() + str.slice(1);
