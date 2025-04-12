@@ -1,53 +1,120 @@
 @media only screen and (min-width: 768px) {
-  .time-card-wrapper {
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-  }
+	.time-card-wrapper {
+		display: flex;
+		flex-direction: row;
+		gap: 16px;
+	}
 }
 
 .time-min-card {
-  width: 100%;
-  height: auto;
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 20px;
+	width: 100%;
+	height: auto;
+	border-radius: 20px;
+	padding: 20px;
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-bottom: 20px;
 }
 
 @media only screen and (min-width: 768px) {
-  .time-min-card {
-    margin-bottom: 0;
-  }
+	.time-min-card {
+		margin-bottom: 0;
+	}
 }
 
 .time-min-card-title {
-  font-feature-settings: 'liga' off, 'clig' off;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1;
+	font-feature-settings: 'liga' off, 'clig' off;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1;
 }
 
 .time-min-card-text {
-  color: rgba(36, 36, 36, 0.6);
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.28;
+	color: rgba(36, 36, 36, 0.6);
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.28;
 }
 
 .time-min-image {
-  display: flex;
-  /* max-width: 335px; */
-  height: auto;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-  border-radius: 20px;
-  background: #fff;
-  overflow: hidden;
+	display: flex;
+	/* max-width: 335px; */
+	height: auto;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+	border-radius: 20px;
+	background: #fff;
+	overflow: hidden;
+}
+
+.time-card-home {
+	width: 335px;
+	height: 201px;
+	position: relative;
+	padding: 20px 20px 20px 70px;
+	gap: 0;
+}
+
+@media (min-width: 768px) {
+	.time-card-home {
+		width: 400px;
+		height: 249px;
+		padding: 40px 40px 40px 90px;
+	}
+}
+
+@media (min-width: 1440px) {
+	.time-card-home {
+		width: 444px;
+		height: 315px;
+	}
+}
+
+.time-home-icon-gantel {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+}
+
+@media (min-width: 768px) {
+	.time-home-icon-gantel {
+		top: 41px;
+		left: 40px;
+	}
+}
+
+.time-home-icon-gantel svg {
+	width: 34px;
+	height: 32px;
+}
+
+.time-min-card-home-title {
+	margin-bottom: 2px;
+}
+.time-min-card-home-text {
+	margin-bottom: 16px;
+}
+.time-min-card-main-text {
+	color: #242424;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 18px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+@media (min-width: 768px) {
+	.time-min-card-home-title {
+		font-size: 24px;
+		font-weight: 500;
+		line-height: 32px;
+	}
+	.time-min-card-home-text {
+		margin-bottom: 20px;
+	}
 }
