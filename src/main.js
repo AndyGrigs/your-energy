@@ -77,6 +77,7 @@ const interanlLinks = document.querySelectorAll('a[href^="/"]');
 if (baseUrl) {
 	interanlLinks.forEach(anchor => {
 		const relativeHref = anchor.getAttribute('href');
-		anchor.href = new URL(relativeHref, baseUrl).toString();
+		const url = `${baseUrl}${relativeHref}`;
+		anchor.href = new URL(url);
 	});
 }
