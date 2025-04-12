@@ -9,6 +9,10 @@ import { initFilters } from './js/home/home';
 import './js/partials/rating-modal.js';
 import './js/services/modal.js';
 
+document.addEventListener('DOMContentLoaded', () => {
+	initFilters();
+  });
+
 window.addEventListener('scroll', handleScrollForScrollTopBtn);
 refs.scrollToTopBtn.addEventListener('click', scrollToTop);
 

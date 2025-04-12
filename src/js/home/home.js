@@ -15,6 +15,7 @@ let allCategories = [];
 export function initFilters() {
 	const filterButtons = document.querySelectorAll('.filter-btn');
 
+
 	filterButtons.forEach(button => {
 		button.addEventListener('click', e => {
 			const clickedLabel = e.currentTarget.dataset.type.toLowerCase().trim();
@@ -27,12 +28,20 @@ export function initFilters() {
 			document.querySelector('.filter-btn.active')?.classList.remove('active');
 			button.classList.add('active');
 
-			// loadCategories(state.filter);
 			renderCategoriesByFilter(state.filter);
 		});
 	});
 
-	loadAllCategories(); // при старті
+	
+	loadAllCategories().then(() => {
+		state.filter = 'muscles';
+
+		document
+			.querySelector('.filter-btn[data-type="Muscles"]')
+			?.classList.add('active');
+
+		renderCategoriesByFilter(state.filter);
+	});
 }
 
 async function loadAllCategories() {
