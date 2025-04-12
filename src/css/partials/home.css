@@ -6,7 +6,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: baseline;
-	margin-bottom: 1em;
+	margin-bottom: 2em;
 }
 
 .home-title {
@@ -15,6 +15,16 @@
 	font-weight: 400;
 	line-height: 48px;
 	letter-spacing: -0.88px;
+}
+
+#current-category-name {
+	color: #24242480;
+	font-family: 'DM Sans';
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 32px;
+	letter-spacing: -0.48px;
 }
 
 .filters {
@@ -62,24 +72,53 @@
 }
 
 #exercise-cards-container {
-	width: 100%;
-	margin: 0 auto
-  }
+	max-width: 900px;
+	margin-left: auto;
+}
 
-.cards-container {
+/* .cards-container {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
 	gap: 32px 15px;
 	justify-content: start;
+} */
+
+.cards-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: start;
+	gap: 32px 15px;
+}
+
+@media screen and (max-width: 1080px) {
+	.cards-container {
+		justify-content: center;
+		margin: 0 auto;
+	}
+	
+
+	.home-header{
+		flex-direction: column;
+		row-gap: 32px;
+	}
+}
+
+@media screen and (max-width: 690px) {
+	.search{
+		display: none;
+	}
 }
 
 .category-card {
-	width: 100%;
-	max-width: 290px;
+	min-width: 290px;
 	border-radius: 12px;
 	overflow: hidden;
 	cursor: pointer;
 	transition: transform 0.3s ease;
+}
+
+.ex-card {
+	width: 442px;
 }
 
 .category-card:hover {
@@ -134,6 +173,10 @@
 	margin: 2px 0 0;
 }
 
+.hidden {
+	display: none !important;
+}
+
 .search-wrapper {
 	display: flex;
 	gap: 4em;
@@ -165,4 +208,44 @@
 	font-size: 18px;
 	color: #242424;
 	pointer-events: none;
+}
+
+.star-icon use {
+	fill: #eea10c;
+
+	vertical-align: middle;
+}
+
+.star-icon use {
+	width: 18px;
+	height: 18px;
+}
+
+.rating-block {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 3px;
+}
+
+.workout-badge-rating {
+	color: #242424;
+	padding-left: 16px;
+	padding-top: 3px;
+	font-size: 14px;
+	line-height: 18px; /* 150% */
+}
+
+.workout-stats {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	font-size: 12px;
+	margin-top: 8px;
+	color: rgba(36, 36, 36, 0.4);
+}
+
+.workout-stats b {
+	color: var(--accent-color);
+	font-weight: 400;
 }

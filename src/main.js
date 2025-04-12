@@ -8,7 +8,10 @@ import * as mobileMenu from './js/sharedComponents/mobile-menu.js';
 import { initFilters } from './js/home/home';
 import './js/partials/rating-modal.js';
 import './js/services/modal.js';
-import packageData from '../package.json' assert { type: 'json' };
+
+import { changeInteranlLinksBaseURL } from './js/config/internalLinksHandler.js';
+
+changeInteranlLinksBaseURL();
 
 document.addEventListener('DOMContentLoaded', () => {
 	initFilters();
@@ -32,13 +35,13 @@ if (subscribeForm) {
 }
 
 //лише для тесту
-import { Loader } from './js/services/loader.js';
+// import { Loader } from './js/services/loader.js';
 
-const redLoader = new Loader({
-	target: '#red-loader',
-	size: 50,
-	color: 'red',
-});
+// const redLoader = new Loader({
+// 	target: '#red-loader',
+// 	size: 50,
+// 	color: 'red',
+// });
 
 // document.getElementById('red-btn').addEventListener('click', async () => {
 //   redLoader.show();
@@ -64,17 +67,8 @@ const redLoader = new Loader({
 //   color: 'black',
 // });
 
-document.getElementById('black-btn').addEventListener('click', async () => {
-	blackLoader.show();
-	await new Promise(res => setTimeout(res, 3000));
-	blackLoader.hide();
-});
-
-const baseUrl = packageData.homepage || '';
-
-if (baseUrl) {
-	document.querySelectorAll('a[href^="/"]').forEach(anchor => {
-		const relativeHref = anchor.getAttribute('href');
-		anchor.href = new URL(relativeHref, baseUrl).toString();
-	});
-}
+// document.getElementById('black-btn').addEventListener('click', async () => {
+// 	blackLoader.show();
+// 	await new Promise(res => setTimeout(res, 3000));
+// 	blackLoader.hide();
+// });
