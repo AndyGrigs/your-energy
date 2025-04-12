@@ -4,5 +4,7 @@ export const state = {
     page: 1,
     limit: 12,
     keyword: '',
+    allCategories: []
   };
   
+

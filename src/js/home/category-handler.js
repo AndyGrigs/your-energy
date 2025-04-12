@@ -1,11 +1,11 @@
-import { handleGetExercisesByFilters } from '../services/exercises';
 import { state } from './filter-state';
-import { toggleSearchInput } from './home';
+import { toggleSearchInput } from './search-handler';
+import { loadExercisesByCategory } from './exercise-handler';
 
-const filterParamMap = {
-	'body parts': 'bodypart',
-	muscles: 'muscles',
-	equipment: 'equipment',
+const reverseFilterMap = {
+	muscles: 'Muscles',
+	'body parts': 'Body parts',
+	equipment: 'Equipment',
 };
 
 export function handleCategoryClick(categoryName, filterType) {
@@ -25,97 +25,64 @@ export function handleCategoryClick(categoryName, filterType) {
 	loadExercisesByCategory();
 }
 
-export async function loadExercisesByCategory() {
+export function renderCategoriesByFilter(filterKey) {
 	const container = document.getElementById('exercise-cards-container');
-	container.innerHTML = '<p>Loading exercises...</p>';
 
-	try {
-		const filterKey = filterParamMap[state.filter.toLowerCase()];
-		if (!filterKey) {
-			console.warn('❗ Невідомий фільтр:', state.filter);
-			return;
-		}
+	const title = document.getElementById('current-category-name');
+	if (title) title.textContent = '';
 
-		const query = {
-			[filterKey]: state.category,
-			keyword: state.keyword,
-			page: state.page,
-			limit: state.limit,
-		};
+	container.innerHTML = '<p>Loading filtered categories...</p>';
 
-		const response = await handleGetExercisesByFilters(query);
-		const exercises = response.results;
+	const filterLabel = reverseFilterMap[filterKey];
 
-    state.exercises = exercises;
-
-		if (!exercises.length) {
-			container.innerHTML = '<p>No exercises found.</p>';
-			return;
-		}
-
-		container.innerHTML = exercises.map(createExerciseCard).join('');
-	} catch (error) {
-		container.innerHTML = '<p>Error loading exercises.</p>';
-		console.error('❌ Exercise loading error:', error.message);
+	if (!filterLabel) {
+		console.warn('❗ Невідомий фільтр:', filterKey);
+		container.innerHTML = '<p>No filter selected.</p>';
+		return;
 	}
-  initExerciseSearch()
+
+	const filtered = state.allCategories.filter(
+		cat => cat.filter.trim().toLowerCase() === filterLabel.toLowerCase()
+	);
+
+	if (!filtered.length) {
+		container.innerHTML = '<p>No categories found for this filter.</p>';
+		return;
+	}
+
+	const markup = filtered.map(createCategoryCard).join('');
+	container.innerHTML = markup;
+	toggleSearchInput(false);
+	bindCategoryClickHandlers();
 }
 
-function initExerciseSearch() {
-  const input = document.getElementById('search-input');
-  if (!input) return;
-
-  input.addEventListener('input', e => {
-    const value = e.target.value.trim().toLowerCase();
-
-    const filtered = state.exercises.filter(ex =>
-      ex.name.toLowerCase().includes(value)
-    );
-
-    const container = document.getElementById('exercise-cards-container');
-
-    if (!filtered.length) {
-      container.innerHTML = '<p>No matching exercises found.</p>';
-      return;
-    }
-
-    container.innerHTML = filtered.map(createExerciseCard).join('');
-  });
+export function bindCategoryClickHandlers() {
+	document.querySelectorAll('.category-card').forEach(card => {
+		card.addEventListener('click', () => {
+			const categoryName = card.dataset.name;
+			const categoryType = card.dataset.type?.toLowerCase().trim();
+			handleCategoryClick(categoryName, categoryType);
+		});
+	});
 }
 
-
-function createExerciseCard(ex) {
-	console.log(ex);
+export function createCategoryCard(category) {
 	return `
-   <div class="workout-card ex-card">
-        <div class="workout-header">
-          <span class="workout-badge">WORKOUT</span>
-          <div class="rating-block">
-             <span class="workout-badge-rating">${ex.rating}</span>
-            <svg class="star-icon" width="14" height="13" style="width:16px">
-              <use href="/img/sprite.svg#star"></use>
-            </svg>
-          </div>
-            
-          <button class="start-button" data-exercise-id=${ex._id}>Start ➔</button>
-        </div>
-        <div class="workout-body">
-          <span class="workout-icon-running">
-            <img
-              src="../img/quote_icon_1.svg"
-              width="24px"
-              height="24px"
-              alt="Running Icon"
-            />
-          </span>        
-          <h3 class="workout-name">${capitalize(ex.name)}</h3>
-          <p class="workout-stats">
-          <span>Burned calories: <b>${ex.burnedCalories}/${ex.time} min</b></span> 
-          <span> Body part: <b>${ex.bodyPart}</b></span>
-          <span>Target: <b>${ex.target}</b></span> 
-          </p>
-        </div>
-      </div>
+    <div class="category-card" 
+     data-name="${category.name}" 
+     data-type="${category.filter}" 
+     data-id="${category.id}">
+	 <div class="overlay"></div>
+  <div class="category-card-bg" style="background-image: url('${
+		category.imgURL
+  }')">
+    <div class="category-card-text">
+      <h3 class="category-card-title">${capitalize(category.name)}</h3>
+      <p class="category-card-sub">${capitalize(category.filter)}</p>
+    </div>
+  </div>
+</div>
+
   `;
 }
 
