@@ -73,11 +73,40 @@
 
 .exercises-content {
 	display: flex;
+	flex-direction: column-reverse;
 	gap: 32px;
+}
+
+@media (min-width: 1440px) {
+	.exercises-content {
+		flex-direction: row;
+	}
+}
+
+.encourage-section {
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+}
+
+@media (min-width: 1440px) {
+	.encourage-section {
+		flex-direction: column;
+		margin: 0;
+	}
 }
 
 .encourage-img-container {
 	margin-bottom: 32px;
+	width: 335px;
+	height: 242px;
+}
+
+@media (min-width: 768px) {
+	.encourage-img-container {
+		width: 288px;
+		height: 258px;
+	}
 }
 
 @media (min-width: 1440px) {
