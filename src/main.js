@@ -8,7 +8,10 @@ import * as mobileMenu from './js/sharedComponents/mobile-menu.js';
 import { initFilters } from './js/home/home';
 import './js/partials/rating-modal.js';
 import './js/services/modal.js';
-import packageData from '../package.json' assert { type: 'json' };
+
+import { changeInteranlLinksBaseURL } from './js/config/internalLinksHandler.js';
+
+changeInteranlLinksBaseURL();
 
 document.addEventListener('DOMContentLoaded', () => {
 	initFilters();
@@ -69,15 +72,3 @@ if (subscribeForm) {
 // 	await new Promise(res => setTimeout(res, 3000));
 // 	blackLoader.hide();
 // });
-
-const baseUrl = `${window.location.origin}${packageData.homepage || ''}`;
-
-const interanlLinks = document.querySelectorAll('a[href^="/"]');
-
-if (baseUrl) {
-	interanlLinks.forEach(anchor => {
-		const relativeHref = anchor.getAttribute('href');
-		const url = `${baseUrl}${relativeHref}`;
-		anchor.href = new URL(url);
-	});
-}

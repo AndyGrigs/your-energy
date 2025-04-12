@@ -1,7 +1,6 @@
 import { mobileMenuRefs, modalRefs, refs } from '../constants/refs.js';
 import { renderQuoteOfTheDay } from '../sharedComponents/quoteOfTheDay.js';
 import { preparingCardsMarkup } from '../sharedComponents/exercisesCards.js';
-import { handleGetExerciseById } from '../services/exercises.js';
 import { setActiveLink } from '../utils/setActiveNavLink.js';
 import * as mobileMenu from '../sharedComponents/mobile-menu.js';
 import { handleScrollForScrollTopBtn, scrollToTop } from './scroll.js';
