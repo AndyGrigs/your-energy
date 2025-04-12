@@ -78,6 +78,10 @@ export class Loader {
 		});
 
 		this._instances.set(el, { wrapper, animation, timeout: appliedTimeout });
+
+		if (appliedTimeout) {
+			await new Promise(res => setTimeout(res, appliedTimeout));
+		}
 	}
 
 	async hide(target) {
@@ -85,10 +89,6 @@ export class Loader {
 		if (!el || !this._instances.has(el)) return;
 
 		const { wrapper, animation, timeout } = this._instances.get(el);
-
-		if (timeout) {
-			await new Promise(res => setTimeout(res, timeout));
-		}
 
 		animation.destroy();
 		wrapper.remove();
