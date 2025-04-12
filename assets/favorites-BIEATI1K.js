@@ -37,4 +37,4 @@ import{i as p,a as m}from"./vendor-XxEN_XWt.js";(function(){const o=document.cre
     <svg>
       <use href="./img/sprite.svg#trash"></use>
     </svg>`}function j(e,o){const t=e.findIndex(a=>a._id===o._id);t===-1?(e.push(o),P()):(e.splice(t,1),C()),localStorage.setItem("favorites",JSON.stringify(e))}async function R(){try{const e=localStorage.getItem("favorites"),o=JSON.parse(e);if(o&&o.length>0)O(M,o);else{const t=document.querySelector(".not-items-message");t.style.display="block"}}catch(e){console.log("🚀 ~ error in getFavoritesItems data rendering:",e)}}x(D,F);R();export{h as a,C as b,_ as c,v as d,b as e,$ as g,j as h,N as i,g as m,l as r,P as s};
-//# sourceMappingURL=favorites-R80acSFN.js.map
+//# sourceMappingURL=favorites-BIEATI1K.js.map
