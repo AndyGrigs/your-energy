@@ -64,9 +64,10 @@ export async function loadExercisesByCategory(targetEl) {
 	} catch (error) {
 		container.innerHTML = '<p>Error loading exercises.</p>';
 		console.error('❌ Exercise loading error:', error.message);
+	} finally {
+		await loader.hide('exercise-cards-container');
 	}
 	initExerciseSearch();
-	loader.hide('exercise-cards-container');
 }
 
 function initExerciseSearch() {

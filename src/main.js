@@ -35,27 +35,27 @@ if (subscribeForm) {
 }
 
 //лише для тесту
-import { Loader } from './js/services/loader.js';
+// import { Loader } from './js/services/loader.js';
 
-const redLoader = new Loader();
-document.getElementById('red-btn').addEventListener('click', async () => {
-	await redLoader.show('red-loader', { color: 'red', size: 50, timeout: 2000 });
-	await redLoader.hide('red-loader');
-});
+// const redLoader = new Loader();
+// document.getElementById('red-btn').addEventListener('click', async () => {
+// 	await redLoader.show('red-loader', { color: 'red', size: 50, timeout: 2000 });
+// 	await redLoader.hide('red-loader');
+// });
 
-document.getElementById('blue-btn').addEventListener('click', async () => {
-	await redLoader.show('blue-loader', {
-		color: 'blue',
-		size: 100,
-		timeout: 2000,
-	});
-	await redLoader.hide('blue-loader');
-});
+// document.getElementById('blue-btn').addEventListener('click', async () => {
+// 	await redLoader.show('blue-loader', {
+// 		color: 'blue',
+// 		size: 100,
+// 		timeout: 2000,
+// 	});
+// 	await redLoader.hide('blue-loader');
+// });
 
-document.getElementById('black-btn').addEventListener('click', async () => {
-	await redLoader.show('black-loader');
-	await redLoader.hide('black-loader');
-});
+// document.getElementById('black-btn').addEventListener('click', async () => {
+// 	await redLoader.show('black-loader');
+// 	await redLoader.hide('black-loader');
+// });
 
 // const blueLoader = new Loader({
 // 	target: '#blue-loader',
