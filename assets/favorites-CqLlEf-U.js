@@ -37,4 +37,4 @@ import{i as f,a as m}from"./vendor-B5bK_26z.js";(function(){const r=document.cre
     <svg>
       <use href="./img/sprite.svg#trash"></use>
     </svg>`}function j(e,r){const o=e.findIndex(a=>a._id===r._id);o===-1?(e.push(r),P()):(e.splice(o,1),C()),localStorage.setItem("favorites",JSON.stringify(e))}async function R(){try{const e=localStorage.getItem("favorites"),r=JSON.parse(e);if(r&&r.length>0)O(M,r);else{const o=document.querySelector(".not-items-message");o.style.display="block"}}catch(e){console.log("🚀 ~ error in getFavoritesItems data rendering:",e)}}x(D,F);R();export{h as a,C as b,_ as c,v as d,b as e,$ as g,j as h,N as i,g as m,l as r,P as s};
-//# sourceMappingURL=favorites-CcoJtsTR.js.map
+//# sourceMappingURL=favorites-CqLlEf-U.js.map
