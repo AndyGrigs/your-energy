@@ -97,7 +97,11 @@
 }
 
 /* Desktop */
-@media (min-width: 960px) {
+@media (min-width: 1024px) {
+  .hero .container {
+    max-width: 1440px;
+  }
+
   .hero-content {
     display: flex;
     align-items: center;

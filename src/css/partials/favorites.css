@@ -3,12 +3,6 @@
 @import url('./sharedComponentsStyles/workoutCard.css');
 
 @media only screen and (min-width: 1440px) {
-  .favorites-section-wrapper {
-    position: relative;
-  }
-}
-
-@media only screen and (min-width: 1440px) {
   .desktop-favorites-section {
     display: flex;
     align-items: center;
@@ -33,12 +27,6 @@
   margin-bottom: 20px;
 }
 
-@media only screen and (min-width: 1440px) {
-  .favorites-section-title {
-    position: absolute;
-  }
-}
-
 .workout-list-wrapper {
   margin-top: 40px;
   margin-bottom: 40px;
@@ -57,5 +45,26 @@
   }
 }
 
-/* @media only screen and (min-width: 768px) */
-/* @media only screen and (min-width: 1440px)  */
+.not-items-message {
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.28;
+}
+
+@media only screen and (min-width: 768px) {
+  .not-items-message {
+    max-width: 554px;
+    padding-top: 132px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .not-items-message {
+    padding-top: 0;
+    padding-left: 180px;
+  }
+}
