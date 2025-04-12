@@ -8,7 +8,7 @@ import * as mobileMenu from './js/sharedComponents/mobile-menu.js';
 import { initFilters } from './js/home/home';
 import './js/partials/rating-modal.js';
 import './js/services/modal.js';
-import packageData from './package.json' assert { type: 'json' };
+import packageData from '../package.json' assert { type: 'json' };
 
 document.addEventListener('DOMContentLoaded', () => {
 	initFilters();
