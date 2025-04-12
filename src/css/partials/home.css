@@ -72,7 +72,7 @@
 }
 
 #exercise-cards-container {
-	width: 900px;
+	max-width: 900px;
 	margin-left: auto;
 }
 
@@ -88,6 +88,25 @@
 	flex-wrap: wrap;
 	justify-content: start;
 	gap: 32px 15px;
+}
+
+@media screen and (max-width: 1080px) {
+	.cards-container {
+		justify-content: center;
+		margin: 0 auto;
+	}
+	
+
+	.home-header{
+		flex-direction: column;
+		row-gap: 32px;
+	}
+}
+
+@media screen and (max-width: 690px) {
+	.search{
+		display: none;
+	}
 }
 
 .category-card {
@@ -192,12 +211,12 @@
 }
 
 .star-icon use {
-	fill: #EEA10C;
-	
+	fill: #eea10c;
+
 	vertical-align: middle;
 }
 
-.star-icon use{
+.star-icon use {
 	width: 18px;
 	height: 18px;
 }
@@ -217,18 +236,16 @@
 	line-height: 18px; /* 150% */
 }
 
-
-
 .workout-stats {
 	display: flex;
-	flex-wrap: wrap; 
+	flex-wrap: wrap;
 	gap: 12px;
 	font-size: 12px;
 	margin-top: 8px;
-	color: rgba(36, 36, 36, 0.40);
-  }
-  
- .workout-stats b{
+	color: rgba(36, 36, 36, 0.4);
+}
+
+.workout-stats b {
 	color: var(--accent-color);
 	font-weight: 400;
- }
+}
