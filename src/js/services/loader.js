@@ -1,8 +1,12 @@
 export class Loader {
-	constructor({ path = '/animations/loader.json', size = 80, color = '#000' }) {
+	constructor({ path = '/animations/loader.json', size = 80, color }) {
 		this._path = path;
 		this._defaultSize = size;
-		this._defaultColor = color;
+		this._defaultColor =
+			color ??
+			getComputedStyle(document.documentElement)
+				.getPropertyValue('--text-color')
+				.trim();
 		this._loadPromise = null;
 		this._instances = new Map(); // element => { wrapper, animation }
 	}
@@ -29,12 +33,23 @@ export class Loader {
 		const appliedSize = size ?? this._defaultSize;
 		const appliedColor = color ?? this._defaultColor;
 
+		// Забезпечуємо позиціювання для абсолютного wrapper
+		const style = getComputedStyle(el);
+		if (style.position === 'static') {
+			el.style.position = 'relative';
+		}
+
 		const wrapper = document.createElement('div');
 		wrapper.style.cssText = `
-      width: ${appliedSize}px;
-      height: ${appliedSize}px;
-      position: relative;
-    `;
+  width: ${appliedSize}px;
+  height: ${appliedSize}px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10;
+`;
 
 		const container = document.createElement('div');
 		container.style.cssText = 'width: 100%; height: 100%;';
