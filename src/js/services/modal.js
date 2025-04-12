@@ -1,96 +1,124 @@
 import { handleGetExerciseById } from './exercises.js';
-import { modalRefs } from '../constants/refs.js';
+import { modalRefs, refs } from '../constants/refs.js';
 import {
-  setFavoriteButtonToAdd,
-  setFavoriteButtonToRemove,
-  handleFavoriteClick,
+	setFavoriteButtonToAdd,
+	setFavoriteButtonToRemove,
+	handleFavoriteClick,
 } from './favorites.js';
 
 function firstLetterUpperCase(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
+	return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
 function openModal(exercise) {
-  modalRefs.modalTitle.textContent = firstLetterUpperCase(exercise.name);
-  modalRefs.modalRating.textContent = exercise.rating;
-  modalRefs.modalImage.src = exercise.gifUrl;
-  modalRefs.modalImage.alt = exercise.name;
+	modalRefs.modalTitle.textContent = firstLetterUpperCase(exercise.name);
+	modalRefs.modalRatingValue.textContent = exercise.rating;
+	modalRefs.modalImage.src = exercise.gifUrl;
+	modalRefs.modalImage.alt = exercise.name;
 
-  modalRefs.modalTarget.textContent = firstLetterUpperCase(exercise.target);
-  modalRefs.modalBodyPart.textContent = firstLetterUpperCase(exercise.bodyPart);
-  modalRefs.modalEquipment.textContent = firstLetterUpperCase(
-    exercise.equipment
-  );
-  modalRefs.modalPopular.textContent = exercise.popularity;
+	modalRefs.modalTarget.textContent = firstLetterUpperCase(exercise.target);
+	modalRefs.modalBodyPart.textContent = firstLetterUpperCase(exercise.bodyPart);
+	modalRefs.modalEquipment.textContent = firstLetterUpperCase(
+		exercise.equipment
+	);
+	modalRefs.modalPopular.textContent = exercise.popularity;
 
-  modalRefs.modalCalories.textContent = `${exercise.burnedCalories}/${exercise.time} min`;
-  modalRefs.modalDescription.textContent = exercise.description;
+	modalRefs.modalCalories.textContent = `${exercise.burnedCalories}/${exercise.time} min`;
+	modalRefs.modalDescription.textContent = exercise.description;
 
-  modalRefs.stars.forEach((star, index) => {
-    if (index < Math.floor(exercise.rating)) {
-      star.classList.add('filled');
-    } else {
-      star.classList.remove('filled');
-    }
-  });
+	modalRefs.stars.forEach((star, index) => {
+		if (index < Math.floor(exercise.rating)) {
+			star.classList.add('filled');
+		} else {
+			star.classList.remove('filled');
+		}
+	});
 
-  const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
-  const isInFavorites = favorites.some(fav => fav.id === exercise.id);
+	const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+	const isInFavorites = favorites.some(fav => fav._id === exercise._id);
+	console.log('exercise:', exercise);
+	console.log('favorites:', favorites);
+	console.log('isInFavorites:', isInFavorites);
 
-  if (isInFavorites) {
-    setFavoriteButtonToRemove();
-  } else {
-    setFavoriteButtonToAdd();
-  }
+	if (isInFavorites) {
+		setFavoriteButtonToRemove();
+	} else {
+		setFavoriteButtonToAdd();
+	}
+	const favoriteClickHandler = () => handleFavoriteClick(favorites, exercise);
 
-  modalRefs.favoriteButton.addEventListener('click', () =>
-    handleFavoriteClick(favorites, exercise)
-  );
-  modalRefs.closeModalBtn.addEventListener('click', closeModal);
-  window.addEventListener('click', event => {
-    if (event.target === modalRefs.modal) {
-      closeModal();
-    }
-  });
+	modalRefs.favoriteButton.addEventListener('click', favoriteClickHandler);
+	modalRefs.closeModalBtn.addEventListener('click', closeModal);
 
-  modalRefs.modal.classList.remove('hidden');
+	const handleWindowClick = event => {
+		if (event.target === modalRefs.modalExercises) {
+			closeModal();
+		} else if (event.target === modalRefs.modalRating) {
+			toggleModal();
+		}
+	};
 
-  setTimeout(() => {
-    modalRefs.modal.classList.add('show');
-  }, 10);
+	window.addEventListener('click', handleWindowClick);
+	modalRefs.modalExercises._windowClickHandler = handleWindowClick;
+	modalRefs.modalExercises._favoriteClickHandler = favoriteClickHandler;
 
-  document.body.style.overflow = 'hidden';
+	showModal(modalRefs.modalExercises);
+
+	modalRefs.ratingButton.addEventListener('click', toggleModal);
+}
+
+function showModal(modal) {
+	modal.classList.remove('hidden');
+
+	setTimeout(() => {
+		modal.classList.add('show');
+	}, 10);
+
+	document.body.style.overflow = 'hidden';
+}
+
+export function toggleModal() {
+	modalRefs.modalExercises.classList.toggle('hidden');
+	modalRefs.modalExercises.classList.toggle('show');
+	modalRefs.modalRating.classList.toggle('hidden');
+	modalRefs.modalRating.classList.toggle('show');
 }
 
 function closeModal() {
-  modalRefs.modal.classList.remove('show');
+	modalRefs.modalExercises.classList.remove('show');
 
-  setTimeout(() => {
-    modalRefs.modal.classList.add('hidden');
-    document.body.style.overflow = '';
-  }, 300);
+	setTimeout(() => {
+		modalRefs.modalExercises.classList.add('hidden');
+		document.body.style.overflow = '';
+	}, 300);
 
-  document.body.style.overflow = '';
-  modalRefs.closeModalBtn.removeEventListener('click', closeModal);
-  modalRefs.favoriteButton.removeEventListener('click', () =>
-    handleFavoriteClick(favorites, exercise)
-  );
-  window.removeEventListener('click', closeModal);
+	document.body.style.overflow = '';
+	modalRefs.closeModalBtn.removeEventListener('click', closeModal);
+	modalRefs.favoriteButton.removeEventListener(
+		'click',
+		modalRefs.modalExercises._favoriteClickHandler
+	);
+	modalRefs.ratingButton.removeEventListener('click', toggleModal);
+
+	window.removeEventListener(
+		'click',
+		modalRefs.modalExercises._windowClickHandler
+	);
 }
 
-exercisesContainer.addEventListener('click', async function (event) {
-  const startButton = event.target.closest('.start-button');
+refs.exercisesContainer.addEventListener('click', async function (event) {
+	const startButton = event.target.closest('.start-button');
 
-  if (startButton) {
-    const exerciseId = startButton.dataset.exerciseId;
+	if (startButton) {
+		const exerciseId = startButton.dataset.exerciseId;
 
-    if (exerciseId) {
-      try {
-        const exercise = await handleGetExerciseById(exerciseId);
-        openModal(exercise);
-      } catch (error) {
-        console.error('Error fetching exercise:', error);
-      }
-    }
-  }
+		if (exerciseId) {
+			try {
+				const exercise = await handleGetExerciseById(exerciseId);
+				openModal(exercise);
+			} catch (error) {
+				console.error('Error fetching exercise:', error);
+			}
+		}
+	}
 });
