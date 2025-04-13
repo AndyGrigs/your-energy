@@ -13,11 +13,9 @@ export const setActiveLink = () => {
 		const linkHref = getPathnameFromHref(link);
 
 		if (linkHref === currentPath) {
-			console.log(`${linkHref} is active`);
 			link.classList.add('active');
 		} else {
 			link.classList.remove('active');
-			console.log(`${linkHref} is not active`);
 		}
 	});
 };

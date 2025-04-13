@@ -5,7 +5,7 @@ import { handleScrollForScrollTopBtn, scrollToTop } from './js/services/scroll';
 import { setActiveLink } from './js/utils/setActiveNavLink.js';
 
 import * as mobileMenu from './js/sharedComponents/mobile-menu.js';
-import { initFilters } from './js/home/home';
+import { init } from './js/partials/filters.js';
 import './js/partials/rating-modal.js';
 import './js/services/modal.js';
 
@@ -22,7 +22,7 @@ function main() {
 		const path = window.location.pathname;
 
 		if (path === '/your-energy/' || path === '/') {
-			initFilters();
+			init();
 		}
 
 		if (path === '/favorites' || path === '/your-energy/favorites') {
@@ -31,9 +31,6 @@ function main() {
 	});
 
 	renderQuoteOfTheDay();
-
-	window.addEventListener('scroll', handleScrollForScrollTopBtn);
-	refs.scrollToTopBtn.addEventListener('click', scrollToTop);
 
 	const subscribeForm = document.querySelector('#subscribe-form');
 	if (subscribeForm) {

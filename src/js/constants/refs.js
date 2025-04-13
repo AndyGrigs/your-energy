@@ -32,3 +32,11 @@ export const mobileMenuRefs = {
 export const paginationRefs = {
 	paginationContainer: document.getElementById('pagination'),
 };
+
+export const mainHomeRefs = {
+	cardsContainer: document.querySelector('.cards-container'),
+	filterButtons: document.querySelectorAll('.filter-btn'),
+	sectionTitle: document.querySelector('.home-title'),
+	sectionSubTitle: document.querySelector('.current-category-name'),
+	searchInput: document.querySelector('.search'),
+};
