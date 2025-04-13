@@ -1,62 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="iziToast.min.css" />
-    <title>YourEnergy | Home</title>
-    <link rel="stylesheet" href="./css/styles.css" />
-  </head>
-  <body>
-    <!-- <div style="height: 150px">
-      <button id="red-btn">Load Red 50px</button>
-      <div id="red-loader" style="align-content: center"></div>
-    </div>
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:wght@100..900&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="iziToast.min.css" />
+		<title>YourEnergy | Home</title>
+		<link rel="stylesheet" href="./css/styles.css" />
+	</head>
+	<body>
+		<!-- <div style="height: 200px">
+			<button id="red-btn">Load Red 50px</button>
+			<div id="red-loader" style="align-content: center"></div>
+		</div>
 
+		<div style="height: 200px">
+			<button id="blue-btn">Load Blue 75px</button>
+			<div id="blue-loader" style="align-content: center"></div>
+		</div>
 
-   <div style="height: 150px">
-      <button id="blue-btn">Load Blue 75px</button>
-      <div id="blue-loader" style="align-content: center"></div>
-    </div>
+		<div style="height: 200px">
+			<button id="black-btn">Load Black 100px</button>
+			<div id="black-loader" style="align-content: center"></div>
+		</div> -->
 
-    <div style="height: 150px">
-      <button id="black-btn">Load Black 100px</button>
-      <div id="black-loader" style="align-content: center"></div>
-    </div> -->
+		<!-- <button id="load-btn">Test loader</button> -->
 
-    <!-- <button id="load-btn">Test loader</button> -->
+		<div class="wrapper">
+			<load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
 
-    <div class="wrapper">
-      <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
+			<main class="main">
+				<!-- <load src="./partials/rating-modal.html" /> -->
 
-      <main class="main">
+				<load src="./partials/hero.html" />
+				<load src="./partials/home.html" />
+			</main>
 
-        <!-- <load src="./partials/rating-modal.html" /> -->
+			<load src="./partials/footer.html" />
+			<load src="./partials/scroll-to-top-button.html" />
+			<load src="./partials/modal.html" />
+			<load src="./partials/rating-modal.html" />
+		</div>
 
-        <load src="./partials/hero.html" />
-        <load src="./partials/home.html"/>
+		<load src="./partials/mobile-menu.html" />
 
-      </main>
-
-      <load src="./partials/footer.html" />
-      <load src="./partials/scroll-to-top-button.html" />
-      <load src="./partials/modal.html" />
-      <load src="./partials/rating-modal.html" />
-    </div>
-
-    <load src="./partials/mobile-menu.html" />
-
-    <script type="module" src="./main.js"></script>
-  </body>
+		<script type="module" src="./main.js"></script>
+	</body>
 </html>

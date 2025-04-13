@@ -2,6 +2,7 @@ import { state } from './filter-state';
 import { initExerciseSearch } from './search-handler';
 import { createExerciseCard } from './exercise-renderer';
 import { handleGetExercisesByFilters } from '../services/exercises';
+import { Loader } from '../services/loader.js';
 
 const container = document.getElementById('exercise-cards-container');
 
@@ -11,10 +12,14 @@ const reverseFilterMap = {
 	equipment: 'Equipment',
 };
 
-export async function loadExercisesByCategory() {
-	container.innerHTML = '<p>Loading exercises...</p>';
+const loader = new Loader({
+	size: 200,
+	color: '#f4f4f4',
+});
 
+export async function loadExercisesByCategory(targetEl) {
 	try {
+		await loader.show(targetEl);
 		const filterParamMap = {
 			'body parts': 'bodypart',
 			muscles: 'muscles',
@@ -49,7 +54,7 @@ export async function loadExercisesByCategory() {
 	} catch (error) {
 		container.innerHTML = '<p>Error loading exercises.</p>';
 		console.error('❌ Exercise loading error:', error.message);
+	} finally {
+		await loader.hide(targetEl);
 	}
 }
-
-

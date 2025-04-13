@@ -5,12 +5,15 @@ import {
 	createCategoryCard,
 } from './category-handler';
 import { state } from './filter-state';
+import { Loader } from '../services/loader.js';
 
 const container = document.getElementById('exercise-cards-container');
 
+const loader = new Loader({
+	size: 200,
+});
 
-
-export function initFilters() {
+export async function initFilters() {
 	const filterButtons = document.querySelectorAll('.filter-btn');
 
 	filterButtons.forEach(button => {
@@ -33,7 +36,7 @@ export function initFilters() {
 		});
 	});
 
-	loadAllCategories().then(() => {
+	await loadAllCategories().then(() => {
 		state.filter = 'muscles';
 
 		document
@@ -45,9 +48,8 @@ export function initFilters() {
 }
 
 async function loadAllCategories() {
-	container.innerHTML = '<p>Loading categories...</p>';
-
 	try {
+		await loader.show(container.id);
 		const response = await getFilters({
 			page: 1,
 			limit: 100,
@@ -62,5 +64,7 @@ async function loadAllCategories() {
 	} catch (error) {
 		console.error('❌ Категорії не завантажено:', error.message);
 		container.innerHTML = '<p>Error loading categories.</p>';
+	} finally {
+		await loader.hide(container.id);
 	}
 }

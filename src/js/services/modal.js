@@ -5,6 +5,11 @@ import {
 	setFavoriteButtonToRemove,
 	handleFavoriteClick,
 } from './favorites.js';
+import { Loader } from '../services/loader.js';
+
+const loader = new Loader({
+	size: 100,
+});
 
 function firstLetterUpperCase(str) {
 	return str.charAt(0).toUpperCase() + str.slice(1);
@@ -17,7 +22,9 @@ function openModal(exercise) {
 	modalRefs.modalImage.alt = exercise.name;
 
 	modalRefs.modalTarget.textContent = firstLetterUpperCase(exercise.target);
-	modalRefs.modalBodyPart.textContent = firstLetterUpperCase(exercise.bodyPart);
+	modalRefs.modalBodyPart.textContent = firstLetterUpperCase(
+		exercise.bodyPart
+	);
 	modalRefs.modalEquipment.textContent = firstLetterUpperCase(
 		exercise.equipment
 	);
@@ -128,9 +135,12 @@ refs.exercisesContainer.addEventListener('click', async function (event) {
 		if (exerciseId) {
 			try {
 				const exercise = await handleGetExerciseById(exerciseId);
+				await loader.show(startButton);
 				openModal(exercise);
 			} catch (error) {
 				console.error('Error fetching exercise:', error);
+			} finally {
+				await loader.hide(startButton);
 			}
 		}
 	}
