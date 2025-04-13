@@ -9,8 +9,8 @@ const loader = new Loader({
 });
 export async function renderQuoteOfTheDay(quoteText, quoteAuthor) {
 
-const quoteText = document.querySelector('.quote-day-card-text');
-const quoteAuthor = document.querySelector('.quote-day-card-author');
+const quoteTextcontainer = document.querySelector('.quote-day-card-text');
+const quoteAuthorContainer = document.querySelector('.quote-day-card-author');
 
 
 
@@ -33,8 +33,8 @@ const quoteAuthor = document.querySelector('.quote-day-card-author');
 			authorQuote = requestData.quote;
 		}
 
-		quoteText.textContent = authorQuote;
-		quoteAuthor.textContent = authorName;
+		quoteTextcontainer.textContent = authorQuote;
+		quoteAuthorContainer.textContent = authorName;
 	} catch (error) {
 		console.log('🚀 ~ error in getQuoteOfTheDay data rendering:', error);
 	} finally {
