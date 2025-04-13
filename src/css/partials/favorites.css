@@ -3,68 +3,70 @@
 @import url('./sharedComponentsStyles/workoutCard.css');
 
 @media only screen and (min-width: 1440px) {
-  .desktop-favorites-section {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-  }
+	.desktop-favorites-section {
+		display: flex;
+		align-items: center;
+		gap: 32px;
+	}
 }
 
 @media only screen and (min-width: 1440px) {
-  .left-section-part {
-    display: flex;
-    flex-direction: column;
-  }
+	.left-section-part {
+		display: flex;
+		flex-direction: column;
+	}
 }
 
 .favorites-section-title {
-  color: #242424;
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.35;
-  letter-spacing: -0.56px;
-  margin-bottom: 20px;
+	color: #242424;
+	font-size: 28px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.35;
+	letter-spacing: -0.56px;
+	margin-bottom: 20px;
 }
 
 .workout-list-wrapper {
-  margin-top: 40px;
-  margin-bottom: 40px;
+	margin-top: 40px;
+	margin-bottom: 40px;
 }
 
 .workout-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 20px;
+	overflow-y: auto;
+	max-height: 600px;
 }
 
 @media only screen and (min-width: 768px) {
-  .workout-list {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
+	.workout-list {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 16px;
+	}
 }
 
 .not-items-message {
-  text-align: center;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.28;
+	text-align: center;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.28;
 }
 
 @media only screen and (min-width: 768px) {
-  .not-items-message {
-    max-width: 554px;
-    padding-top: 132px;
-    font-size: 18px;
-    line-height: 1.33;
-  }
+	.not-items-message {
+		max-width: 554px;
+		padding-top: 132px;
+		font-size: 18px;
+		line-height: 1.33;
+	}
 }
 
 @media only screen and (min-width: 1440px) {
-  .not-items-message {
-    padding-top: 0;
-    padding-left: 180px;
-  }
+	.not-items-message {
+		padding-top: 0;
+		padding-left: 180px;
+	}
 }
