@@ -1,5 +1,9 @@
 import { getFilters } from '../services/api/filters-api';
-import { handleCategoryClick } from './category-handler';
+import {
+	renderCategoriesByFilter,
+	bindCategoryClickHandlers,
+	createCategoryCard,
+} from './category-handler';
 import { state } from './filter-state';
 import { Loader } from '../services/loader.js';
 
@@ -15,28 +19,30 @@ const loader = new Loader({
 	size: 200,
 });
 
-let allCategories = [];
-
 export async function initFilters() {
 	const filterButtons = document.querySelectorAll('.filter-btn');
 
 	filterButtons.forEach(button => {
 		button.addEventListener('click', e => {
-			const clickedLabel = e.currentTarget.dataset.type.toLowerCase().trim();
+			const clickedLabel = e.currentTarget.dataset.type
+				.toLowerCase()
+				.trim();
 
 			state.filter = clickedLabel;
 			state.page = 1;
 			state.category = null;
 			state.keyword = '';
 
-			document.querySelector('.filter-btn.active')?.classList.remove('active');
+			document
+				.querySelector('.filter-btn.active')
+				?.classList.remove('active');
 			button.classList.add('active');
 
 			renderCategoriesByFilter(state.filter);
 		});
 	});
 
-	await loadAllCategories().then(() => {
+	loadAllCategories().then(() => {
 		state.filter = 'muscles';
 
 		document
@@ -55,8 +61,9 @@ async function loadAllCategories() {
 			limit: 100,
 		});
 
-		allCategories = response.results;
-		const markup = allCategories.map(createCategoryCard).join('');
+		state.allCategories = response.results;
+
+		const markup = state.allCategories.map(createCategoryCard).join('');
 		container.innerHTML = markup;
 		bindCategoryClickHandlers();
 	} catch (error) {
@@ -71,6 +78,8 @@ async function loadAllCategories() {
 function renderCategoriesByFilter(filterKey) {
 	const title = document.getElementById('current-category-name');
 	if (title) title.textContent = '';
+
+	container.innerHTML = '<p>Loading filtered categories...</p>';
 
 	const filterLabel = reverseFilterMap[filterKey];
 
@@ -100,7 +109,7 @@ function bindCategoryClickHandlers() {
 		card.addEventListener('click', () => {
 			const categoryName = card.dataset.name;
 			const categoryType = card.dataset.type?.toLowerCase().trim();
-			handleCategoryClick(categoryName, categoryType, card);
+			handleCategoryClick(categoryName, categoryType);
 		});
 	});
 }
@@ -114,7 +123,7 @@ function createCategoryCard(category) {
 	 <div class="overlay"></div>
   <div class="category-card-bg" style="background-image: url('${
 		category.imgURL
-	}')">
+  }')">
     <div class="category-card-text">
       <h3 class="category-card-title">${capitalize(category.name)}</h3>
       <p class="category-card-sub">${capitalize(category.filter)}</p>

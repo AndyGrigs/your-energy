@@ -13,6 +13,7 @@ import { changeInteranlLinksBaseURL } from './js/config/internalLinksHandler.js'
 
 changeInteranlLinksBaseURL();
 
+
 document.addEventListener('DOMContentLoaded', () => {
 	initFilters();
 });

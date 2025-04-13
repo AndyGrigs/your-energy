@@ -101,13 +101,11 @@
 		flex-direction: column;
 		row-gap: 32px;
 	}
+
+	
 }
 
-@media screen and (max-width: 690px) {
-	.search{
-		display: none;
-	}
-}
+
 
 .category-card {
 	min-width: 290px;
@@ -173,15 +171,21 @@
 	margin: 2px 0 0;
 }
 
-.hidden {
-	display: none !important;
-}
 
 .search-wrapper {
 	display: flex;
-	gap: 4em;
+	gap: 32px;
 	align-items: baseline;
 	position: relative;
+}
+
+@media screen and (max-width: 890px) {
+	.search-wrapper{
+
+		flex-direction: column;
+		justify-content: space-between;
+		width: 100%;
+	}
 }
 
 .search {
