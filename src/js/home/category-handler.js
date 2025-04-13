@@ -14,53 +14,54 @@ const loader = new Loader({
 	color: '#f4f4f4',
 });
 
-export function handleCategoryClick(categoryName, filterType, targetEl) {
-	toggleSearchInput(true);
+// export function handleCategoryClick(categoryName, filterType, targetEl) {
+// 	toggleSearchInput(true);
 
-	state.category = categoryName;
-	state.filter = filterType;
-	state.page = 1;
-	state.keyword = '';
+// 	state.category = categoryName;
+// 	state.filter = filterType;
+// 	state.page = 1;
+// 	state.keyword = '';
 
-	const input = document.getElementById('search-input');
-	if (input) input.value = '';
+// 	const input = document.getElementById('search-input');
+// 	if (input) input.value = '';
 
-	const title = document.getElementById('current-category-name');
-	if (title) title.textContent = ` / ${capitalize(categoryName)}`;
+// 	const title = document.getElementById('current-category-name');
+// 	if (title) title.textContent = ` / ${capitalize(categoryName)}`;
 
-	loadExercisesByCategory(targetEl);
-}
+// 	loadExercisesByCategory(targetEl);
+// }
 
-export function renderCategoriesByFilter(filterKey) {
-	const container = document.getElementById('exercise-cards-container');
+// export function renderCategoriesByFilter(filterKey) {
+// 	const container = document.getElementById('exercise-cards-container');
 
-	const title = document.getElementById('current-category-name');
-	if (title) title.textContent = '';
+// 	const title = document.getElementById('current-category-name');
+// 	if (title) title.textContent = '';
 
-	container.innerHTML = '<p>Loading filtered categories...</p>';
+// 	container.innerHTML = '<p>Loading filtered categories...</p>';
 
-	const filterLabel = reverseFilterMap[filterKey];
+// 	const filterLabel = reverseFilterMap[filterKey];
 
-	if (!filterLabel) {
-		console.warn('❗ Невідомий фільтр:', filterKey);
-		container.innerHTML = '<p>No filter selected.</p>';
-		return;
-	}
+// 	if (!filterLabel) {
+// 		console.warn('❗ Невідомий фільтр:', filterKey);
+// 		container.innerHTML = '<p>No filter selected.</p>';
+// 		return;
+// 	}
 
-	const filtered = state.allCategories.filter(
-		cat => cat.filter.trim().toLowerCase() === filterLabel.toLowerCase()
-	);
+// 	const filtered = state.allCategories.filter(
+// 		cat => cat.filter.trim().toLowerCase() === filterLabel.toLowerCase()
+// 	);
 
-	if (!filtered.length) {
-		container.innerHTML = '<p>No categories found for this filter.</p>';
-		return;
-	}
+// 	if (!filtered.length) {
+// 		container.innerHTML =
+// 			'<p class="text-for-n-data">No categories found for this filter.</p>';
+// 		return;
+// 	}
 
-	const markup = filtered.map(createCategoryCard).join('');
-	container.innerHTML = markup;
-	toggleSearchInput(false);
-	bindCategoryClickHandlers();
-}
+// 	const markup = filtered.map(createCategoryCard).join('');
+// 	container.innerHTML = markup;
+// 	toggleSearchInput(false);
+// 	bindCategoryClickHandlers();
+// }
 
 export function bindCategoryClickHandlers() {
 	document.querySelectorAll('.category-card').forEach(card => {

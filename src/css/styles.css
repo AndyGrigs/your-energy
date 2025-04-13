@@ -7,6 +7,7 @@
 @import url('./partials/sharedComponentsStyles/socials.css');
 @import url('./partials/mobile-menu.css');
 @import url('./partials/sharedComponentsStyles/pagination.css');
+@import url('./partials/sharedComponentsStyles/categoryCard.css');
 @import url('./partials/favorites.css');
 @import url('./partials/hero.css');
 @import url('./partials/footer.css');
@@ -17,13 +18,6 @@
 @import url('./partials/rating-modal.css');
 
 :root {
-	--text-color: black;
-	--text-size: 14px;
-	--test-size-mobile: 18px;
-	--accent-color: #242424;
-	--bg-color: #f4f4f4;
-	/* Transitions */
-	--fast-trns: 300ms ease;
 	--text-color: black;
 	--text-size: 14px;
 	--test-size-mobile: 18px;

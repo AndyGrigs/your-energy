@@ -1,6 +1,8 @@
 import { paginationRefs } from '../constants/refs';
 
 export const renderPagination = ({ totalPages, onPageChange, query }) => {
+	console.log('🚀 ~ onPageChange:', onPageChange);
+	console.log('in rnder pagination');
 	const currentPage = query.page;
 	paginationRefs.paginationContainer.innerHTML = '';
 
@@ -14,7 +16,7 @@ export const renderPagination = ({ totalPages, onPageChange, query }) => {
 		if (page === currentPage) {
 			btn.classList.add('active');
 		} else {
-			btn.addEventListener('click', () => onPageChange({ ...query, page }));
+			btn.addEventListener('click', () => onPageChange(page));
 		}
 
 		return btn;
@@ -26,4 +28,9 @@ export const renderPagination = ({ totalPages, onPageChange, query }) => {
 	for (let i = start; i <= end; i += 1) {
 		paginationRefs.paginationContainer.appendChild(createButton(query, i));
 	}
+};
+
+export const clearPagination = () => {
+	console.log('in clear pagination');
+	paginationRefs.paginationContainer.innerHTML = '';
 };

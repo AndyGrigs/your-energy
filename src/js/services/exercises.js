@@ -6,57 +6,74 @@ import * as api from './api/exercises-api.js';
 import * as errorMessages from '../constants/error-messages.js';
 
 export const handleGetExercisesByFilters = async query => {
-  try {
-    const exercises = await api.getExercisesByFilters(query);
-    return exercises;
-  } catch (error) {
-    const { status } = error;
-    const message =
-      errorMessages.getExercisesByFiltersErrs[status] ||
-      `Unexpected error (${error.message || 'unknown'})`;
+	try {
+		const exercises = await api.getExercisesByFilters(query);
+		return exercises;
+	} catch (error) {
+		const { status } = error;
+		const message =
+			errorMessages.getExercisesByFiltersErrs[status] ||
+			`Unexpected error (${error.message || 'unknown'})`;
 
-    throw {
-      code: status,
-      message: message,
-    };
-  }
+		iziToast.show({
+			...iziToastOptions.error,
+			message,
+		});
+
+		throw {
+			code: status,
+			message: message,
+		};
+	}
 };
 
 export const handleUpdateExerciseRating = async (id, body) => {
-  try {
-    const response = await api.updateExerciseRating(id, body);
-    return response;
-  } catch (error) {
-    const { status } = error;
-    const message =
-      errorMessages.updateExerciseRatingErrs[status] ||
-      `Unexpected error (${error.message || 'unknown'})`;
+	try {
+		const response = await api.updateExerciseRating(id, body);
 
-    iziToast.show({
-      ...iziToastOptions.error,
-      message,
-    });
+		const message = 'Your rating has been successfully added';
 
-    throw {
-      code: status,
-      message: message,
-    };
-  }
+		iziToast.show({
+			...iziToastOptions.success,
+			message,
+		});
+		return response;
+	} catch (error) {
+		const { status } = error;
+		const message =
+			errorMessages.updateExerciseRatingErrs[status] ||
+			`Unexpected error (${error.message || 'unknown'})`;
+
+		iziToast.show({
+			...iziToastOptions.error,
+			message,
+		});
+
+		throw {
+			code: status,
+			message: message,
+		};
+	}
 };
 
 export const handleGetExerciseById = async id => {
-  try {
-    const exercise = await api.getExerciseById(id);
-    return exercise;
-  } catch (error) {
-    const { status } = error;
-    const message =
-      errorMessages.getExerciseByIdErrs[status] ||
-      `Unexpected error (${error.message || 'unknown'})`;
+	try {
+		const exercise = await api.getExerciseById(id);
+		return exercise;
+	} catch (error) {
+		const { status } = error;
+		const message =
+			errorMessages.getExerciseByIdErrs[status] ||
+			`Unexpected error (${error.message || 'unknown'})`;
 
-    throw {
-      code: status,
-      message: message,
-    };
-  }
+		iziToast.show({
+			...iziToastOptions.error,
+			message,
+		});
+
+		throw {
+			code: status,
+			message: message,
+		};
+	}
 };
