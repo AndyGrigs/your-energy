@@ -1,6 +1,6 @@
 export class Loader {
 	constructor({
-		path = '/animations/loader.json',
+		path = new URL('/animations/loader.json', import.meta.url).href,
 		size = 200,
 		color,
 		timeout = 1000,
