@@ -1,7 +1,7 @@
-main - category - hendlers.js;
 import { state } from './filter-state';
 import { toggleSearchInput } from './search-handler';
 import { loadExercisesByCategory } from './exercise-handler';
+import { Loader } from '../services/loader.js';
 
 const reverseFilterMap = {
 	muscles: 'Muscles',
@@ -9,7 +9,12 @@ const reverseFilterMap = {
 	equipment: 'Equipment',
 };
 
-export function handleCategoryClick(categoryName, filterType) {
+const loader = new Loader({
+	size: 200,
+	color: '#f4f4f4',
+});
+
+export function handleCategoryClick(categoryName, filterType, targetEl) {
 	toggleSearchInput(true);
 
 	state.category = categoryName;
@@ -23,7 +28,7 @@ export function handleCategoryClick(categoryName, filterType) {
 	const title = document.getElementById('current-category-name');
 	if (title) title.textContent = ` / ${capitalize(categoryName)}`;
 
-	loadExercisesByCategory();
+	loadExercisesByCategory(targetEl);
 }
 
 export function renderCategoriesByFilter(filterKey) {
@@ -62,7 +67,7 @@ export function bindCategoryClickHandlers() {
 		card.addEventListener('click', () => {
 			const categoryName = card.dataset.name;
 			const categoryType = card.dataset.type?.toLowerCase().trim();
-			handleCategoryClick(categoryName, categoryType);
+			handleCategoryClick(categoryName, categoryType, card);
 		});
 	});
 }
