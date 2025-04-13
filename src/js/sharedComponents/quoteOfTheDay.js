@@ -2,11 +2,18 @@ import { handleGetQuoteOfTheDay } from '../services/quotes.js';
 import { getTodayDate } from '../utils/getTodayDate.js';
 import { Loader } from '../services/loader.js';
 
+
 const loader = new Loader({
 	size: 200,
 	color: '#f4f4f4',
 });
 export async function renderQuoteOfTheDay(quoteText, quoteAuthor) {
+
+const quoteText = document.querySelector('.quote-day-card-text');
+const quoteAuthor = document.querySelector('.quote-day-card-author');
+
+export async function renderQuoteOfTheDay() {
+
 	try {
 		const ls_data = JSON.parse(localStorage.getItem('quoteOfTheDay'));
 

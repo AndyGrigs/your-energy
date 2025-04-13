@@ -18,13 +18,17 @@ export const modalRefs = {
 	stars: document.querySelectorAll('.star'),
 	favoriteButton: document.getElementById('favoriteButton'),
 	ratingButton: document.getElementById('ratingButton'),
-	closeModalBtn: document.querySelector('.close-button'),
+	closeModalBtn: document.getElementById('closeModalBtn'),
 };
 
 export const mobileMenuRefs = {
-  burgerButton: document.querySelector('.js-burger-button'),
-  mobileMenu: document.querySelector('.mobile-menu-js'),
-  backdrop: document.querySelector('.mobile-backdrop-js'),
-  closeButton: document.querySelector('.mobile-menu-close-js'),
-  navLinks: document.querySelectorAll('.nav-links.mobile-menu .nav-link'),
+	burgerButton: document.querySelector('.js-burger-button'),
+	mobileMenu: document.querySelector('.mobile-menu-js'),
+	backdrop: document.querySelector('.mobile-backdrop-js'),
+	closeButton: document.querySelector('.mobile-menu-close-js'),
+	navLinks: document.querySelectorAll('.nav-links.mobile-menu .nav-link'),
+};
+
+export const paginationRefs = {
+	paginationContainer: document.getElementById('pagination'),
 };

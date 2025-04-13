@@ -10,33 +10,32 @@ import './js/partials/rating-modal.js';
 import './js/services/modal.js';
 
 import { changeInteranlLinksBaseURL } from './js/config/internalLinksHandler.js';
+import { renderQuoteOfTheDay } from './js/sharedComponents/quoteOfTheDay.js';
+import { renderFavoritesItems } from './js/services/favorites.js';
 
-changeInteranlLinksBaseURL();
+function main() {
+	changeInteranlLinksBaseURL();
+	const pageURL = window.location.href;
+	console.log(pageURL);
+
+	if (pageURL.includes('your-energy'))
+		document.addEventListener('DOMContentLoaded', () => {
+			initFilters();
+		});
 
 
 document.addEventListener('DOMContentLoaded', () => {
 	initFilters();
 });
 
-window.addEventListener('scroll', handleScrollForScrollTopBtn);
-refs.scrollToTopBtn.addEventListener('click', scrollToTop);
 
-const subscribeForm = document.querySelector('#subscribe-form');
-if (subscribeForm) {
-	subscribeForm.addEventListener('submit', async event => {
-		event.preventDefault();
-		try {
-			const email = subscribeForm.email.value;
-			await handleSubscription(email);
-			subscribeForm.reset();
-		} catch (error) {
-			console.log(error);
-		}
-	});
-}
+	if (pageURL.includes('favorites'))
+		document.addEventListener('DOMContentLoaded', () => {
+			renderFavoritesItems();
+		});
 
-//лише для тесту
-// import { Loader } from './js/services/loader.js';
+	renderQuoteOfTheDay();
+
 
 // const redLoader = new Loader();
 // document.getElementById('red-btn').addEventListener('click', async () => {
@@ -69,14 +68,45 @@ if (subscribeForm) {
 //   blueLoader.hide();
 // });
 
-// const blackLoader = new Loader({
-//   target: '#black-loader',
-//   size: 100,
-//   color: 'black',
-// });
+	window.addEventListener('scroll', handleScrollForScrollTopBtn);
+	refs.scrollToTopBtn.addEventListener('click', scrollToTop);
 
-// document.getElementById('black-btn').addEventListener('click', async () => {
-// 	blackLoader.show();
-// 	await new Promise(res => setTimeout(res, 3000));
-// 	blackLoader.hide();
-// });
+	const subscribeForm = document.querySelector('#subscribe-form');
+	if (subscribeForm) {
+		subscribeForm.addEventListener('submit', async event => {
+			event.preventDefault();
+			try {
+				const email = subscribeForm.email.value;
+				await handleSubscription(email);
+				subscribeForm.reset();
+			} catch (error) {
+				console.log(error);
+			}
+		});
+	}
+
+	// Mobile menu
+	mobileMenuRefs.burgerButton.addEventListener(
+		'click',
+		mobileMenu.openMobileMenu
+	);
+	mobileMenuRefs.closeButton.addEventListener('click', mobileMenu.closeMenu);
+	mobileMenuRefs.backdrop.addEventListener(
+		'click',
+		mobileMenu.handleBackdropClick
+	);
+	document.addEventListener('keydown', mobileMenu.handleEscapeKey);
+	mobileMenuRefs.navLinks.forEach(link =>
+		link.addEventListener('click', mobileMenu.handleNavLinkClick)
+	);
+
+	// Detect current page and add 'active' class to the corresponding navigation link
+	document.addEventListener('DOMContentLoaded', setActiveLink());
+
+
+	// Scroll to top button
+	window.addEventListener('scroll', handleScrollForScrollTopBtn);
+	refs.scrollToTopBtn.addEventListener('click', scrollToTop);
+}
+
+main();
