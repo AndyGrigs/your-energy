@@ -35,6 +35,6 @@ export async function renderQuoteOfTheDay() {
 	} catch (error) {
 		console.log('🚀 ~ error in getQuoteOfTheDay data rendering:', error);
 	} finally {
-		await loader.hide(quoteText);
+		await loader.hide(quoteTextcontainer);
 	}
 }
