@@ -259,17 +259,18 @@
 	font-size: 14px;
 	font-weight: 400;
 	line-height: 18px;
-
-	&:hover,
-	&:focus {
-		transform: scale(1.1);
-	}
 }
 
 .add-fav-btn {
 	padding: 12px 0;
 	background: #f4f4f4;
 	color: #242424;
+}
+
+.add-fav-btn:hover {
+	background: #242424;
+	color: #f4f4f4;
+	border: 1px solid #f4f4f4;
 }
 
 .add-fav-btn svg {
@@ -284,6 +285,11 @@
 	padding: 12px 107px;
 	border: 1px solid #f4f4f4;
 	color: #f4f4f4;
+}
+
+.add-rate-btn:hover {
+	background: #f4f4f4;
+	color: #242424;
 }
 
 @media (min-width: 768px) {

@@ -14,7 +14,7 @@ export function preparingCardsMarkup(listElement, items, BtnVisible = true) {
           ${
 				BtnVisible
 					? `
-            <button class="delete-button" aria-label="Delete workout">
+            <button class="delete-button js-delete-button" aria-label="Delete workout" data-exercise-id=${item._id}>
               <img src="./img/trash-icon.svg" alt="Delete" width="16" height="16">
             </button>
           `
