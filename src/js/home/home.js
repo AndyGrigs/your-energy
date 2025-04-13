@@ -52,7 +52,7 @@ async function loadAllCategories() {
 		await loader.show(container.id);
 		const response = await getFilters({
 			page: 1,
-			limit: 100,
+			limit: 10,
 		});
 
 		state.allCategories = response.results;
