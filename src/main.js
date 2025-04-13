@@ -15,17 +15,17 @@ import { renderFavoritesItems } from './js/services/favorites.js';
 
 function main() {
 	changeInteranlLinksBaseURL();
-	const pageURL = window.location.href;
-	console.log(pageURL);
+	const pagePath = window.location.pathname;
+	console.log(pagePath);
 
-	if (pageURL.includes('your-energy'))
+	if (pagePath.startsWith('/your-energy'))
 		document.addEventListener('DOMContentLoaded', () => {
 			initFilters();
 		});
 
 	if (
-		pageURL.includes('/favorites') ||
-		pageURL.includes('/your-energy/favorites')
+		pagePath.startsWith('/favorites') ||
+		pagePath.startsWith('/your-energy/favorites')
 	)
 		document.addEventListener('DOMContentLoaded', () => {
 			renderFavoritesItems();
