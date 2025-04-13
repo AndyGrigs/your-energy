@@ -272,6 +272,15 @@
 
 .time-card-home {
 	margin-bottom: 0;
+	width: 100%;
+
+	@media (min-width: 768px) {
+		width: 400px;
+	}
+
+	@media (min-width: 1440px) {
+		width: 440px;
+	}
 }
 .time-min-card-main-text {
 	@media (max-width: 1439.98px) {

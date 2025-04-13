@@ -20,12 +20,15 @@ function main() {
 
 	document.addEventListener('DOMContentLoaded', () => {
 		const path = window.location.pathname;
+		console.log('🚀 ~ path:', path);
 
 		if (path === '/your-energy/' || path === '/') {
+			console.log('homepage');
 			init();
 		}
 
 		if (path === '/favorites' || path === '/your-energy/favorites') {
+			console.log('favorites page');
 			renderFavoritesItems();
 		}
 	});

@@ -2,6 +2,11 @@
 @import url('./sharedComponentsStyles/timeCard.css');
 @import url('./sharedComponentsStyles/workoutCard.css');
 
+.favorites-wrapper {
+	margin-top: 84px;
+	margin-bottom: 80px;
+}
+
 @media only screen and (min-width: 1440px) {
 	.desktop-favorites-section {
 		display: flex;
