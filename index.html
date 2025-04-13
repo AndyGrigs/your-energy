@@ -17,9 +17,9 @@
 		<link rel="stylesheet" href="iziToast.min.css" />
 		<title>YourEnergy | Home</title>
 		<script type="module" crossorigin src="/your-energy/assets/vendor-Cte-_2za.js"></script>
-		<script type="module" crossorigin src="/your-energy/assets/main-DHwq47mT.js"></script>
-		<link rel="stylesheet" crossorigin href="/your-energy/assets/main-CAfx6n2L.css">
+		<script type="module" crossorigin src="/your-energy/assets/main-CYyWsyqn.js"></script>
 		<link rel="stylesheet" crossorigin href="/your-energy/assets/vendor-DnveWo0P.css">
+		<link rel="stylesheet" crossorigin href="/your-energy/assets/main-CyvModiY.css">
 	</head>
 	<body>
 		<!-- <div style="height: 200px">
@@ -244,41 +244,53 @@
   </div>
 </section>
 				<section class="home-section">
-	<div class="home-header">
-		<h2 class="home-title">
-			Exercises <span id="current-category-name"></span>
-		</h2>
+	<div class="container home-main-container">
+		<div class="home-header">
+			<div class="title-wrapper">
+				<h2 class="home-title">Exercises</h2>
+				<p class="current-category-name"></p>
+			</div>
 
-		<div class="search-wrapper">
-			<div class="search hidden">
-				<input
-					type="text"
-					id="search-input"
-					placeholder="Search..."
-					class="search-input"
-				/>
-				<span class="search-icon">
-					<svg width="132" height="24">
+			<div class="filters-wrapper">
+				<div class="search">
+					<input
+						type="text"
+						id="search-input"
+						placeholder="Search..."
+						class="search-input"
+					/>
+					<svg class="search-icon" width="18" height="18">
 						<use href="./img/sprite.svg#search"></use>
 					</svg>
-				</span>
-			</div>
+				</div>
 
-			<div class="filters">
-				<button class="filter-btn" data-type="Muscles">Muscles</button>
-				<button class="filter-btn" data-type="Body parts">
-					Body parts
-				</button>
-				<button class="filter-btn" data-type="Equipment">
-					Equipment
-				</button>
+				<div class="filters">
+					<button class="filter-btn active" data-type="Muscles">
+						Muscles
+					</button>
+					<button class="filter-btn" data-type="Body parts">
+						Body parts
+					</button>
+					<button class="filter-btn" data-type="Equipment">
+						Equipment
+					</button>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="exercises-content">
-		<div class="encourage-section">
-			<div class="quote-wraper">
-				<div class="quote-day-card">
+
+		<div class="main-content">
+			<div class="cards-wrapper">
+				<div
+					class="cards-container"
+					id="exercise-cards-container"
+				></div>
+				<div id="pagination" class="pagination"></div>
+
+			</div>
+
+			<div class="encourage-section">
+				<div class="quote-wrapper">
+					<div class="quote-day-card">
 	<span class="quote-icon-running">
 		<img
 			src="./img/quote_icon_1.svg"
@@ -304,42 +316,44 @@
 	</span>
 </div>
 
-				<div class="encourage-img-container">
-					<img
-						class="encourage-img"
-						src="/your-energy/img/quote_1x.png"
-						srcset="/your-energy/img/quote_1x.png 1x, /your-energy/img/quote_2x.png 2x"
-						alt="Women sportswear taking break from workout"
-					/>
+
+					<div class="encourage-img-container">
+						<img
+							class="encourage-img"
+							src="/your-energy/img/quote_1x.png"
+							srcset="/your-energy/img/quote_1x.png 1x, /your-energy/img/quote_2x.png 2x"
+							alt="Women sportswear taking break from workout"
+						/>
+					</div>
+				</div>
+
+				<div class="time-min-card time-card-home">
+					<span class="time-home-icon-gantel">
+						<img
+							src="/your-energy/img/time-home-gantel-icon.svg"
+							alt="Gantel"
+						/>
+					</span>
+					<p class="time-min-card-title time-min-card-home-title">
+						110 min
+					</p>
+					<p class="time-min-card-text time-min-card-home-text">
+						Daily norm of sports
+					</p>
+					<p class="time-min-card-main-text">
+						The World Health Organization recommends at least 150
+						minutes of moderate-intensity aerobic physical activity
+						throughout the week for adults aged 18-64. However, what
+						happens if we adjust that number to 110 minutes every
+						day? While it might seem like a high number to hit,
+						dedicating 110 minutes daily to sporting activities may
+						offer unparalleled benefits to physical health, mental
+						well-being, and overall quality of life.
+					</p>
 				</div>
 			</div>
-			<div class="time-min-card time-card-home">
-				<span class="time-home-icon-gantel">
-					<img src="/your-energy/img/time-home-gantel-icon.svg" alt="Gantel" />
-				</span>
-				<p class="time-min-card-title time-min-card-home-title">110 min</p>
-				<p class="time-min-card-text time-min-card-home-text">
-					Daily norm of sports
-				</p>
-				<p class="time-min-card-main-text">
-					The World Health Organization recommends at least 150 minutes of
-					moderate-intensity aerobic physical activity throughout the week for
-					adults aged 18-64. However, what happens if we adjust that number to
-					110 minutes every day? While it might seem like a high number to hit,
-					dedicating 110 minutes daily to sporting activities may offer
-					unparalleled benefits to physical health, mental well-being, and
-					overall quality of life.
-				</p>
-			</div>
 		</div>
-		<div class="cards-container" id="exercise-cards-container"></div>
-		<div class="pagination"></div>
 	</div>
-	</div>
-
-	<div class="cards-container" id="exercise-cards-container"></div>
-	<div id="pagination" class="pagination"></div>
-
 </section>
 
 			</main>
