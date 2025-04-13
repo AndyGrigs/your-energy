@@ -1,7 +1,10 @@
 import { handleGetQuoteOfTheDay } from '../services/quotes.js';
 import { getTodayDate } from '../utils/getTodayDate.js';
 
-export async function renderQuoteOfTheDay(quoteText, quoteAuthor) {
+const quoteText = document.querySelector('.quote-day-card-text');
+const quoteAuthor = document.querySelector('.quote-day-card-author');
+
+export async function renderQuoteOfTheDay() {
 	try {
 		const ls_data = JSON.parse(localStorage.getItem('quoteOfTheDay'));
 
