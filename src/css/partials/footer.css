@@ -7,14 +7,9 @@
     padding: 64px 0 16px;
   }
 
-  .container {
-    max-width: 1440px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
-
-    @media (min-width: 768px) {
-      padding: 0 32px;
+  .footer-container {
+    @media (min-width: 1440px) {
+      max-width: 1440px;
     }
   }
 

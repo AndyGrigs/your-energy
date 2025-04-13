@@ -7,6 +7,9 @@ const loader = new Loader({
 	color: '#f4f4f4',
 });
 export async function renderQuoteOfTheDay() {
+	const qouteOfTheDayWrapper = document.querySelector(
+		'.quote-day-card-content'
+	);
 	const quoteTextcontainer = document.querySelector('.quote-day-card-text');
 	const quoteAuthorContainer = document.querySelector(
 		'.quote-day-card-author'

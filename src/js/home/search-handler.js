@@ -21,8 +21,6 @@ export function initExerciseSearch() {
 	});
 }
 
-export function toggleSearchInput(visible) {
-	const searchInput = document.querySelector('.search');
-	if (!searchInput) return;
+export const toggleSearchInput = visible => {
 	searchInput.style.display = visible ? 'block' : 'none';
-}
+};
