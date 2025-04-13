@@ -1,10 +1,16 @@
 import { handleGetQuoteOfTheDay } from '../services/quotes.js';
 import { getTodayDate } from '../utils/getTodayDate.js';
+import { Loader } from '../services/loader.js';
 
+const loader = new Loader({
+	size: 200,
+	color: '#f4f4f4',
+});
 export async function renderQuoteOfTheDay(quoteText, quoteAuthor) {
 	try {
 		const ls_data = JSON.parse(localStorage.getItem('quoteOfTheDay'));
 
+		await loader.show(quoteText);
 		const todayDate = getTodayDate();
 		let qouteDate;
 
@@ -24,5 +30,7 @@ export async function renderQuoteOfTheDay(quoteText, quoteAuthor) {
 		quoteAuthor.textContent = authorName;
 	} catch (error) {
 		console.log('🚀 ~ error in getQuoteOfTheDay data rendering:', error);
+	} finally {
+		await loader.hide(quoteText);
 	}
 }
