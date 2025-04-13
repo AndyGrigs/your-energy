@@ -24,9 +24,8 @@ function main() {
 		});
 
 
-document.addEventListener('DOMContentLoaded', () => {
-	initFilters();
-});
+		initFilters();
+
 
 
 	if (pageURL.includes('favorites'))
@@ -37,36 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	renderQuoteOfTheDay();
 
 
-// const redLoader = new Loader();
-// document.getElementById('red-btn').addEventListener('click', async () => {
-// 	await redLoader.show('red-loader', { color: 'red', size: 50, timeout: 2000 });
-// 	await redLoader.hide('red-loader');
-// });
-
-// document.getElementById('blue-btn').addEventListener('click', async () => {
-// 	await redLoader.show('blue-loader', {
-// 		color: 'blue',
-// 		size: 100,
-// 		timeout: 2000,
-// 	});
-// 	await redLoader.hide('blue-loader');
-// });
-
-// document.getElementById('black-btn').addEventListener('click', async () => {
-// 	await redLoader.show('black-loader');
-// 	await redLoader.hide('black-loader');
-// });
-
-// const blueLoader = new Loader({
-// 	target: '#blue-loader',
-// 	size: 75,
-// 	color: 'blue',
-// });
-// document.getElementById('blue-btn').addEventListener('click', async () => {
-//   blueLoader.show();
-//   await new Promise(res => setTimeout(res, 3000));
-//   blueLoader.hide();
-// });
 
 	window.addEventListener('scroll', handleScrollForScrollTopBtn);
 	refs.scrollToTopBtn.addEventListener('click', scrollToTop);
