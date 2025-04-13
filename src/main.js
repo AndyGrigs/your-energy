@@ -23,19 +23,12 @@ function main() {
 			initFilters();
 		});
 
-
-		initFilters();
-
-
-
 	if (pageURL.includes('favorites'))
 		document.addEventListener('DOMContentLoaded', () => {
 			renderFavoritesItems();
 		});
 
 	renderQuoteOfTheDay();
-
-
 
 	window.addEventListener('scroll', handleScrollForScrollTopBtn);
 	refs.scrollToTopBtn.addEventListener('click', scrollToTop);
@@ -71,7 +64,6 @@ function main() {
 
 	// Detect current page and add 'active' class to the corresponding navigation link
 	document.addEventListener('DOMContentLoaded', setActiveLink());
-
 
 	// Scroll to top button
 	window.addEventListener('scroll', handleScrollForScrollTopBtn);
