@@ -23,6 +23,12 @@ function main() {
 			initFilters();
 		});
 
+
+document.addEventListener('DOMContentLoaded', () => {
+	initFilters();
+});
+
+
 	if (pageURL.includes('favorites'))
 		document.addEventListener('DOMContentLoaded', () => {
 			renderFavoritesItems();
