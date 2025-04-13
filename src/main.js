@@ -18,18 +18,17 @@ function main() {
 	const pagePath = window.location.pathname;
 	console.log(pagePath);
 
-	if (pagePath.startsWith('/your-energy'))
-		document.addEventListener('DOMContentLoaded', () => {
-			initFilters();
-		});
+	document.addEventListener('DOMContentLoaded', () => {
+		const path = window.location.pathname;
 
-	if (
-		pagePath.startsWith('/favorites') ||
-		pagePath.startsWith('/your-energy/favorites')
-	)
-		document.addEventListener('DOMContentLoaded', () => {
+		if (path === '/your-energy/' || path === '/') {
+			initFilters();
+		}
+
+		if (path === '/favorites' || path === '/your-energy/favorites') {
 			renderFavoritesItems();
-		});
+		}
+	});
 
 	renderQuoteOfTheDay();
 
