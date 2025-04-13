@@ -12,22 +12,22 @@ export function preparingCardsMarkup(listElement, items, BtnVisible = true) {
         <div class="workout-header">
           <span class="workout-badge">WORKOUT</span>
           ${
-						BtnVisible
-							? `
+				BtnVisible
+					? `
             <button class="delete-button" aria-label="Delete workout">
-              <img src="../img/trash-icon.svg" alt="Delete" width="16" height="16">
+              <img src="./img/trash-icon.svg" alt="Delete" width="16" height="16">
             </button>
           `
-							: ''
-					}
+					: ''
+			}
           <button class="start-button" data-exercise-id=${
-						item._id
-					}>Start ➔</button>
+				item._id
+			}>Start ➔</button>
         </div>
         <div class="workout-body">
           <span class="workout-icon-running">
             <img
-              src="../img/quote_icon_1.svg"
+              src="./img/quote_icon_1.svg"
               width="24px"
               height="24px"
               alt="Running Icon"

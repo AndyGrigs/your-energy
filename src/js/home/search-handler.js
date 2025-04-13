@@ -3,7 +3,6 @@ import { createExerciseCard } from './exercise-renderer';
 
 export function initExerciseSearch() {
 	const input = document.getElementById('search-input');
-	console.log(input)
 	const container = document.getElementById('exercise-cards-container');
 
 	input.addEventListener('input', e => {

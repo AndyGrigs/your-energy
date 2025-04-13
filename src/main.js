@@ -15,58 +15,22 @@ import { renderFavoritesItems } from './js/services/favorites.js';
 
 function main() {
 	changeInteranlLinksBaseURL();
-	const pageURL = window.location.href;
-	console.log(pageURL);
+	const pagePath = window.location.pathname;
+	console.log(pagePath);
 
-	if (pageURL.includes('your-energy'))
-		document.addEventListener('DOMContentLoaded', () => {
+	document.addEventListener('DOMContentLoaded', () => {
+		const path = window.location.pathname;
+
+		if (path === '/your-energy/' || path === '/') {
 			initFilters();
-		});
+		}
 
-
-document.addEventListener('DOMContentLoaded', () => {
-	initFilters();
-});
-
-
-	if (pageURL.includes('favorites'))
-		document.addEventListener('DOMContentLoaded', () => {
+		if (path === '/favorites' || path === '/your-energy/favorites') {
 			renderFavoritesItems();
-		});
+		}
+	});
 
 	renderQuoteOfTheDay();
-
-
-// const redLoader = new Loader();
-// document.getElementById('red-btn').addEventListener('click', async () => {
-// 	await redLoader.show('red-loader', { color: 'red', size: 50, timeout: 2000 });
-// 	await redLoader.hide('red-loader');
-// });
-
-// document.getElementById('blue-btn').addEventListener('click', async () => {
-// 	await redLoader.show('blue-loader', {
-// 		color: 'blue',
-// 		size: 100,
-// 		timeout: 2000,
-// 	});
-// 	await redLoader.hide('blue-loader');
-// });
-
-// document.getElementById('black-btn').addEventListener('click', async () => {
-// 	await redLoader.show('black-loader');
-// 	await redLoader.hide('black-loader');
-// });
-
-// const blueLoader = new Loader({
-// 	target: '#blue-loader',
-// 	size: 75,
-// 	color: 'blue',
-// });
-// document.getElementById('blue-btn').addEventListener('click', async () => {
-//   blueLoader.show();
-//   await new Promise(res => setTimeout(res, 3000));
-//   blueLoader.hide();
-// });
 
 	window.addEventListener('scroll', handleScrollForScrollTopBtn);
 	refs.scrollToTopBtn.addEventListener('click', scrollToTop);
@@ -102,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// Detect current page and add 'active' class to the corresponding navigation link
 	document.addEventListener('DOMContentLoaded', setActiveLink());
-
 
 	// Scroll to top button
 	window.addEventListener('scroll', handleScrollForScrollTopBtn);
