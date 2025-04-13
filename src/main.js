@@ -23,7 +23,10 @@ function main() {
 			initFilters();
 		});
 
-	if (pageURL.includes('favorites'))
+	if (
+		pageURL.includes('/favorites') ||
+		pageURL.includes('/your-energy/favorites')
+	)
 		document.addEventListener('DOMContentLoaded', () => {
 			renderFavoritesItems();
 		});
