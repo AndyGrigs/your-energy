@@ -104,6 +104,19 @@ function closeModal() {
 		'click',
 		modalRefs.modalExercises._windowClickHandler
 	);
+
+	modalRefs.modalTitle.textContent = '';
+	modalRefs.modalRatingValue.textContent = '';
+	modalRefs.modalImage.src = '';
+	modalRefs.modalImage.alt = '';
+
+	modalRefs.modalTarget.textContent = '';
+	modalRefs.modalBodyPart.textContent = '';
+	modalRefs.modalEquipment.textContent = '';
+	modalRefs.modalPopular.textContent = '';
+
+	modalRefs.modalCalories.textContent = '';
+	modalRefs.modalDescription.textContent = '';
 }
 
 refs.exercisesContainer.addEventListener('click', async function (event) {
