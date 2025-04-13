@@ -7,6 +7,9 @@ const loader = new Loader({
 	color: '#f4f4f4',
 });
 export async function renderQuoteOfTheDay() {
+	const qouteOfTheDayWrapper = document.querySelector(
+		'.quote-day-card-content'
+	);
 	const quoteTextcontainer = document.querySelector('.quote-day-card-text');
 	const quoteAuthorContainer = document.querySelector(
 		'.quote-day-card-author'
@@ -15,7 +18,7 @@ export async function renderQuoteOfTheDay() {
 	try {
 		const ls_data = JSON.parse(localStorage.getItem('quoteOfTheDay'));
 
-		await loader.show(quoteTextcontainer);
+		await loader.show(qouteOfTheDayWrapper);
 		const todayDate = getTodayDate();
 
 		let authorName;
@@ -35,6 +38,6 @@ export async function renderQuoteOfTheDay() {
 	} catch (error) {
 		console.log('🚀 ~ error in getQuoteOfTheDay data rendering:', error);
 	} finally {
-		await loader.hide(quoteTextcontainer);
+		await loader.hide(qouteOfTheDayWrapper);
 	}
 }

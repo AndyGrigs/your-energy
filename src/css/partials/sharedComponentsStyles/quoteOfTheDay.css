@@ -13,6 +13,7 @@
 
 .quote-day-card {
 	background-color: var(--accent-color);
+	min-height: 206px;
 	width: 335px;
 	border-radius: 20px;
 	padding: 20px 20px;
