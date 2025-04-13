@@ -15,7 +15,7 @@ export async function renderQuoteOfTheDay() {
 	try {
 		const ls_data = JSON.parse(localStorage.getItem('quoteOfTheDay'));
 
-		await loader.show(quoteTextcontainer);
+		await loader.show(quoteTextcontainer.parentElement);
 		const todayDate = getTodayDate();
 
 		let authorName;
@@ -35,6 +35,6 @@ export async function renderQuoteOfTheDay() {
 	} catch (error) {
 		console.log('🚀 ~ error in getQuoteOfTheDay data rendering:', error);
 	} finally {
-		await loader.hide(quoteTextcontainer);
+		await loader.hide(quoteTextcontainer.parentElement);
 	}
 }
