@@ -3,7 +3,7 @@ export class Loader {
 		path = '/animations/loader.json',
 		size = 200,
 		color,
-		timeout = 2500,
+		timeout = 1000,
 	} = {}) {
 		this._path = path;
 		this._defaultSize = size;
@@ -77,7 +77,11 @@ export class Loader {
 			paths.forEach(p => p.setAttribute('fill', appliedColor));
 		});
 
-		this._instances.set(el, { wrapper, animation, timeout: appliedTimeout });
+		this._instances.set(el, {
+			wrapper,
+			animation,
+			timeout: appliedTimeout,
+		});
 
 		if (appliedTimeout) {
 			await new Promise(res => setTimeout(res, appliedTimeout));
