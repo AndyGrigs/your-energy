@@ -3,6 +3,7 @@
 import { toggleModal } from '../services/modal';
 import { iziToast } from '../config/izi-toast.js';
 import * as exercises from '../services/exercises';
+import { modalRefs, refs } from '../constants/refs.js';
 
 // Отримуємо DOM-елементи
 const modal = document.querySelector('[data-modal="rating"]');
@@ -49,7 +50,12 @@ async function handleSubmit(event) {
 
 	try {
 		await loader.show(modal);
-		const updateExerciseRatingId = '64f389465ae26083f39b17a2';
+
+		const exerciseData = modalRefs.modalRating.exerciseData;
+		if (!exerciseData) {
+			throw new Error('Exercise data is not available.');
+		}
+		const updateExerciseRatingId = exerciseData._id;
 
 		const updateExerciseRatingBody = {
 			rate: rating,
