@@ -59,6 +59,8 @@ async function handleSubmit(event) {
 			updateExerciseRatingId,
 			updateExerciseRatingBody
 		);
+
+		closeRatingModal();
 	} catch (error) {
 	} finally {
 	}
