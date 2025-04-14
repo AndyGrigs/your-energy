@@ -7,16 +7,17 @@ import {
 	renderPagination,
 } from '../sharedComponents/pagination';
 import { loadExercises } from './exercises';
+import { handleSearchInput } from './search';
 
 export const homeLoader = new Loader({
 	size: 200,
 });
 
 export const loadCategories = async query => {
+	mainHomeRefs.cardsContainer.innerHTML = '';
 	clearPagination();
 
 	try {
-		mainHomeRefs.cardsContainer.innerHTML = '';
 		await homeLoader.show(mainHomeRefs.cardsContainer.id);
 
 		const data = await handleGetFilters(query);
@@ -78,7 +79,7 @@ export const bindCategoryClickHandlers = () => {
 
 export const createCategoryCard = category => {
 	return `
-		<div
+		<li
 			class="category-card"
 			data-name="${category.name}"
 			data-type="${category.filter}"
@@ -96,7 +97,7 @@ export const createCategoryCard = category => {
 				<h3 class="category-card-title">${capitalizeFirstLetter(category.name)}</h3>
 				<p class="category-card-sub">${category.filter}</p>
 			</div>
-		</div>
+		</li>
 
  	 `;
 };
@@ -106,9 +107,6 @@ export const capitalizeFirstLetter = str => {
 };
 
 export const handleCategoryClick = (categoryName, filterType, targetEl) => {
-	console.log('🚀 ~ categoryName:', categoryName);
-	toggleSearchInput(true);
-
 	mainHomeRefs.searchInput.value = '';
 	mainHomeRefs.sectionTitle.textContent = `Exercises /`;
 	mainHomeRefs.sectionSubTitle.textContent = `${capitalizeFirstLetter(
@@ -120,13 +118,22 @@ export const handleCategoryClick = (categoryName, filterType, targetEl) => {
 		page: 1,
 		limit: exerciseLimit,
 	};
-	console.log('🚀 ~ query:', query);
 
 	loadExercises(query);
 };
 
 export const toggleSearchInput = visible => {
-	mainHomeRefs.searchInput.style.display = visible ? 'block' : 'none';
+	const input = mainHomeRefs.searchInput;
+
+	input.style.display = visible ? 'block' : 'none';
+
+	if (visible) {
+		input.addEventListener('submit', handleSearchInput);
+		console.log('inpet is listened');
+	} else {
+		input.removeEventListener('submit', handleSearchInput);
+		console.log('inpet is not listened');
+	}
 };
 
 export function initExerciseSearch() {

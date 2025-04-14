@@ -7,17 +7,20 @@
 			</div>
 
 			<div class="filters-wrapper">
-				<div class="search">
+				<form class="search">
 					<input
 						type="text"
 						id="search-input"
 						placeholder="Search..."
 						class="search-input"
+						name="search"
 					/>
-					<svg class="search-icon" width="18" height="18">
-						<use href="./img/sprite.svg#search"></use>
-					</svg>
-				</div>
+					<button class="input-btn" type="submit">
+						<svg class="search-icon" width="18" height="18">
+							<use href="./img/sprite.svg#search"></use>
+						</svg>
+					</button>
+				</form>
 
 				<div class="filters">
 					<button class="filter-btn active" data-type="Muscles">
@@ -35,10 +38,7 @@
 
 		<div class="main-content">
 			<div class="cards-wrapper">
-				<div
-					class="cards-container"
-					id="exercise-cards-container"
-				></div>
+				<ul class="cards-container" id="exercise-cards-container"></ul>
 				<load src="/partials/sharedComponents/pagination.html" />
 			</div>
 

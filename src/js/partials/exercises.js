@@ -1,11 +1,26 @@
-import { homeLoader } from './categories';
+import { mainHomeRefs } from '../constants/refs';
+import { createExerciseCard } from '../home/exercise-renderer';
+import { handleGetExercisesByFilters } from '../services/exercises';
+import {
+	clearPagination,
+	renderPagination,
+} from '../sharedComponents/pagination';
+import {
+	capitalizeFirstLetter,
+	homeLoader,
+	toggleSearchInput,
+} from './categories';
 
 export async function loadExercises(query, keyword) {
-	console.log('🚀 ~ query:', query);
+	mainHomeRefs.cardsContainer.innerHTML = '';
+	clearPagination();
+
 	try {
 		if (keyword) {
 			query.keyword = keyword;
 		}
+
+		console.log('🚀 ~ query with keyword:', query);
 
 		await homeLoader.show(mainHomeRefs.cardsContainer.id);
 		const data = await handleGetExercisesByFilters(query);
@@ -15,13 +30,14 @@ export async function loadExercises(query, keyword) {
 
 		if (results.length <= 0) {
 			mainHomeRefs.cardsContainer.innerHTML =
-				'<p class="text-for-n-data">No categories found for this filter.</p>';
-
+				'<p class="text-for-n-data">No exercises found for this filter.</p>';
 			return;
 		}
 
 		// todo implement render function
-		renderCategories(results);
+		renderExercises(results);
+
+		console.log('after render');
 
 		const paginationProps = {
 			totalPages,
@@ -31,22 +47,24 @@ export async function loadExercises(query, keyword) {
 					...query,
 					page: newPage,
 				};
-				loadCategories(updatedQuery);
+				loadExercises(updatedQuery);
 			},
 		};
 
 		renderPagination(paginationProps);
-
-		const exercises = data.results;
-		state.exercises = exercises;
-		if (!exercises.length) {
-			container.innerHTML = '<p>No exercises found.</p>';
-			return;
-		}
-		container.innerHTML = exercises.map(createExerciseCard).join('');
-		initExerciseSearch();
 	} catch (error) {
-		container.innerHTML = '<p>Error loading exercises.</p>';
-		console.error('❌ Exercise loading error:', error.message);
+		console.log('error');
+		mainHomeRefs.cardsContainer.innerHTML = '';
+	} finally {
+		await homeLoader.hide(mainHomeRefs.cardsContainer.id);
 	}
 }
+
+export const renderExercises = async data => {
+	toggleSearchInput(true);
+
+	const markup = data.map(createExerciseCard).join('');
+	mainHomeRefs.cardsContainer.innerHTML = markup;
+
+	// initExerciseSearch();
+};
