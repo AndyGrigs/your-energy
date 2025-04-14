@@ -1,4 +1,3 @@
-import lottie from 'lottie-web';
 import { handleSubscription } from './js/services/subscriptions';
 import { mobileMenuRefs, refs } from './js/constants/refs';
 import { handleScrollForScrollTopBtn, scrollToTop } from './js/services/scroll';
@@ -16,18 +15,15 @@ import { renderFavoritesItems } from './js/services/favorites.js';
 function main() {
 	changeInteranlLinksBaseURL();
 	const pagePath = window.location.pathname;
-	console.log(pagePath);
 
 	document.addEventListener('DOMContentLoaded', () => {
 		const path = window.location.pathname;
 
 		if (path === '/your-energy/' || path === '/') {
-			console.log('homepage');
 			init();
 		}
 
 		if (path === '/favorites' || path === '/your-energy/favorites') {
-			console.log('favorites page');
 			renderFavoritesItems();
 		}
 	});

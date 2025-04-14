@@ -11,11 +11,6 @@ const form = modal?.querySelector('form');
 const ratingInputs = form?.querySelectorAll('input[name="rating"]');
 const ratingValue = form?.querySelector('.rating-value');
 const closeBtn = modal?.querySelector('[data-modal-close]');
-import { Loader } from '../services/loader.js';
-
-const loader = new Loader({
-	size: 200,
-});
 
 // Динамічне оновлення числа біля зірочок
 ratingInputs?.forEach(input => {
@@ -49,8 +44,6 @@ async function handleSubmit(event) {
 	}
 
 	try {
-		await loader.show(modal);
-
 		const exerciseData = modalRefs.modalRating.exerciseData;
 		if (!exerciseData) {
 			throw new Error('Exercise data is not available.');
@@ -66,11 +59,8 @@ async function handleSubmit(event) {
 			updateExerciseRatingId,
 			updateExerciseRatingBody
 		);
-		console.log('🚀 ~ data in handleUpdateExerciseRating:', data);
 	} catch (error) {
-		console.log('🚀 ~ error in handleUpdateExerciseRating:', error);
 	} finally {
-		await loader.hide(modal);
 	}
 }
 

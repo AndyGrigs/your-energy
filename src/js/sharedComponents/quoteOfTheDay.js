@@ -36,7 +36,6 @@ export async function renderQuoteOfTheDay() {
 		quoteTextcontainer.textContent = authorQuote;
 		quoteAuthorContainer.textContent = authorName;
 	} catch (error) {
-		console.log('🚀 ~ error in getQuoteOfTheDay data rendering:', error);
 	} finally {
 		await loader.hide(quoteTextcontainer.parentElement);
 	}

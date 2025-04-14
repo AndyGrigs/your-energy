@@ -126,9 +126,7 @@ export const toggleSearchInput = visible => {
 
 	if (visible) {
 		input.addEventListener('submit', handleSearchInput);
-		console.log('inpet is listened');
 	} else {
 		input.removeEventListener('submit', handleSearchInput);
-		console.log('inpet is not listened');
 	}
 };

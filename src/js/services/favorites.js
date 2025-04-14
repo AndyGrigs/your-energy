@@ -38,11 +38,7 @@ export function handleFavoriteClick(favorites, exercise) {
 export function removeFromFavorites(event) {
 	const exerciseId =
 		event.target.closest('.js-delete-button').dataset.exerciseId;
-	console.log(
-		'🚀 ~ exerciseId:',
-		exerciseId,
-		event.target.closest('.js-delete-button')
-	);
+
 	const favoritesListJson = localStorage.getItem('favorites');
 	const favoritesList = JSON.parse(favoritesListJson);
 	const updatedFavorites = favoritesList.filter(
@@ -67,7 +63,5 @@ export async function renderFavoritesItems() {
 			const error = document.querySelector('.not-items-message');
 			error.style.display = 'block';
 		}
-	} catch (error) {
-		console.log('🚀 ~ error in getFavoritesItems data rendering:', error);
-	}
+	} catch (error) {}
 }
