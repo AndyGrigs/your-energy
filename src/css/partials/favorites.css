@@ -10,16 +10,23 @@
 @media only screen and (min-width: 1440px) {
 	.desktop-favorites-section {
 		display: flex;
-		align-items: center;
+		align-items: flex-start;
 		gap: 32px;
 	}
 }
 
 @media only screen and (min-width: 1440px) {
 	.left-section-part {
+    max-width: 494px;
+    width: 100%;
 		display: flex;
 		flex-direction: column;
+    flex-shrink: 0;
 	}
+}
+
+.right-section-part {
+  width: 100%;
 }
 
 .favorites-section-title {
@@ -32,9 +39,17 @@
 	margin-bottom: 20px;
 }
 
+
 .workout-list-wrapper {
 	margin-top: 40px;
 	margin-bottom: 40px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .workout-list-wrapper {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 }
 
 .workout-list {
@@ -54,6 +69,7 @@
 }
 
 .not-items-message {
+  margin: 0 auto;
 	text-align: center;
 	font-size: 14px;
 	font-style: normal;
@@ -72,7 +88,7 @@
 
 @media only screen and (min-width: 1440px) {
 	.not-items-message {
+    margin-top: 114px;
 		padding-top: 0;
-		padding-left: 180px;
 	}
 }

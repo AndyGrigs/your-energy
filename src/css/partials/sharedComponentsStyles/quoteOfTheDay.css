@@ -13,8 +13,8 @@
 
 .quote-day-card {
 	background-color: var(--accent-color);
-	min-height: 206px;
-	width: 335px;
+	max-width: 335px;
+  width: 100%;
 	border-radius: 20px;
 	padding: 20px 20px;
 	position: relative;
@@ -26,11 +26,16 @@
 
 @media (min-width: 768px) {
 	.quote-day-card {
+    max-width: unset;
 		width: 400px;
 		padding: 40px 40px;
 		margin-bottom: 32px;
 		margin-right: 16px;
 	}
+
+  .desktop-favorites-section .quote-day-card {
+    width: 100%;
+  }
 }
 
 @media (min-width: 1440px) {
@@ -66,6 +71,7 @@
 .quote-day-card-content {
 	width: 100%;
 	height: 100%;
+  min-height: 126px;
 	display: flex;
 	flex-direction: column;
 	padding-left: 52px;
@@ -110,4 +116,9 @@
 	font-style: normal;
 	font-weight: 400;
 	line-height: 1.3;
+}
+
+.quote-day-card .loader-wrapper {
+  width: 100px!important;
+  height: 100px!important;
 }

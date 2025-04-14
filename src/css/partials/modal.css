@@ -52,7 +52,7 @@
 @media (min-width: 768px) {
 	.modal-content {
 		width: 704px;
-		height: 486px;
+		min-height: 486px;
 		padding: 32px;
 	}
 }
