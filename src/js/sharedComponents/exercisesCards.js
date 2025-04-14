@@ -28,11 +28,11 @@ export function preparingCardsMarkup(listElement, items, BtnVisible = true) {
           <span class="workout-icon-running">
             <img
               src="./img/quote_icon_1.svg"
-              width="24px"
-              height="24px"
+              width="24"
+              height="24"
               alt="Running Icon"
-            />
-          </span>        
+            >
+          </span>
           <h3 class="workout-name">${item.name}</h3>
           <p class="workout-stats">
             Burned calories: ${item.burnedCalories} / ${item.time} min
