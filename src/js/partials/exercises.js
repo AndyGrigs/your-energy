@@ -31,8 +31,6 @@ export async function loadExercises(query, keyword) {
 
 		renderExercises(results);
 
-		console.log('after render');
-
 		const paginationProps = {
 			totalPages,
 			query,
@@ -47,7 +45,6 @@ export async function loadExercises(query, keyword) {
 
 		renderPagination(paginationProps);
 	} catch (error) {
-		console.log('error');
 		mainHomeRefs.cardsContainer.innerHTML = '';
 	} finally {
 		await homeLoader.hide(mainHomeRefs.cardsContainer.id);
@@ -72,7 +69,7 @@ export function createExerciseCard(item) {
 				item.rating
 			)}</span>
           <img class="star-icon"
-              src="/img/star.svg"
+              src="./img/star.svg"
               width="18px"
               height="18px"
               alt="Star Icon"
@@ -83,7 +80,7 @@ export function createExerciseCard(item) {
 			item._id
 		}">
           Start <img class="start-icon"
-              src="/img/arrow-right.svg"
+              src="./img/arrow-right.svg"
               width="16px"
               height="16px"
               alt="Arrow right Icon"
@@ -93,7 +90,7 @@ export function createExerciseCard(item) {
 
       <div class="workout-body">
         <img class="running-icon"
-              src="/img/runner.svg"
+              src="./img/runner.svg"
               width="24px"
               height="24px"
               alt="Running Man Icon"

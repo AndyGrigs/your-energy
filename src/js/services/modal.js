@@ -40,9 +40,6 @@ function openModal(exercise) {
 
 	const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
 	const isInFavorites = favorites.some(fav => fav._id === exercise._id);
-	console.log('exercise:', exercise);
-	console.log('favorites:', favorites);
-	console.log('isInFavorites:', isInFavorites);
 
 	if (isInFavorites) {
 		setFavoriteButtonToRemove();
