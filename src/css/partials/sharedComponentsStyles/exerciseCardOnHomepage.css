@@ -2,7 +2,6 @@
 	color: var(--accent-color);
 
 	.workout-card {
-		/* height: 141px; */
 		padding: 16px;
 
 		@media (min-width: 768px) {

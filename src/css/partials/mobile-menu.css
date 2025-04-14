@@ -1,83 +1,75 @@
 .mobile-backdrop {
-  visibility: hidden;
-  opacity: 0;
+	visibility: hidden;
+	opacity: 0;
 
-  position: fixed;
-  z-index: 10;
+	position: fixed;
+	z-index: 10;
 
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 
-  background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(8px);
+	background-color: rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(8px);
 
-  transition: visibility 0.3s ease-in-out, opacity 0.3s ease-in-out;
+	transition: visibility 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 @media screen and (min-width: 1280px) {
-  .backdrop {
-    display: none;
-  }
+	.backdrop {
+		display: none;
+	}
 }
 
 .mobile-menu-panel {
-  position: fixed;
+	position: fixed;
 
-  top: 0;
-  right: 0;
+	top: 0;
+	right: 0;
 
-  width: calc(100% / 2 + 22.5px);
-  min-width: 210px;
-  height: 100vh;
+	width: calc(100% / 2 + 22.5px);
+	min-width: 210px;
+	height: 100vh;
 
-  padding: 20px;
+	padding: 20px;
 
-  background-color: var(--accent-color);
+	background-color: var(--accent-color);
 
-  transform: translateX(100%);
+	transform: translateX(100%);
 
-  transition: transform 0.3s ease-in-out 0.3s;
+	transition: transform 0.3s ease-in-out 0.3s;
 }
 
 .mobile-menu-close-btn {
-  display: block;
+	display: block;
 
-  border: none;
-  padding: 0;
+	border: none;
+	padding: 0;
 
-  margin-left: auto;
+	margin-left: auto;
 
-  color: rgb(var(--cl-white));
-  background-color: transparent;
+	color: rgb(var(--cl-white));
+	background-color: transparent;
 
-  transition: transform 0.3s ease-in-out;
+	transition: transform 0.3s ease-in-out;
 
-  &:hover,
-  &:focus {
-    transform: scale(1.1);
-  }
+	&:hover,
+	&:focus {
+		transform: scale(1.1);
+	}
 }
 
 .mobile-menu-close-icon {
-  display: block;
-  stroke: rgb(var(--cl-white));
+	display: block;
+	stroke: rgb(var(--cl-white));
 }
 
 .mobile-menu-nav {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 
-  margin-top: 228px;
-  height: calc(100% - 228px - 32px);
+	margin-top: 228px;
+	height: calc(100% - 228px - 32px);
 }
-
-/* .backdrop.is-active {
-  display: block;
-}
-
-.mobile-menu.is-active {
-  transform: translateX(0);
-} */
