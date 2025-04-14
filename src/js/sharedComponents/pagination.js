@@ -1,8 +1,6 @@
 import { paginationRefs } from '../constants/refs';
 
 export const renderPagination = ({ totalPages, onPageChange, query }) => {
-	console.log('🚀 ~ onPageChange:', onPageChange);
-	console.log('in rnder pagination');
 	const currentPage = query.page;
 	paginationRefs.paginationContainer.innerHTML = '';
 
@@ -31,6 +29,5 @@ export const renderPagination = ({ totalPages, onPageChange, query }) => {
 };
 
 export const clearPagination = () => {
-	console.log('in clear pagination');
 	paginationRefs.paginationContainer.innerHTML = '';
 };

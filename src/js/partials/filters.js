@@ -16,7 +16,7 @@ export const addEventListeners = () => {
 export const handleFilterClick = event => {
 	const clickedButton = event.target;
 
-	if (clickedButton.classList.contains('active')) return;
+	// if (clickedButton.classList.contains('active')) return;
 
 	setActiveButton(clickedButton);
 

@@ -75,7 +75,7 @@ export function bindCategoryClickHandlers() {
 
 export function createCategoryCard(category) {
 	return `
-    <div class="category-card" 
+    <li class="category-card" 
      data-name="${category.name}" 
      data-type="${category.filter}" 
      data-id="${category.id}">
@@ -88,7 +88,7 @@ export function createCategoryCard(category) {
       <p class="category-card-sub">${capitalize(category.filter)}</p>
     </div>
   </div>
-</div>
+</li>
 
   `;
 }

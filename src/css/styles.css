@@ -8,6 +8,7 @@
 @import url('./partials/mobile-menu.css');
 @import url('./partials/sharedComponentsStyles/pagination.css');
 @import url('./partials/sharedComponentsStyles/categoryCard.css');
+@import url('./partials/sharedComponentsStyles/exerciseCardOnHomepage.css');
 @import url('./partials/favorites.css');
 @import url('./partials/hero.css');
 @import url('./partials/footer.css');
