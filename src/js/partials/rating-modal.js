@@ -2,6 +2,8 @@
 
 import { toggleModal } from '../services/modal';
 import { iziToast } from '../config/izi-toast.js';
+import * as exercises from '../services/exercises';
+import { modalRefs, refs } from '../constants/refs.js';
 
 // Отримуємо DOM-елементи
 const modal = document.querySelector('[data-modal="rating"]');
@@ -35,40 +37,41 @@ async function handleSubmit(event) {
 
 	// Перевірка заповнення
 	if (!rating || !email || !comment) {
-		iziToast.error({ title: 'Будь ласка, заповніть всі поля' });
+		iziToast.error({ title: 'Please fiil in all fields' });
 		return;
 	}
 
 	// Email валідація
 	const emailRegex = /^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 	if (!emailRegex.test(email)) {
-		iziToast.error({ title: 'Введіть коректний email' });
+		iziToast.error({ title: 'Type valid email' });
 		return;
 	}
-	await loader.show(modal);
-	// Надсилаємо запит на backend
-	fetch('https://httpbin.org/post', {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-		body: JSON.stringify({ rating, email, comment }),
-	})
-		.then(res => {
-			if (!res.ok) throw new Error('Не вдалося надіслати оцінку');
-			closeRatingModal();
-			iziToast.success({
-				title: 'Дякуємо за вашу оцінку!',
-			});
-		})
-		.catch(err => {
-			iziToast.error({ title: err.message });
-		})
-		.finally(() => {
-			loader.hide(modal);
-		});
 
-	//closeRatingModal();
+	try {
+		await loader.show(modal);
+
+		const exerciseData = modalRefs.modalRating.exerciseData;
+		if (!exerciseData) {
+			throw new Error('Exercise data is not available.');
+		}
+		const updateExerciseRatingId = exerciseData._id;
+
+		const updateExerciseRatingBody = {
+			rate: rating,
+			email: email,
+			review: comment,
+		};
+		const data = await exercises.handleUpdateExerciseRating(
+			updateExerciseRatingId,
+			updateExerciseRatingBody
+		);
+		console.log('🚀 ~ data in handleUpdateExerciseRating:', data);
+	} catch (error) {
+		console.log('🚀 ~ error in handleUpdateExerciseRating:', error);
+	} finally {
+		await loader.hide(modal);
+	}
 }
 
 // Закриття модалки
