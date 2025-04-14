@@ -22,4 +22,6 @@ export const handleSearchInput = e => {
 	};
 
 	loadExercises(query, keyword);
+
+	e.target.reset();
 };
