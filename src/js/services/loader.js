@@ -47,6 +47,7 @@ export class Loader {
 		}
 
 		const wrapper = document.createElement('div');
+    wrapper.classList = 'loader-wrapper';
 		wrapper.style.cssText = `
 			width: ${appliedSize}px;
 			height: ${appliedSize}px;
