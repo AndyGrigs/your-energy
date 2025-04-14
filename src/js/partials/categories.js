@@ -30,7 +30,7 @@ export const loadCategories = async query => {
 
 		if (results.length <= 0) {
 			mainHomeRefs.cardsContainer.innerHTML =
-				'<p class="text-for-n-data">No categories found for this filter.</p>';
+				'<p class="text-for-n-data not-items-message">No categories found for this filter.</p>';
 
 			return;
 		}

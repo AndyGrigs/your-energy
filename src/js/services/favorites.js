@@ -52,8 +52,10 @@ export async function renderFavoritesItems() {
 	try {
 		const favoritesListJson = localStorage.getItem('favorites');
 		const favoritesList = JSON.parse(favoritesListJson);
+
+		preparingCardsMarkup(workuotList, favoritesList);
+
 		if (favoritesList && favoritesList.length > 0) {
-			preparingCardsMarkup(workuotList, favoritesList);
 			document.querySelectorAll('.js-delete-button').forEach(button => {
 				button.addEventListener('click', event => {
 					removeFromFavorites(event);
