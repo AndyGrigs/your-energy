@@ -6,6 +6,8 @@ import {
 	clearPagination,
 	renderPagination,
 } from '../sharedComponents/pagination';
+import { capitalizeFirstLetter } from '../utils/capitalizeFirstLetter';
+import { removeSpaces } from '../utils/removeSpaces';
 import { loadExercises } from './exercises';
 import { handleSearchInput } from './search';
 
@@ -33,7 +35,6 @@ export const loadCategories = async query => {
 			return;
 		}
 
-		// todo implement render function
 		renderCategories(results);
 
 		const paginationProps = {
@@ -102,10 +103,6 @@ export const createCategoryCard = category => {
  	 `;
 };
 
-export const capitalizeFirstLetter = str => {
-	return str.charAt(0).toUpperCase() + str.slice(1);
-};
-
 export const handleCategoryClick = (categoryName, filterType, targetEl) => {
 	mainHomeRefs.searchInput.value = '';
 	mainHomeRefs.sectionTitle.textContent = `Exercises /`;
@@ -134,28 +131,4 @@ export const toggleSearchInput = visible => {
 		input.removeEventListener('submit', handleSearchInput);
 		console.log('inpet is not listened');
 	}
-};
-
-export function initExerciseSearch() {
-	const input = document.getElementById('search-input');
-	const container = document.getElementById('exercise-cards-container');
-
-	input.addEventListener('input', e => {
-		const value = e.target.value.trim().toLowerCase();
-
-		const filtered = state.exercises.filter(ex =>
-			ex.name.toLowerCase().includes(value)
-		);
-
-		if (!filtered.length) {
-			container.innerHTML = '<p>No matching exercises found.</p>';
-			return;
-		}
-
-		container.innerHTML = filtered.map(createExerciseCard).join('');
-	});
-}
-
-export const removeSpaces = str => {
-	return str.replace(/\s+/g, '');
 };

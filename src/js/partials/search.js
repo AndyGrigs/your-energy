@@ -1,6 +1,6 @@
 import { exerciseLimit } from '../constants/limits';
 import { mainHomeRefs } from '../constants/refs';
-import { removeSpaces } from './categories';
+import { removeSpaces } from '../utils/removeSpaces';
 import { loadExercises } from './exercises';
 
 export const handleSearchInput = e => {
