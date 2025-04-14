@@ -25,7 +25,7 @@ export async function loadExercises(query, keyword) {
 
 		if (results.length <= 0) {
 			mainHomeRefs.cardsContainer.innerHTML =
-				'<p class="text-for-n-data">No exercises found for this filter.</p>';
+				'<p class="not-items-message">No exercises found for this filter.</p>';
 			return;
 		}
 
