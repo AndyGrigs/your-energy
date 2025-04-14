@@ -11,6 +11,8 @@ function firstLetterUpperCase(str) {
 }
 
 function openModal(exercise) {
+	modalRefs.modalRating.exerciseData = exercise;
+
 	modalRefs.modalTitle.textContent = firstLetterUpperCase(exercise.name);
 	modalRefs.modalRatingValue.textContent = exercise.rating;
 	modalRefs.modalImage.src = exercise.gifUrl;
