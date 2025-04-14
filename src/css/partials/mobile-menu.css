@@ -29,10 +29,10 @@
   right: 0;
 
   width: calc(100% / 2 + 22.5px);
+  min-width: 210px;
   height: 100vh;
 
   padding: 20px;
-  padding-right: calc((100% / 2 + 22.5px) - 190px);
 
   background-color: var(--accent-color);
 
