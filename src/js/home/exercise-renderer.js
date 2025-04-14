@@ -11,29 +11,35 @@ export function createExerciseCard(item) {
 				item.rating
 			)}</span>
 
-          <svg
-            class="star-icon"
-            width="14"
-            height="13"
-            style="width: 16px"
-          >
-            <use href="/img/sprite.svg#star"></use>
-          </svg>
+
+
+          <img class="star-icon"
+              src="/img/star.svg"
+              width="18px"
+              height="18px"
+              alt="Star Icon"
+            />
         </div>
 
         <button class="start-button" type="button" data-exercise-id="${
 			item._id
 		}">
-          Start <svg class="start-icon" width="16" height="16">
-    <use href="/img/sprite.svg#arrow-right"></use>
-  </svg>
+          Start <img class="start-icon"
+              src="/img/arrow-right.svg"
+              width="16px"
+              height="16px"
+              alt="Arrow right Icon"
+            />
         </button>
       </div>
 
       <div class="workout-body">
-        <svg class="running-icon" width="24" height="24" alt="Running Icon">
-    <use href="/img/sprite.svg#runner"></use>
-  </svg>
+        <img class="running-icon"
+              src="/img/runner.svg"
+              width="24px"
+              height="24px"
+              alt="Running Man Icon"
+            />
        
         <h3 class="workout-name">${capitalizeFirstLetter(item.name)}</h3>
       </div>
