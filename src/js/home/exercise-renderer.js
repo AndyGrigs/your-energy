@@ -10,9 +10,6 @@ export function createExerciseCard(item) {
           <span class="workout-badge-rating">${floorToPointZero(
 				item.rating
 			)}</span>
-
-
-
           <img class="star-icon"
               src="/img/star.svg"
               width="18px"
